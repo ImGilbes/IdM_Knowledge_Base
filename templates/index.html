@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NDID Knowledge Base</title>
+
+    <link rel="stylesheet" href="static/styles.css">
+
+    <script>
+        async function loadTable(name) {
+            const response = await fetch('/get_table?name=' + name);
+            const data = await response.json();
+            var table_html = data.table_html;
+
+            document.getElementById(name+'Table').innerHTML = table_html;
+
+
+            async function handleClick(event) {
+                await fetch('/set_specific?name=' + name + '&def=' + event.target.textContent);
+                window.location.href = "/specific";
+            }
+
+            const rows = document.querySelectorAll('table tr');
+
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td'); // Get all <td> elements in the row
+                
+                if (tds.length > 0) {
+                    // Assign the function to the first <td>
+                    tds[0].addEventListener('click', handleClick);
+                }
+
+                if (tds.length > 1) {
+                    // Assign the class to the second <td>
+                    tds[1].classList.add("secondColumnClass");
+                }
+            });
+            
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+        <button class="collapsible" id="RequirementsCollapsible" onclick="toggleContent('Requirements')">Open Requirements</button>
+        <div class="content" id="RequirementsContent" style="display: none;">
+            <div id="RequirementsTable"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <button class="collapsible" id="MitigationsCollapsible" onclick="toggleContent('Mitigations')">Open Mitigations</button>
+        <div class="content" id="MitigationsContent" style="display: none;">
+            <div id="MitigationsTable"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <button class="collapsible" id="ThreatsCollapsible" onclick="toggleContent('Threats')">Open Threats</button>
+        <div class="content" id="ThreatsContent" style="display: none;">
+            <div id="ThreatsTable"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(name) {
+            var content = document.getElementById(name+"Content");
+            var button = document.getElementById(name+"Collapsible");
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                button.innerText = "Open " + name;
+            } else {
+                loadTable(name);
+                content.style.display = "block";
+                button.innerText = "Close " + name;
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

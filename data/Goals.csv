@@ -1,0 +1,25 @@
+Name,Rights,Adoption,ServiceQuality,Law&Compliance,Technical,Security,Privacy,Trust,SysDesign,Governance&Procedures,User-related,Socio-political,Description,References
+Prioritising legal identity for all,T,T,F,T,F,F,F,F,F,F,F,T,Allow access to legal identification to everyone in order to grant them their rights,Beduschi 2019
+Bridging the identity gap with digital technologies,T,T,F,T,F,F,F,F,F,F,F,T,Slightly different from the one above in that it specifies that digital ids have the objective to fill the gap in lack of identification ,Beduschi 2019
+Enable and ensure user rights,T,F,F,T,F,F,F,F,F,F,F,T,,
+"Human-centric, ethical design",T,F,T,F,F,F,F,F,T,F,F,T,,"OIDF human-centric, WEF ecosystems, OECD governance digid"
+Democratic and social engagement,T,F,F,F,F,F,F,F,F,F,F,T,,DIACC Universal
+"Built on comprehensive legal framework that addresses nature of identity documents, users' rights, data protection, cybersecurity",T,F,F,T,F,F,F,F,F,F,F,F,,"OIDF human-centric, WB principles"
+Trustworthy system (trusted identity ecosystem),F,F,T,F,F,F,F,T,T,F,F,F,,"Ahmad 2010, Zaeem 2021, Torres 2013, Lenz 2015, Boujezza 2015, Dhamija 2007, Eddine 2021, WEF ecosystems"
+Privacy,T,F,T,F,F,F,T,F,T,F,F,F,,"Ahmad 2010, Naik 2020, Torres 2013, Boujezza 2015, Subenthiran 2004, DIACC Universal, OIDF human-centric"
+Privacy by design,F,F,T,F,T,F,T,F,T,F,F,F,,Hansen 2008
+Transparency,F,F,T,F,F,F,T,F,F,F,F,F,,"Zaeem 2021, Storf 2010, Akram 2008, Naik 2020, hansen 2008, Ayed 2011, Bakhaev 2023, Ferdous 2012, Pohn 2020, Mole 2023, Haddouti 2019, Mpofu 2014, Der 2017, Werner 2017, OIDF human-centric, DIACC Universal, DIACC making sense, WEF ecosystems, OIDF gov issued"
+Security,T,F,T,F,F,T,F,F,T,F,F,F,,"Zaeem 2021, Naik 2020, Hansen 2008, Torres 2013, Lenz 2015, Boujezza 2015, Maliki 2007, Aldosary 2021, Kassem 2019, Rathee 2022, Jensen 2012, Guggenmos 2018, Bakare 2021, OIDF human-centric, DIACC Universal, WEF ecosystems, WB principles"
+"Confidentiality of user data, protection of sensitive data",T,F,T,F,T,T,T,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Mole 2023, Subenthiran 2004, Mpofu 2014, Werner 2017, Habiba 2014, Zhu 2018, DIACC making sense, OECD governance digid, "
+Integrity,T,F,T,F,T,T,T,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Mole 2023, Subenthiran 2004, Habiba 2014, DIACC making sense"
+Inclusion,T,T,F,T,F,F,F,F,T,F,F,T,supports various groups of users,"Zaeem 2021, DIACC Universal, DIACC making sense, WEF ecosystems, WB principles, OIDF gov issued, OECD governance digid"
+Usability and user-friendly,F,F,T,F,T,F,F,F,T,F,F,F,,"Ahmad 2010, Zaeem 2021, Akram 2008, Bakhaev 2023,Ferdous 2012, Pohn 2020, Torres 2013, Lenz 2015, mole 2023, Boujezza 2015, Maliki 2007, Aldosary 2021, Werner 2017,  Guggenmos 2018, Pohn 2023, Satybaldy 2024, Lips 2021, Eddine 2021, DIACC Universal"
+Future-proof,F,T,F,F,F,F,F,F,T,F,F,F,,DIACC Universal
+Interoperability (international and not),F,F,T,T,T,F,F,F,T,F,F,F,,"Zaeem 2021, Naik 2020, Bakhaev 2023, Ferdous 2012, Pohn 2020, Torres 2013, Lenz 2015, Boujezza 2015, Hünseler 2023, Badirova 2023, Mpofu 2014, Iglezakis 2015, Eddine 2021, OIDF human-centric, DIACC universal, OECD governance digid, DIACC Universal, WEF ecosystems, WB principles"
+"Efficiency, performance, optimization",F,F,T,F,T,F,F,F,T,F,F,F,"Usually of bureacratic processes, but also quickness of authz authn","Ahmad 2010, Bakhaev 2023, Mole 2023, Subenthiran 2004, Zhu 2018, Gilani 2020, Guggenmos 2018, DIACC Universal"
+Portability,F,F,T,F,T,F,F,F,T,F,F,F,,"Zaeem 2021, Naik 2020, Haddouti 2019, Satybaldy 2024, Hünseler 2023, DIACC Universal"
+"Scalability, System robustness",F,F,T,F,T,F,F,F,T,F,F,F,,"Zaeem 2021, Ahmad 2010, Akram 2008, Naik 2020, Pohn 2020, Subenthiran 2004, Gilani 2020,  Guggenmos 2018, Satybaldy 2024, Bakare 2021, Campbell 2023"
+"Maintainability & sustainability, cost, affordability",F,F,T,F,T,F,F,F,T,T,F,F,,"Naik 2020, Zaeem 2021, Ferdous 2012, Pohn 2020, Torres 2013, Mole 2023, Boujezza 2015, Rathee 2022, Jensen 2012, Dhamija 2007, Eddine 2021, Guggenmos 2018, WEF ecosystems, WB principles"
+Flexibility & allows innovation and new technologies,F,F,T,F,T,F,F,F,T,F,F,F,"Could be of business model or of interfaces, protocols, the ability to adapt to new technologies","Naik 2020, Lenz 2015, Mole 2023, Snehi 2013, OECD governance digid"
+Availability,F,F,T,F,T,T,F,F,T,F,F,F,Also called reliability or dependability,"Naik 2020, Lenz 2015, Mole 2023, Subenthiran 2004, Mpofu 2014, Habiba 2014, DIACC Universal, DIACC making sense"
+Enable international cooperation ,F,F,T,T,T,F,F,F,T,F,F,F,(slightly simplified here),OECD governance digid

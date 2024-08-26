@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NDID Knowledge Base</title>
+
+    <link rel="stylesheet" href="static/styles.css">
+    <script>
+        async function getTable() {
+            const response = await fetch('/get_specific');
+            const data = await response.json();
+            var table_html = data.table_html;
+            document.getElementById("item_table").innerHTML = table_html;
+        }  
+    </script>
+</head>
+<body onload="getTable()">
+    
+    <div class="container">
+        <div class="content" id="item_name_container">
+            <p id="item_name"></p>
+            <p id="item_definition"></p>
+        </div>
+        <div class="content" id="item_content">
+            <div id="item_table"></div>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+Name,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Law&Compliance,Abuse,Socio-political,Rights,Description,References,Origin,Security,Privacy,STRIDE,LINDDUN
+Denial-of-service,F,F,T,F,F,F,F,F,T,F,Generic one,"Naik 2017, Dominicini 2011, Mayrhofer 2021, Hyperion 2016",generic unspecified threat actor,T,F,D,
+Synthetic and forged claims and data attributes,F,T,F,F,F,T,F,F,F,F,,"Naik 2021, Ali 2022, Mayrhofer 2021, Naik 2022, Edu 2023",generic unspecified threat actor,T,F,S,
+Identity Theft & Impersonation (spoofing),F,F,F,F,F,T,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016",generic unspecified threat actor,T,F,SR,
+IdP account compromise,T,F,F,F,F,T,F,F,F,F,,"Navas 2022, Nweke 2022, Le 2023",generic unspecified threat actor,T,T,I,Data Disclosure
+Credentials disclosure,T,F,F,F,F,T,F,F,F,F,,"Naik 2021, Dominicini 2011",generic unspecified threat actor,T,T,I,Data Disclosure
+"PII leakage, data breach, unauthorized access to data",T,F,F,F,F,F,F,F,F,F,,"Navas 2022, Dominicini 2011, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Halperin 2012, Edu 2023, Beres 2007, Gruner 2023, Dunphy 2018, Frederiksen 2019, OIDF human-centric,Hyperion 2016",generic unspecified threat actor,T,T,I,Data Disclosure
+Unauthorized exposure of PII from legitimate actors,T,F,F,F,F,F,T,F,F,T,,"Wangen 2012, Halperin 2012, Edu 2023, Beres 2007, Gruner 2023, Dunphy 2018, Frederiksen 2019, OIDF human-centric,Hyperion 2016",generic unspecified threat actor,T,T,I,Data Disclosure
+Oversharing of identity information,T,F,F,F,T,F,F,T,F,T,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016",,T,T,C,"Non-compliance, Data disclosure, unawareness"
+Overprocessing of identity information,F,F,F,T,F,F,T,T,F,T,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016",,F,T,,"Non-compliance, unawareness"
+"Misuse of identity information by legitimate actors, secondary use",F,F,F,T,F,F,T,T,F,T,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016",,F,T,,"Non-compliance, unawareness"
+"Manufacture of fake tokens, propagate forged messages to spread fake information",F,T,F,F,F,F,F,F,F,F,,"Navas 2022, Gruner 2023",generic unspecified threat actor,T,T,S,
+"Manufacture fake tokens, propagate forged messages to obtain unauthorized access",T,T,F,F,F,T,F,F,F,F,,,,T,T,,
+User profiling,F,F,F,F,T,F,T,F,F,T,,"Navas 2022, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Sapelova 2014, Alpar 2011",infrastructure actors,F,T,,Linking
+"Linking, data aggregation, combining cross-identity attributes, linkability, account linking, stored records ",F,F,F,F,T,F,T,F,F,T,,,infrastructure actors,F,T,,"Linking, Detecting, Unawareness"
+Linking transactions and data flows,F,F,F,F,T,F,T,F,F,T,,,infrastructure actors,F,T,,"Linking, Detecting, Unawareness"
+Location tracking,F,F,F,F,T,F,T,F,F,T,,"Navas 2022, Le 2023, OIDF human-centric",generic unspecified threat actor,F,T,,"Linking, Detecting, Unawareness"
+"Private key disclosure, theft, acquisition",T,T,F,F,F,T,F,F,F,F,,Gruner 2023,generic unspecified threat actor,T,T,STRI,Data Disclosure
+"Theft, unauthz access to, destrocution of user agent device",T,T,F,F,F,T,F,F,F,F,,Gruner 2023,generic unspecified threat actor,T,T,STRI,Data Disclosure
+Circumvent VC verification,F,F,F,F,F,T,F,F,F,F,,Gruner 2023,generic unspecified threat actor,T,F,E,
+Insider threat,T,F,F,F,F,T,F,F,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2021",insider,T,T,STRIDE,Data disclosure
+Non-compliance and malpractice of employees,T,F,F,F,F,T,T,F,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2022",insider,T,T,STRIDE,Data disclosure
+"No user consent, lack of awareness",F,F,F,F,F,F,T,F,F,T,"Wangen calls this ""exclusion""","Nweke 2022, Beltran 2023, Wangen 2012, Navas 2022, OIDF human-centric",infrastructure actors,F,T,,Unawareness & Unintervenability
+Claims could contain malicious data,T,T,T,F,F,F,F,F,F,F,,Pohn 2023,generic unspecified threat actor,T,F,TIDE,
+"Detectability of a data flow, record existence",F,F,F,F,T,F,F,F,F,F,,Beltran 2023,generic unspecified threat actor,F,T,,Detectability
+"Non-compliance with agreements, contracts, standards",F,F,F,T,F,F,T,F,F,T,,Beltran 2023,infrastructure actors,T,T,,Non-compliance
+"Mass Surveillance (government, big-tech)",F,F,F,F,T,F,T,T,T,T,,"Wangen 2012, Halperin 2012,Sedlmeir 2021, OIDF human-centric, CHRGJ Paving road, Masiero 2021 degenerative, Hyperion 2016, DIACC Universal, OIDF gov issued",infrastructure actors,F,T,,"Linking, Identifying, Detecting"
+Interrogation: pressuring an individual to divulge information,T,F,F,F,F,F,F,F,F,T,pressuring an individual to divulge information,Wangen 2012,generic unspecified threat actor,T,F,I,
+Lack of transparency and awareness of data processing,F,F,F,T,F,F,F,F,F,T,"Wangen calls this ""exclusion""","Wangen 2012, Navas 2022, OIDF human-centric",infrastructure actors,F,T,,"Unawareness, Unintervenability"
+Function Creep,F,F,F,T,F,F,T,T,T,T,,Wangen 2012,infrastructure actors,F,T,,Non-compliance
+Non-compliance of data controller,F,F,F,F,F,F,T,F,F,T,Referring to laws and regulations (different from standards),"Wangen 2012, Beres 2007, Arias-Carbacos 2012, DIACC Universal",infrastructure actors,F,T,,Non-compliance
+Lack of accountability,F,F,F,F,F,F,T,F,F,T,Referring to laws and regulations (different from standards),"Wangen 2012, Beres 2007, Arias-Carbacos 2012, DIACC Universal",infrastructure actors,F,T,,Non-compliance
+"Data corruption, unauthorized data modification and deletion",F,T,F,F,F,T,F,F,F,F,,"Edu 2023, Wangen 2012, Arias-carbacos 2012",generic unspecified threat actor,T,T,T,
+Broken access control,T,T,F,F,F,T,F,F,F,F,,"Edu 2023, Aria-carbacos 2012",generic unspecified threat actor,T,T,TIE,Data Disclosure
+"Token-related threats (token security, secrecy, lifecycle)",T,T,F,F,F,T,F,F,F,F,Specifies a set of features of Tokens that increase security and privacy risks if mishandled. Summed up here because specific to token-based systems,Paintsil 2011,generic unspecified threat actor,T,T,STI,Data Disclosure
+Storage and association with inaccurate or wrong data,F,T,F,F,F,F,F,F,F,T,,Beres 2007,generic unspecified threat actor,T,T,TE,
+"Lack of, or bypassed, data verification process",F,T,F,F,F,F,F,F,F,F,,Beres 2008,generic unspecified threat actor,T,T,TE,
+Unauthorized data retention,F,F,F,F,F,F,T,T,F,T,,Beres 2007,infrastructure actors,F,T,,Non-compliance
+Percistency of user data in logs over the necessary retention time ,F,F,F,F,F,F,T,T,F,T,,,,F,T,,
+Impossibility of completely deleting user data from system,F,F,F,F,F,F,T,F,F,T,,,,F,T,,
+Reduced availability,F,F,T,F,F,F,F,F,F,F,,Arias-Carbacos 2012,generic unspecified threat actor,T,F,D,
+Infrastructure failure compromises availability of the NDID ,F,F,T,F,F,F,F,F,F,F,,,,,,,
+Governance actor failure compromises the availability of the entire infrastructure,F,F,T,F,F,F,F,F,F,F,,,,,,,
+Infrastructure cannot be accomodate the availability demand of the users,F,F,T,F,F,F,F,F,F,F,,,,,,,
+Lack of auditability,F,F,F,F,F,F,T,F,F,F,,"Iglezakis 2015, Mpofu 2014, Snehi 2013",generic unspecified threat actor,F,T,R,
+Intelligence Gathering,F,F,F,F,T,F,F,F,F,T,,Edu 2023,generic unspecified threat actor,T,T,I,"Linking, Identifying, Detecting, data disclosure"
+Insecure facial recognition authetication,T,F,F,F,F,T,F,F,F,F,,Bakhaev 2023,generic unspecified threat actor,T,F,E,
+Hacked certificate authorities,F,F,F,F,F,T,F,F,F,F,,Sedlmeir 2021,generic unspecified threat actor,T,T,STI,Data Disclosure
+"Data creep and excessive demand for attributes (overcollection), request of unnecessary data",T,F,F,F,F,F,T,T,F,T,,"Sedlmeir 2021, Iglezakis 2015, Gruner 2023, OIDF Human-centric",infrastructure actors,F,T,,"Linking, Non-compliance, Unwareness"
+Loss or lack of control over identity data,F,F,F,F,F,F,T,F,F,T,,"Sapelova 2014, Iglezakis 2015, Navas 2022",infrastructure actors,F,T,,Unwareness Unintervenability
+Data shared with unvetted or malicious parties,T,F,F,F,F,F,F,F,F,T,,"OIDF human-centric, Hyperion 2016",infrastructure actors,T,T,I,"Identifying,Data Disclosure"
+Lack of access to state resources,F,F,F,F,F,F,F,F,T,T,,OIDF human-centric,generic unspecified threat actor,F,F,,
+Limiting access to healthcare,F,F,F,F,F,F,F,F,T,T,,"CHRSJ Paving road, CHRSJ chased away",generic unspecified threat actor,F,F,,
+Limiting access to food and social security,F,F,F,F,F,F,F,F,T,T,,CHRSJ Paving road,generic unspecified threat actor,F,F,,
+"Infrastructure Mismanagement leads to economic loss (hinders sustainability, maintainability; was originally economic risk)",F,F,T,F,F,F,F,F,T,F,The IdM might be a catastrophic loss for the implementor (Government in case of Helperin 2012),Halperin 2012,infrastructure actors,T,F,,
+Harm to vulnerable populations,F,F,F,F,F,F,F,F,T,T,,OIDF human-centric,generic unspecified threat actor,F,F,,
+"Violation of the right to nationality, stripping of nationality or creating barriers to it",F,F,F,F,F,F,F,F,T,T,,"CHRSJ Paving road, Manby 2020, Mutung'u 2020",generic unspecified threat actor,F,F,,
+Discrimination,F,F,F,F,F,F,F,F,T,T,,Manby 2020,generic unspecified threat actor,F,F,,
+Election interference,F,F,F,F,F,F,F,F,T,T,,OIDF human-centric,generic unspecified threat actor,F,F,,
+"Exclusion from elections, interference with political lifecycle",F,F,F,F,F,F,F,F,T,T,,Debos 2021,generic unspecified threat actor,F,F,,
+Statelessness,F,F,F,F,F,F,F,F,T,T,,Mutung'u 2020,generic unspecified threat actor,F,F,,
+Exacerbate Inequalities,F,F,F,F,F,F,F,F,T,T,"I am very undecided about this one, bc its origin is definitely design, but it sounds like a big threat towards users. Still it fits the definition of Issue",Edu 2023,infrastructure actors,F,F,,
+Vendor lock-in,F,F,F,F,F,F,F,F,T,F,"Also this one fits the definition of threat, but sounds more like a passive condition. and also fits the definition of issue.","Sedlmeir 2021, Mpofu 2014, WB principles",infrastructure actors,F,F,,
+Exclusion from welfare benefits,F,F,F,F,F,F,F,F,T,T,,,,,,,
+Exclusion from governamental services,F,F,F,F,F,F,F,F,T,T,,,,,,,
+Users cannot call for law enforcement in case of violation their rights,F,F,F,F,F,F,F,F,T,T,,,,,,,
+Insecure versions of the NDID are released,T,T,T,F,F,T,F,F,F,F,,,,,,,
+Entities funding the NDID exploit the project to perform criminal activities,F,F,F,F,F,F,F,F,T,F,,,,,,,
