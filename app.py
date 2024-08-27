@@ -165,3 +165,13 @@ def get_specific():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# TODOs
+# expand to more connected entities
+# references hovering buttons
+# top of spefic page add starting entity entry
+# change name at the beginning of the table into the actual entity
+# landing page graph, picture, buttons, definitions
+# add description of the functin of the page at the beginning of each page
+# filter data for specific groups! like for RPs, OPs, idk something else
+# feedback proving + request adding entries for entities (they reqest entry, i get it, approve it, then update) you can do it through a pull request
