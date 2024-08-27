@@ -10,15 +10,39 @@
             const response = await fetch('/get_specific');
             const data = await response.json();
             var table_html = data.table_html;
+            var starting_record_html = data.starting_record;
             document.getElementById("item_table").innerHTML = table_html;
+            document.getElementById("mitigationsContainer").style.display = "block"; 
+            document.getElementById("starting_record_table").innerHTML = starting_record_html;
+            document.getElementById("startingRecordContainer").style.display = "block"; 
         }  
     </script>
 </head>
 <body onload="getTable()">
-    
-    <div class="container">
+
+    <div class="container" id="startingRecordContainer" style="display: none;">
         <div class="content" id="item_name_container">
             <p id="item_name"></p>
+            <p id="item_definition"></p>
+        </div>
+        <div class="content" id="item_content">
+            <div id="starting_record_table"></div>
+        </div>
+    </div>
+    
+    <!-- <div class="container" id="requirementsContainer" style="display: none;">
+        <div class="content" id="item_name_container">
+            <p id="item_name">Related Requirements</p>
+            <p id="item_definition"></p>
+        </div>
+        <div class="content" id="item_content">
+            <div id="item_table"></div>
+        </div>
+    </div> -->
+
+    <div class="container" id="mitigationsContainer" style="display: none;">
+        <div class="content" id="item_name_container">
+            <p id="item_name">Related Mitigations</p>
             <p id="item_definition"></p>
         </div>
         <div class="content" id="item_content">

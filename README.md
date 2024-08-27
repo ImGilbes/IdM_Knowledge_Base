@@ -7,3 +7,5 @@
 6. add description of the function of the page at the beginning of each page
 7. filter data for specific groups! like for RPs, OPs, idk something else
 8. feedback proving + request adding entries for entities (they reqest entry, i get it, approve it, then update) you can do it through a pull request
+9. Legal protection for users & protection of users' rights -  in the requriements generates an error
+10. when displaying the connected entities and entries in specific: add the shared flags (or highlight them)
