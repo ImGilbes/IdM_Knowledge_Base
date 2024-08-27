@@ -1,4 +1,4 @@
-Name,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Law&Compliance,Abuse,Socio-political,Rights,Trust,Governance&Procedure,,,,,,,,,
+Mitigations,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Law&Compliance,Abuse,Socio-political,Rights,Trust,Governance&Procedure,,,,,,,,,
 "Overseeing judicial authority periodically checks the activities of the NDID, its policies and procedures",T,T,F,T,T,F,T,F,F,F,T,T,,,,,,,,,Complying with human rights and non-discrimination law
 "Verification by super partes legal authority to ensure respect of all applicable laws and regulations, including identity laws and human rights",F,F,F,F,F,F,T,F,T,T,T,T,,,,,,,,,
 Design and development takes into account all possible users and people influenced by the NDID,F,F,F,F,F,F,F,T,T,T,F,T,,,,,,,,,

@@ -1,4 +1,4 @@
-Name,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Law&Compliance,Abuse,Socio-political,Rights,Description,References,Origin,Security,Privacy,STRIDE,LINDDUN
+Threats,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Law&Compliance,Abuse,Socio-political,Rights,Description,References,Origin,Security,Privacy,STRIDE,LINDDUN
 Denial-of-service,F,F,T,F,F,F,F,F,T,F,Generic one,"Naik 2017, Dominicini 2011, Mayrhofer 2021, Hyperion 2016",generic unspecified threat actor,T,F,D,
 Synthetic and forged claims and data attributes,F,T,F,F,F,T,F,F,F,F,,"Naik 2021, Ali 2022, Mayrhofer 2021, Naik 2022, Edu 2023",generic unspecified threat actor,T,F,S,
 Identity Theft & Impersonation (spoofing),F,F,F,F,F,T,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016",generic unspecified threat actor,T,F,SR,

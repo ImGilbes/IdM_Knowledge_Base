@@ -31,39 +31,44 @@ def rename_columns(df):
     global CATEGORIES_MAP
     return df.rename(columns=CATEGORIES_MAP)
 
-SPECIFIC_NAME = None
+SPECIFIC_ENTITY = None
 SPECIFIC_DEF = None
 
 def get_categories(df):
     tmp = set(df.columns)
-    if 'Name' in tmp:
-        tmp.remove('Name')
+    # if 'Name' in tmp:
+    #     tmp.remove('Name')
+    tmp.discard('Name')
+    tmp.discard('Threats')
+    tmp.discard('Requirements')
+    tmp.discard('Mitigations')
+    tmp.discard('Goals')
+    
     return tmp
-    # print(set(cleanup_df(df,name).columns))
 
-def cleanup_df(df,name):
+def cleanup_df(df,entity):
     # if index in set(df.columns):
     #     df = df.drop(labels=['index'], axis=1)
-    if name == "Requirements":
+    if entity == "Requirements":
         return df.drop(labels=['References','Description','Addresses'], axis=1)
-    elif name == "Threats":
+    elif entity == "Threats":
         return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN','Origin'], axis=1)
-    elif name == "Mitigations":
+    elif entity == "Mitigations":
         return df.dropna(axis=1)
 
 
-def simplify_table(df):
+def simplify_table(df,entity):
     print(df)
     simplified_df = pd.DataFrame()
-    simplified_df["Name"] = df["Name"]
+    simplified_df[entity] = df[entity]
 
     categories = get_categories(df)
 
-    df["name_index"] = df["Name"]
+    df["name_index"] = df[entity]
     df = df.set_index("name_index")
     
     cats = []
-    for cur_name in df["Name"]:
+    for cur_name in df[entity]:
         tmp = []
         for cat in categories:
             if df.at[cur_name,cat] == 'T':
@@ -82,13 +87,13 @@ def index():
 
 @app.route('/get_table', methods=['GET'])
 def get_table():
-    name = request.args.get("name")
+    entity = request.args.get("entity")
 
-    df = pd.read_csv(CSV_BASE_PATH + name + ".csv")
+    df = pd.read_csv(CSV_BASE_PATH + entity + ".csv")
     df = df.reset_index().set_index("index")
-    df = cleanup_df(df,name)
+    df = cleanup_df(df,entity)
 
-    df = simplify_table(df)
+    df = simplify_table(df,entity)
 
     return jsonify(table_html=df.to_html(classes='data-table', index=False, index_names=False))
 
@@ -98,16 +103,16 @@ def specific():
 
 @app.route('/set_specific', methods=['GET'])
 def set_specific():
-    global SPECIFIC_NAME
+    global SPECIFIC_ENTITY
     global SPECIFIC_DEF 
-    SPECIFIC_NAME = request.args.get("name")
+    SPECIFIC_ENTITY = request.args.get("entity")
     SPECIFIC_DEF = request.args.get("def")
     return "ok"
 
 def build_connections_table(name,definition):
-    main_df = pd.read_csv(CSV_BASE_PATH + SPECIFIC_NAME + ".csv")
+    main_df = pd.read_csv(CSV_BASE_PATH + SPECIFIC_ENTITY + ".csv")
     # df = df.reset_index().set_index("index")
-    # df = cleanup_df(df,SPECIFIC_NAME)
+    # df = cleanup_df(df,SPECIFIC_ENTITY)
     if name == 'Requirements':
         name2 = "Mitigations"
         df2 = pd.read_csv(CSV_BASE_PATH + name2 + ".csv")
@@ -118,15 +123,13 @@ def build_connections_table(name,definition):
         name2 = "Threats"
         df2 = pd.read_csv(CSV_BASE_PATH + name2 + ".csv")
 
-    
     main_df = main_df.reset_index().set_index("index")
-    main_df = cleanup_df(main_df,SPECIFIC_NAME)
+    main_df = cleanup_df(main_df,SPECIFIC_ENTITY)
     df2 = df2.reset_index().set_index("index")
     df2 = cleanup_df(df2,name2)
 
     # find specific row in main df
-    row = main_df[main_df["Name"] == definition].reset_index()
-    print(row)
+    row = main_df[main_df[name] == definition].reset_index()
 
     # interesect the categories between the two dfs
     selected_cats = set()
@@ -147,31 +150,27 @@ def build_connections_table(name,definition):
 @app.route('/get_specific', methods=['GET'])
 def get_specific():
     global SPECIFIC_DEF
-    global SPECIFIC_NAME
-    if (SPECIFIC_DEF is not None) and (SPECIFIC_NAME is not None):
+    global SPECIFIC_ENTITY
+    if (SPECIFIC_DEF is not None) and (SPECIFIC_ENTITY is not None):
 
-        df = build_connections_table(name=SPECIFIC_NAME,definition=SPECIFIC_DEF)
-        # df = pd.read_csv(CSV_BASE_PATH + SPECIFIC_NAME + ".csv")
+        starting_df = pd.read_csv(CSV_BASE_PATH + SPECIFIC_ENTITY + ".csv")
+        starting_df[starting_df[SPECIFIC_ENTITY] == SPECIFIC_DEF].reset_index()
+
+        df = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF)
+        # df = pd.read_csv(CSV_BASE_PATH + SPECIFIC_ENTITY + ".csv")
         
         # df = df.reset_index().set_index("index")
-        # df = cleanup_df(df,SPECIFIC_NAME)
-        return jsonify(table_html=df.to_html(classes='data-table', index=False, index_names=False))
+        # df = cleanup_df(df,SPECIFIC_ENTITY)
+        # return jsonify(table_html=df.to_html(classes='data-table', index=False, index_names=False))
+    else:
+        df = pd.read_csv(CSV_BASE_PATH + "Requirements" + ".csv")
+        df = df.reset_index().set_index("index")
+        df = cleanup_df(df,"Requirements")
 
-    df = pd.read_csv(CSV_BASE_PATH + "Requirements" + ".csv")
-    df = df.reset_index().set_index("index")
-    df = cleanup_df(df,"Requirements")
-    return jsonify(table_html=df.to_html(classes='data-table', index=False, index_names=False))
+
+    return jsonify(starting_record=df.to_html(classes='data-table', index=False, index_names=False),
+                   table_html=df.to_html(classes='data-table', index=False, index_names=False))
     
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-# TODOs
-# expand to more connected entities
-# references hovering buttons
-# top of spefic page add starting entity entry
-# change name at the beginning of the table into the actual entity
-# landing page graph, picture, buttons, definitions
-# add description of the functin of the page at the beginning of each page
-# filter data for specific groups! like for RPs, OPs, idk something else
-# feedback proving + request adding entries for entities (they reqest entry, i get it, approve it, then update) you can do it through a pull request

@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="static/styles.css">
 
     <script>
-        async function loadTable(name) {
-            const response = await fetch('/get_table?name=' + name);
+        async function loadTable(entity) {
+            const response = await fetch('/get_table?entity=' + entity);
             const data = await response.json();
             var table_html = data.table_html;
 
-            document.getElementById(name+'Table').innerHTML = table_html;
+            document.getElementById(entity+'Table').innerHTML = table_html;
 
 
             async function handleClick(event) {
-                await fetch('/set_specific?name=' + name + '&def=' + event.target.textContent);
+                await fetch('/set_specific?entity=' + entity + '&def=' + event.target.textContent);
                 window.location.href = "/specific";
             }
 
@@ -40,6 +40,11 @@
     </script>
 </head>
 <body>
+
+    <div class="landingPresentation" id="landingPageIntro">
+        <h4 id="landingPresentationTitle">Welcome to the NDID Knowledge Base</h4>
+        <p id="landingPresentationParagraph">Here you can explore the various entities, discover their definitions and see what they contain!</p>
+    </div>
     
     <div class="container">
         <button class="collapsible" id="RequirementsCollapsible" onclick="toggleContent('Requirements')">Open Requirements</button>
@@ -63,17 +68,17 @@
     </div>
 
     <script>
-        function toggleContent(name) {
-            var content = document.getElementById(name+"Content");
-            var button = document.getElementById(name+"Collapsible");
+        function toggleContent(entity) {
+            var content = document.getElementById(entity+"Content");
+            var button = document.getElementById(entity+"Collapsible");
 
             if (content.style.display === "block") {
                 content.style.display = "none";
-                button.innerText = "Open " + name;
+                button.innerText = "Open " + entity;
             } else {
-                loadTable(name);
+                loadTable(entity);
                 content.style.display = "block";
-                button.innerText = "Close " + name;
+                button.innerText = "Close " + entity;
             }
         }
     </script>

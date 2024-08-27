@@ -35,7 +35,8 @@ body {
 body {
   margin: 0;
   /* background: linear-gradient(45deg, #49a09d, #5f2c82); */
-  background: #51aba8;
+  /* background: #51aba8; */
+  background-color: whitesmoke;
   font-family: sans-serif;
   font-weight: 100;
 }
@@ -66,7 +67,8 @@ th {
 
 thead {
   th {
-    background-color: #6a739d;
+    /* background-color: #6a739d; */
+    background-color: cornflowerblue;
   }
 }
 
@@ -74,7 +76,7 @@ thead {
 tbody {
   tr {
     &:hover {
-      background-color: rgba(255,255,255,0.3);
+      background-color: rgba(111, 112, 127, 0.237);
     }
   }
   td {
@@ -87,7 +89,7 @@ tbody {
         right: 0;
         top: -9999px;
         bottom: -9999px;
-        background-color: rgba(255,255,255,0.2);
+        background-color: rgba(111, 112, 127, 0.237);
         z-index: -1;
       }
     }
