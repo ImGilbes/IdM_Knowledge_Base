@@ -9,18 +9,41 @@
         async function getTable() {
             const response = await fetch('/get_specific');
             const data = await response.json();
-            var table_html = data.table_html;
-            var starting_record_html = data.starting_record;
-            document.getElementById("item_table").innerHTML = table_html;
-            document.getElementById("mitigationsContainer").style.display = "block"; 
-            document.getElementById("starting_record_table").innerHTML = starting_record_html;
-            document.getElementById("startingRecordContainer").style.display = "block"; 
+
+            if(data.abc)
+                alert("idk how this is workings");
+            else
+                alert("luckily this is not working");
+
+            var entity = data.entity;
+            if(entity){
+                document.getElementById("starting_record_table").innerHTML = data.starting_record;
+                document.getElementById("starting_record_container").style.display = "block";
+                
+
+                if(entity == "Requirements")
+                {
+                    document.getElementById("mitigations_table").innerHTML = data.table_html;
+                    document.getElementById("mitigations_container").style.display = "block"; 
+                }
+                if(entity == "Mitigations")
+                {
+                    document.getElementById("requirements_table").innerHTML = data.table_html;
+                    document.getElementById("requirements_container").style.display = "block"; 
+                }
+                if(entity == "Threats")
+                {
+                    document.getElementById("threats_table").innerHTML = data.table_html;
+                    document.getElementById("threats_container").style.display = "block"; 
+                }
+            }
+            
         }  
     </script>
 </head>
 <body onload="getTable()">
 
-    <div class="container" id="startingRecordContainer" style="display: none;">
+    <div class="container" id="starting_record_container" style="display: none;">
         <div class="content" id="item_name_container">
             <p id="item_name"></p>
             <p id="item_definition"></p>
@@ -30,23 +53,34 @@
         </div>
     </div>
     
-    <!-- <div class="container" id="requirementsContainer" style="display: none;">
+    <div class="container" id="requirements_container" style="display: none;">
         <div class="content" id="item_name_container">
-            <p id="item_name">Related Requirements</p>
-            <p id="item_definition"></p>
+            <p id="entity_name">Related Requirements</p>
+            <p id="requirements_definition"></p>
         </div>
         <div class="content" id="item_content">
-            <div id="item_table"></div>
+            <div id="requirements_table"></div>
         </div>
-    </div> -->
+    </div>
 
-    <div class="container" id="mitigationsContainer" style="display: none;">
+    
+    <div class="container" id="mitigations_container" style="display: none;">
         <div class="content" id="item_name_container">
-            <p id="item_name">Related Mitigations</p>
-            <p id="item_definition"></p>
+            <p class="entity_name" id="mitigations_name">Related Mitigations</p>
+            <p id="mitigations_definition"></p>
         </div>
         <div class="content" id="item_content">
-            <div id="item_table"></div>
+            <div id="mitigations_table"></div>
+        </div>
+    </div>
+
+    <div class="container" id="threats_container" style="display: none;">
+        <div class="content" id="item_name_container">
+            <p class="entity_name" id="threats_name">Related Threats</p>
+            <p id="threats_definition"></p>
+        </div>
+        <div class="content" id="item_content">
+            <div id="threats_table"></div>
         </div>
     </div>
 

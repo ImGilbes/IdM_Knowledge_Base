@@ -160,10 +160,14 @@ def get_specific():
         df = df.reset_index().set_index("index")
         df = cleanup_df(df,"Requirements")
 
+    mitigations_html = df.to_html(classes='data-table', index=False, index_names=False)
+    requirements_html = df.to_html(classes='data-table', index=False, index_names=False)
+    
 
-
-    return jsonify(starting_record=starting_record.to_html(classes='data-table', index=False, index_names=False),
-                   table_html=df.to_html(classes='data-table', index=False, index_names=False))
+    return jsonify(entity=SPECIFIC_ENTITY,
+                    starting_record=starting_record.to_html(classes='data-table', index=False, index_names=False),
+                    table_html=df.to_html(classes='data-table', index=False, index_names=False),
+                    abc=None)
     
 
 if __name__ == '__main__':
