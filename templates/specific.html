@@ -9,6 +9,7 @@
         async function getTable() {
             const response = await fetch('/get_specific');
             const data = await response.json();
+            // var shared_cats = String();
 
             if(data.entities && data.tables){
 
@@ -33,16 +34,30 @@
                         document.getElementById("where-all-tables-go").innerHTML += new_html_block; 
 
                     }
+
+                    // this is an unfinished function
+                    if(data.shared_cats){
+                        var shared_cats = [...data.shared_cats];
+                        // alert(shared_cats.length);
+                        // alert(shared_cats)
+                        if (shared_cats.length == tables.length){
+                            for (let i = 0; i < shared_cats.length; i++) {
+                                // alert(shared_cats[i]);
+                                // here i should set the css for every category
+                            }
+                        }
+                    }
                 }
             }
             else
                 alert("luckily this is not working");
             
 
-            var entity = data.entity;
-            if(entity){
-                document.getElementById("starting_record_table").innerHTML = data.starting_record;
-                document.getElementById("starting_record_container").style.display = "block";
+            document.getElementById("starting_record_table").innerHTML = data.starting_record;
+            document.getElementById("starting_record_container").style.display = "block";
+
+            if(data.shared_cats){
+                alert(data.shared_cats)
             }
             
         }  

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 import pandas as pd
+import json
 
 app = Flask(__name__)
 
@@ -119,19 +120,19 @@ def build_connections_table(name,definition,conn_entity):
     row = main_df[main_df[name] == definition].reset_index()
 
     # interesect the categories between the two dfs
-    selected_cats = set()
+    shared_cats = set()
     # extract categories from the extracted row
     for cat in get_categories(main_df).intersection(get_categories(df2)):
         if row.at[0,cat] == 'T':
-            selected_cats.add(cat)
+            shared_cats.add(cat)
 
     # select all rows in df2 that match the signature of the interesected categories
     mask = pd.Series([True] * len(df2))
     
-    for col in selected_cats:
+    for col in shared_cats:
         mask &= df2[col].isin(['T'])
 
-    return rename_columns(df2[mask])
+    return (rename_columns(df2[mask]), list(shared_cats))
 
 
 @app.route('/get_specific', methods=['GET'])
@@ -148,19 +149,22 @@ def get_specific():
     }
     
     tables = []
+    shared_cats = []
     if (SPECIFIC_DEF is not None) and (SPECIFIC_ENTITY is not None):
 
         df = read_and_cleanup(SPECIFIC_ENTITY)
         starting_record = df[df[SPECIFIC_ENTITY] == SPECIFIC_DEF]
-
         for entity in connections[SPECIFIC_ENTITY]:
-            df = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF, conn_entity=entity)
+            (df, app) = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF, conn_entity=entity)
+            shared_cats.append(app)
             tables.append(df.to_html(classes='data-table', index=False, index_names=False))
 
+    print(json.dumps(shared_cats))
     return jsonify(entity=SPECIFIC_ENTITY,
                     starting_record=starting_record.to_html(classes='data-table', index=False, index_names=False),
                     entities=connections[SPECIFIC_ENTITY],
-                    tables=tables)
+                    tables=tables,
+                    shared_cats=shared_cats)
     
 
 if __name__ == '__main__':

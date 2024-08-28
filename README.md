@@ -1,7 +1,7 @@
 ## TODOs
-1. expand to more connected entities
+1. expand to more connected entities ✅
 2. references hovering buttons
-3. top of spefic page add starting entity entry
+3. top of spefic page add starting entity entry ✅
 4. change name at the beginning of the table into the actual entity :white_check_mark:
 5. landing page graph, picture, buttons, definitions 
 6. add description of the function of the page at the beginning of each page
@@ -9,3 +9,5 @@
 8. feedback proving + request adding entries for entities (they reqest entry, i get it, approve it, then update) you can do it through a pull request
 9. Legal protection for users & protection of users' rights -  in the requriements generates an error
 10. when displaying the connected entities and entries in specific: add the shared flags (or highlight them)
+11. highlight shared flags in specific
+12. style the paragraphs and page titles
