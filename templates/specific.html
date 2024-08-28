@@ -10,32 +10,39 @@
             const response = await fetch('/get_specific');
             const data = await response.json();
 
-            if(data.abc)
-                alert("idk how this is workings");
+            if(data.entities && data.tables){
+
+                var tables = [...data.tables]; // this thing somehow converts a stringified list to an array
+                var entities = [...data.entities];
+
+                if(tables.length == entities.length){
+
+                    for (let i = 0; i < tables.length; i++) {
+
+                        // use this block template for every entity table
+                        new_html_block = `<div class="container" id="${entities[i]}_container">
+                            <div class="content" id="item_name_container">
+                                <p id="entity_name">Related ${entities[i]}</p>
+                                <p id="${entities[i]}_definition"></p>
+                            </div>
+                            <div class="content" id="item_content">
+                                <div id="${entities[i]}_table">${tables[i]}</div>
+                            </div>
+                        </div>`;
+
+                        document.getElementById("where-all-tables-go").innerHTML += new_html_block; 
+
+                    }
+                }
+            }
             else
                 alert("luckily this is not working");
+            
 
             var entity = data.entity;
             if(entity){
                 document.getElementById("starting_record_table").innerHTML = data.starting_record;
                 document.getElementById("starting_record_container").style.display = "block";
-                
-
-                if(entity == "Requirements")
-                {
-                    document.getElementById("mitigations_table").innerHTML = data.table_html;
-                    document.getElementById("mitigations_container").style.display = "block"; 
-                }
-                if(entity == "Mitigations")
-                {
-                    document.getElementById("requirements_table").innerHTML = data.table_html;
-                    document.getElementById("requirements_container").style.display = "block"; 
-                }
-                if(entity == "Threats")
-                {
-                    document.getElementById("threats_table").innerHTML = data.table_html;
-                    document.getElementById("threats_container").style.display = "block"; 
-                }
             }
             
         }  
@@ -45,7 +52,7 @@
 
     <div class="container" id="starting_record_container" style="display: none;">
         <div class="content" id="item_name_container">
-            <p id="item_name"></p>
+            <p id="item_name">Selected Record</p>
             <p id="item_definition"></p>
         </div>
         <div class="content" id="item_content">
@@ -53,37 +60,38 @@
         </div>
     </div>
     
-    <div class="container" id="requirements_container" style="display: none;">
+    <!-- <div class="container" id="requirements_container" style="display: none;">
         <div class="content" id="item_name_container">
             <p id="entity_name">Related Requirements</p>
-            <p id="requirements_definition"></p>
+            <p id="Requirements_definition"></p>
         </div>
         <div class="content" id="item_content">
-            <div id="requirements_table"></div>
+            <div id="Requirements_table"></div>
         </div>
     </div>
 
     
-    <div class="container" id="mitigations_container" style="display: none;">
+    <div class="container" id="Mitigations_container" style="display: none;">
         <div class="content" id="item_name_container">
-            <p class="entity_name" id="mitigations_name">Related Mitigations</p>
-            <p id="mitigations_definition"></p>
+            <p class="entity_name" id="Mitigations_name">Related Mitigations</p>
+            <p id="Mitigations_definition"></p>
         </div>
         <div class="content" id="item_content">
-            <div id="mitigations_table"></div>
+            <div id="Mitigations_table"></div>
         </div>
     </div>
 
     <div class="container" id="threats_container" style="display: none;">
         <div class="content" id="item_name_container">
             <p class="entity_name" id="threats_name">Related Threats</p>
-            <p id="threats_definition"></p>
+            <p id="Threats_definition"></p>
         </div>
         <div class="content" id="item_content">
-            <div id="threats_table"></div>
+            <div id="Threats_table"></div>
         </div>
-    </div>
+    </div> -->
 
+    <div id="where-all-tables-go"></div>
     
     
 </body>

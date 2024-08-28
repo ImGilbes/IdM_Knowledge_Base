@@ -162,12 +162,21 @@ def get_specific():
 
     mitigations_html = df.to_html(classes='data-table', index=False, index_names=False)
     requirements_html = df.to_html(classes='data-table', index=False, index_names=False)
-    
+
+    # requirements -> mitigations
+    # mitigations -> requirements & threats
+    # threats -> mitigations
+    abc = ['ciao0','ciao1','ciao2']
+    entities = ['Mitigations']
+    table_html=df.to_html(classes='data-table', index=False, index_names=False)
+    tables = [table_html]
 
     return jsonify(entity=SPECIFIC_ENTITY,
                     starting_record=starting_record.to_html(classes='data-table', index=False, index_names=False),
                     table_html=df.to_html(classes='data-table', index=False, index_names=False),
-                    abc=None)
+                    abc=abc,
+                    entities=entities,
+                    tables=tables)
     
 
 if __name__ == '__main__':
