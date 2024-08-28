@@ -109,15 +109,11 @@ def set_specific():
     SPECIFIC_DEF = request.args.get("def")
     return "ok"
 
-def build_connections_table(name,definition):
+
+def build_connections_table(name,definition,conn_entity):
 
     main_df = read_and_cleanup(name)
-    if name == 'Requirements':
-        df2 = read_and_cleanup("Mitigations")
-    elif name == 'Mitigations':
-        df2 = read_and_cleanup("Requirements")
-    else:
-        df2 = read_and_cleanup("Threats")
+    df2 = read_and_cleanup(conn_entity)
 
     # find specific row in main df
     row = main_df[main_df[name] == definition].reset_index()
@@ -137,45 +133,33 @@ def build_connections_table(name,definition):
 
     return rename_columns(df2[mask])
 
+
 @app.route('/get_specific', methods=['GET'])
 def get_specific():
     global SPECIFIC_DEF
     global SPECIFIC_ENTITY
+
+    starting_record = None
+
+    connections = {
+        "Requirements": ["Mitigations"],
+        "Mitigations": ["Requirements","Threats"],
+        "Threats": ["Mitigations"]
+    }
     
+    tables = []
     if (SPECIFIC_DEF is not None) and (SPECIFIC_ENTITY is not None):
 
         df = read_and_cleanup(SPECIFIC_ENTITY)
         starting_record = df[df[SPECIFIC_ENTITY] == SPECIFIC_DEF]
-        # print(starting_record)
 
-        df = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF)
-        # df = pd.read_csv(CSV_BASE_PATH + SPECIFIC_ENTITY + ".csv")
-        
-        # df = df.reset_index().set_index("index")
-        # df = cleanup_df(df,SPECIFIC_ENTITY)
-        # return jsonify(table_html=df.to_html(classes='data-table', index=False, index_names=False))
-    else:
-        starting_record = None
-        df = pd.read_csv(CSV_BASE_PATH + "Requirements" + ".csv")
-        df = df.reset_index().set_index("index")
-        df = cleanup_df(df,"Requirements")
-
-    mitigations_html = df.to_html(classes='data-table', index=False, index_names=False)
-    requirements_html = df.to_html(classes='data-table', index=False, index_names=False)
-
-    # requirements -> mitigations
-    # mitigations -> requirements & threats
-    # threats -> mitigations
-    abc = ['ciao0','ciao1','ciao2']
-    entities = ['Mitigations']
-    table_html=df.to_html(classes='data-table', index=False, index_names=False)
-    tables = [table_html]
+        for entity in connections[SPECIFIC_ENTITY]:
+            df = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF, conn_entity=entity)
+            tables.append(df.to_html(classes='data-table', index=False, index_names=False))
 
     return jsonify(entity=SPECIFIC_ENTITY,
                     starting_record=starting_record.to_html(classes='data-table', index=False, index_names=False),
-                    table_html=df.to_html(classes='data-table', index=False, index_names=False),
-                    abc=abc,
-                    entities=entities,
+                    entities=connections[SPECIFIC_ENTITY],
                     tables=tables)
     
 
