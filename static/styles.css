@@ -99,3 +99,7 @@ tbody {
 th:first-child { 
   width:20%;
 } 
+
+.highlight {
+  background-color: lightgreen;
+}

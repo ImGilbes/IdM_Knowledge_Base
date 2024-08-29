@@ -135,6 +135,14 @@ def build_connections_table(name,definition,conn_entity):
     return (rename_columns(df2[mask]), list(shared_cats))
 
 
+def rename_shared_cats(shared_cats):
+    global CATEGORIES_MAP
+    tmp = []
+    for cats1 in shared_cats:
+        tmp.append([CATEGORIES_MAP.get(c, c) for c in cats1])
+    return tmp
+
+
 @app.route('/get_specific', methods=['GET'])
 def get_specific():
     global SPECIFIC_DEF
@@ -149,7 +157,7 @@ def get_specific():
     }
     
     tables = []
-    shared_cats = []
+    shared_cats = []  # both tables and shared categories are going to be a list of lists
     if (SPECIFIC_DEF is not None) and (SPECIFIC_ENTITY is not None):
 
         df = read_and_cleanup(SPECIFIC_ENTITY)
@@ -158,13 +166,12 @@ def get_specific():
             (df, app) = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF, conn_entity=entity)
             shared_cats.append(app)
             tables.append(df.to_html(classes='data-table', index=False, index_names=False))
-
-    print(json.dumps(shared_cats))
+            
     return jsonify(entity=SPECIFIC_ENTITY,
                     starting_record=starting_record.to_html(classes='data-table', index=False, index_names=False),
                     entities=connections[SPECIFIC_ENTITY],
                     tables=tables,
-                    shared_cats=shared_cats)
+                    shared_cats=rename_shared_cats(shared_cats))
     
 
 if __name__ == '__main__':

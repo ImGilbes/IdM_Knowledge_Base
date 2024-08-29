@@ -9,7 +9,14 @@
         async function getTable() {
             const response = await fetch('/get_specific');
             const data = await response.json();
-            // var shared_cats = String();
+
+            if(data.starting_record){
+                document.getElementById("starting_record_table").innerHTML = data.starting_record;
+                document.getElementById("starting_record_container").style.display = "block";
+            }
+            else{
+                console.log("there is no starting record for some reason!");
+            }
 
             if(data.entities && data.tables){
 
@@ -20,46 +27,50 @@
 
                     for (let i = 0; i < tables.length; i++) {
 
+                        let tmp_div = document.createElement("div");
                         // use this block template for every entity table
                         new_html_block = `<div class="container" id="${entities[i]}_container">
                             <div class="content" id="item_name_container">
-                                <p id="entity_name">Related ${entities[i]}</p>
-                                <p id="${entities[i]}_definition"></p>
+                                <p id="${entities[i]}_name">Related ${entities[i]}</p>
+                                <p id="${entities[i]}_definition">The matched categories are highlighted in green &#128994</p>
                             </div>
                             <div class="content" id="item_content">
                                 <div id="${entities[i]}_table">${tables[i]}</div>
                             </div>
                         </div>`;
+                        tmp_div.innerHTML=new_html_block;
 
-                        document.getElementById("where-all-tables-go").innerHTML += new_html_block; 
+                        // document.getElementById("where-all-tables-go").innerHTML += new_html_block; 
+                        //only using appendchild i can update the dom on the spot and search with get element by id
+                        document.getElementById("where-all-tables-go").appendChild(tmp_div);
+                        
+                        var abc = [...data.shared_cats];
+                        var headersToHighlight = abc[i];
+                        console.log(headersToHighlight);
+                        
+                        if(headersToHighlight){
+                            const table = document.getElementById(`${entities[i]}_table`);
+                            const headerCells = table.querySelectorAll("thead th");
 
-                    }
-
-                    // this is an unfinished function
-                    if(data.shared_cats){
-                        var shared_cats = [...data.shared_cats];
-                        // alert(shared_cats.length);
-                        // alert(shared_cats)
-                        if (shared_cats.length == tables.length){
-                            for (let i = 0; i < shared_cats.length; i++) {
-                                // alert(shared_cats[i]);
-                                // here i should set the css for every category
-                            }
+                            headerCells.forEach((cell, index) => {
+                                if (headersToHighlight.includes(cell.textContent.trim())) {
+                                    // If the header matches, highlight the entire column in the tbody
+                                    const rows = table.querySelectorAll("tbody tr");
+                                    rows.forEach(row => {
+                                        const cellToHighlight = row.cells[index];
+                                        cellToHighlight.classList.add("highlight");
+                                    });
+                                }
+                            });
                         }
-                    }
+                        else{
+                            console.log("No highlighting for some reason");
+                        }
+                    }                    
                 }
             }
             else
                 alert("luckily this is not working");
-            
-
-            document.getElementById("starting_record_table").innerHTML = data.starting_record;
-            document.getElementById("starting_record_container").style.display = "block";
-
-            if(data.shared_cats){
-                alert(data.shared_cats)
-            }
-            
         }  
     </script>
 </head>
@@ -76,7 +87,6 @@
     </div>
 
     <div id="where-all-tables-go"></div>
-    
     
 </body>
 </html>
