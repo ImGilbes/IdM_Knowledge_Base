@@ -17,6 +17,7 @@ CATEGORIES_MAP = {"Conf&DataDiscl":"Confidentiality and Data Disclosure",
               "Trust": "Trust",
               "SysDesign": "System Design",
               "Governance&Procedures": "Governance Actors, Management, and Procedures",
+              "Governance&Procedure": "Governance Actors, Management, and Procedures",
               "Management": "Governance Actors, Management, and Procedures",
               "Socio-political": "Social and Political",
               "Functional": "Functional Requirement",
@@ -92,9 +93,12 @@ def index():
 def get_table():
     entity = request.args.get("entity")
 
-    df = read_and_cleanup(entity)
+    # df = read_and_cleanup(entity)
+    df = rename_columns(read_and_cleanup(entity))
 
-    df = simplify_table(df,entity)
+    # if you wanna display only the categories and not the entire table, uncomment either of these
+    # df = simplify_table(rename_columns(df),entity)
+    # df = simplify_table(df,entity)
 
     return jsonify(table_html=df.to_html(classes='data-table', index=False, index_names=False))
 
@@ -166,7 +170,7 @@ def get_specific():
             (df, app) = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF, conn_entity=entity)
             shared_cats.append(app)
             tables.append(df.to_html(classes='data-table', index=False, index_names=False))
-            
+
     return jsonify(entity=SPECIFIC_ENTITY,
                     starting_record=starting_record.to_html(classes='data-table', index=False, index_names=False),
                     entities=connections[SPECIFIC_ENTITY],

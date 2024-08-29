@@ -9,5 +9,7 @@
 8. feedback proving + request adding entries for entities (they reqest entry, i get it, approve it, then update) you can do it through a pull request
 9. Legal protection for users & protection of users' rights -  in the requriements generates an error
 10. when displaying the connected entities and entries in specific: add the shared flags (or highlight them)
-11. highlight shared flags in specific
+11. highlight shared flags in specific ✅
 12. style the paragraphs and page titles
+13. filter data in the index page for categories!
+14. don't reload the tables in index on every button close and reopen ✔️

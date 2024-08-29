@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="static/styles.css">
 
     <script>
+
+        var loaded = new Array();
+        var displayed = new Array();
+
+        function array_remove(array,value){
+            const index = array.indexOf(value);
+            if (index > -1) { // only splice array when item is found
+                array.splice(index, 1); // 2nd parameter means remove one item only
+            }
+            return array;
+        }
+
         async function loadTable(entity) {
+
             const response = await fetch('/get_table?entity=' + entity);
             const data = await response.json();
             var table_html = data.table_html;
 
-            document.getElementById(entity+'Table').innerHTML = table_html;
+            document.getElementById(entity+'_table').innerHTML = table_html;
 
 
             async function handleClick(event) {
@@ -36,6 +49,60 @@
                 }
             });
             
+            if (loaded.indexOf(entity) == -1){
+                loaded.push(entity);
+            }
+            // console.log(loaded);
+            updateFilters();
+        }
+
+        function get_checkboxes_categories(){
+            let checkboxes = document.getElementsByName('filter_checkbox');
+            let result = new Array();
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    result.push(checkboxes[i].value);
+                }
+            }
+            return result;
+        }
+
+        function updateFilters(){
+            // applies only to the displayed entities
+            loaded.forEach(entity => {
+                if(displayed.indexOf(entity) != -1){
+                    // console.log(element);
+                    // console.log(get_checkboxes_categories());
+                    const checked = get_checkboxes_categories();
+
+                    const table = document.getElementById(entity+"_table");
+                    const headers = table.querySelectorAll("thead th");
+                    const rows = table.querySelectorAll("tbody tr");
+
+                    headers.forEach((header, i) => {
+                        if (checked.indexOf(header.textContent) == -1) { // if not in the checked list, then display it
+                            if(header.classList.contains("hidden")){
+                                header.classList.remove("hidden");
+                                rows.forEach(row => {
+                                    const cell = row.cells[i];
+                                    cell.classList.remove("hidden");
+                                });
+                            }
+                        } 
+                        else {
+                            if(!header.classList.contains("hidden")){
+                                header.classList.add("hidden");
+                                rows.forEach(row => {
+                                    const cell = row.cells[i];
+                                    cell.classList.add("hidden");
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+            // applies only if the category filter is in the entity
+
         }
     </script>
 </head>
@@ -45,40 +112,138 @@
         <h4 id="landingPresentationTitle">Welcome to the NDID Knowledge Base</h4>
         <p id="landingPresentationParagraph">Here you can explore the various entities, discover their definitions and see what they contain!</p>
     </div>
+
+
+    CATEGORIES_MAP =
+
+              "Transp": "Transparency",
+              "Surv": "Surveillance",
+              "Authn&Authz": "Authenticity of Data and Identity, Authorization",
+              "Abuse": "Abuse of system functionality"
+              }
+
+    <fieldset>
+        <legend>Filters</legend>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="People Rights" onchange="updateFilters()" autocomplete="off"/>
+            <label>People Rights</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="updateFilters()" autocomplete="off"/>
+            <label>Adoption</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="updateFilters()" autocomplete="off"/>
+            <label>Service Quality</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="updateFilters()" autocomplete="off"/>
+            <label>Service Quality</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="updateFilters()" autocomplete="off"/>
+            <label>Confidentiality and Data Disclosure</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="updateFilters()" autocomplete="off"/>
+            <label>Laws, Regulations, Compliance</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Technical" onchange="updateFilters()" autocomplete="off"/>
+            <label>Technical</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Security" onchange="updateFilters()" autocomplete="off"/>
+            <label >Security</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Privacy" onchange="updateFilters()" autocomplete="off"/>
+            <label >Privacy</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="updateFilters()" autocomplete="off"/>
+            <label >Trust</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="updateFilters()" autocomplete="off"/>
+            <label >System Design</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="updateFilters()" autocomplete="off"/>
+            <label >Governance Actors, Management, and Procedures</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="updateFilters()" autocomplete="off"/>
+            <label >Social and Political</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="updateFilters()" autocomplete="off"/>
+            <label >Functional Requirement</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="updateFilters()" autocomplete="off"/>
+            <label >Integrity</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Availability" onchange="updateFilters()" autocomplete="off"/>
+            <label >Availability</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Transparency" onchange="updateFilters()" autocomplete="off"/>
+            <label >Transparency</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="updateFilters()" autocomplete="off"/>
+            <label >Surveillance</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="updateFilters()" autocomplete="off"/>
+            <label >Authenticity of Data and Identity, Authorization</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="updateFilters()" autocomplete="off"/>
+            <label >Abuse of system functionality</label>
+        </div>
+    </fieldset>
+      
     
     <div class="container">
-        <button class="collapsible" id="RequirementsCollapsible" onclick="toggleContent('Requirements')">Open Requirements</button>
-        <div class="content" id="RequirementsContent" style="display: none;">
-            <div id="RequirementsTable"></div>
+        <button class="collapsible" id="Requirements_collapsible" onclick="toggleContent('Requirements')">Open Requirements</button>
+        <div class="content" id="Requirements_content" style="display: none;">
+            <div id="Requirements_table"></div>
         </div>
     </div>
 
     <div class="container">
-        <button class="collapsible" id="MitigationsCollapsible" onclick="toggleContent('Mitigations')">Open Mitigations</button>
-        <div class="content" id="MitigationsContent" style="display: none;">
-            <div id="MitigationsTable"></div>
+        <button class="collapsible" id="Mitigations_collapsible" onclick="toggleContent('Mitigations')">Open Mitigations</button>
+        <div class="content" id="Mitigations_content" style="display: none;">
+            <div id="Mitigations_table"></div>
         </div>
     </div>
 
     <div class="container">
-        <button class="collapsible" id="ThreatsCollapsible" onclick="toggleContent('Threats')">Open Threats</button>
-        <div class="content" id="ThreatsContent" style="display: none;">
-            <div id="ThreatsTable"></div>
+        <button class="collapsible" id="Threats_collapsible" onclick="toggleContent('Threats')">Open Threats</button>
+        <div class="content" id="Threats_content" style="display: none;">
+            <div id="Threats_table"></div>
         </div>
     </div>
 
     <script>
         function toggleContent(entity) {
-            var content = document.getElementById(entity+"Content");
-            var button = document.getElementById(entity+"Collapsible");
+            var content = document.getElementById(entity+"_content");
+            var button = document.getElementById(entity+"_collapsible");
 
             if (content.style.display === "block") {
                 content.style.display = "none";
                 button.innerText = "Open " + entity;
+                array_remove(displayed, entity);
             } else {
-                loadTable(entity);
+                if(loaded.indexOf(entity) == -1){ //load only if it hasn't been loaded before lol
+                    loadTable(entity);
+                }
                 content.style.display = "block";
                 button.innerText = "Close " + entity;
+                displayed.push(entity);
             }
         }
     </script>

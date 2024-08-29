@@ -103,3 +103,7 @@ th:first-child {
 .highlight {
   background-color: lightgreen;
 }
+
+.hidden {
+  display: none;
+}
