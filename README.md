@@ -11,5 +11,7 @@
 10. when displaying the connected entities and entries in specific: add the shared flags (or highlight them)
 11. highlight shared flags in specific ✅
 12. style the paragraphs and page titles
-13. filter data in the index page for categories!
-14. don't reload the tables in index on every button close and reopen ✔️
+13. filter data in the index page for categories! ✔️
+14. filter data for row/category value
+15. don't reload the tables in index on every button close and reopen ✔️
+16. add filters to the specific page
