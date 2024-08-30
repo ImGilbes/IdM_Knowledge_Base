@@ -6,171 +6,12 @@
 
     <link rel="stylesheet" href="static/styles.css">
 
+    <script type="text/javascript" src="static/tables.js"></script>
+    <script type="text/javascript" src="static/filters.js"></script>
     <script>
-
         var loaded = new Array();
         var displayed = new Array();
-
-        function array_remove(array,value){
-            const index = array.indexOf(value);
-            if (index > -1) { // only splice array when item is found
-                array.splice(index, 1); // 2nd parameter means remove one item only
-            }
-            return array;
-        }
-
-        async function loadTable(entity) {
-
-            const response = await fetch('/get_table?entity=' + entity);
-            const data = await response.json();
-            var table_html = data.table_html;
-
-            document.getElementById(entity+'_table').innerHTML = table_html;
-
-
-            async function handleClick(event) {
-                await fetch('/set_specific?entity=' + entity + '&def=' + event.target.textContent);
-                window.location.href = "/specific";
-            }
-
-            const rows = document.querySelectorAll('table tr');
-
-            rows.forEach(row => {
-                const tds = row.querySelectorAll('td'); // Get all <td> elements in the row
-                
-                if (tds.length > 0) {
-                    // Assign the function to the first <td>
-                    tds[0].addEventListener('click', handleClick);
-                }
-
-                if (tds.length > 1) {
-                    // Assign the class to the second <td>
-                    tds[1].classList.add("secondColumnClass");
-                }
-            });
-            
-            if (loaded.indexOf(entity) == -1){
-                loaded.push(entity);
-            }
-
-            updateFilters();
-        }
-
-        function get_checkboxes_categories(){
-            let checkboxes = document.getElementsByName('filter_checkbox');
-            let result = new Array();
-            for (let i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    result.push(checkboxes[i].value);
-                }
-            }
-            return result;
-        }
-
-        function updateFilters(){
-            const filter_mode= document.getElementById("filter_mode_select").value;
-            if (filter_mode == "columns") {
-                updateFiltersColumns();
-            }
-            if (filter_mode == "rows") {
-                updateFiltersRows();
-            }
-        }
-
-        function updateFiltersColumns(){
-            // applies only to the displayed entities
-            loaded.forEach(entity => {
-                if(displayed.indexOf(entity) != -1){
-                    // console.log(element);
-                    // console.log(get_checkboxes_categories());
-                    const checked = get_checkboxes_categories();
-
-                    const table = document.getElementById(entity+"_table");
-                    const headers = table.querySelectorAll("thead th");
-                    const rows = table.querySelectorAll("tbody tr");
-
-                    headers.forEach((header, i) => {
-                        if (checked.indexOf(header.textContent) == -1) { // if not in the checked list, then display it
-                            if(header.classList.contains("hidden")){
-                                header.classList.remove("hidden");
-                                rows.forEach(row => {
-                                    const cell = row.cells[i];
-                                    cell.classList.remove("hidden");
-                                });
-                            }
-                        } 
-                        else {
-                            if(!header.classList.contains("hidden")){
-                                header.classList.add("hidden");
-                                rows.forEach(row => {
-                                    const cell = row.cells[i];
-                                    cell.classList.add("hidden");
-                                });
-                            }
-                        }
-                    });
-                }
-            });
-        }
-
-        function updateFiltersRows(){
-            const filter_value = document.getElementById("filter_row_value_select").value;
-            // console.log(filter_value);
-            loaded.forEach(entity => {
-                if(displayed.indexOf(entity) != -1){
-                    // console.log(element);
-                    // console.log(get_checkboxes_categories());
-                    const checked = get_checkboxes_categories();
-
-                    const table = document.getElementById(entity+"_table");
-                    const headers = table.querySelectorAll("thead th");
-                    const rows = table.querySelectorAll("tbody tr");
-
-                    rows.forEach((row, i) => {
-                        headers.forEach((header,k) => {
-                            console.log(header.classList.contains("hidden"),checked.indexOf(header.textContent) );
-                            if(!header.classList.contains("hidden")){
-                                if(checked.indexOf(header.textContent) != -1){
-                                    const cell = row.cells[k];
-                                    console.log(cell.textContent, filter_value);
-                                    if(cell.textContent == filter_value){
-                                        row.classList.add("hidden");
-                                    }
-                                }
-                            }
-                        });
-                    });
-                }
-            });
-            
-        }
-
-        function resetRows(){
-            loaded.forEach(entity => {
-                if(displayed.indexOf(entity) != -1){
-                    const table = document.getElementById(entity+"_table");
-                    const headers = table.querySelectorAll("thead th");
-                    const rows = table.querySelectorAll("tbody tr");
-                    rows.forEach(row => {
-                        // if(row.classList.contains("hidden"))
-                        row.classList.remove("hidden");
-                    });
-                }
-            });
-        }
-
-        function resetCheckboxes(){
-            let checkboxes = document.getElementsByName('filter_checkbox');
-            for (let i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = false;
-            }
-        }
-
-        function resetFilters(){
-            resetCheckboxes();
-            resetRows();
-            updateFiltersColumns(); //if you reset the checkboxes before, this resets the columns
-        }
+    
     </script>
 </head>
 <body>
@@ -183,83 +24,79 @@
     <fieldset>
         <legend>Filters</legend>
         <div>
-            <input type="checkbox" name="filter_checkbox" value="People Rights" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox" name="filter_checkbox" value="People Rights" onchange="" autocomplete="off"/>
             <label>People Rights</label>
         </div>
         <div>
-            <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="" autocomplete="off"/>
             <label>Adoption</label>
         </div>
         <div>
-            <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="" autocomplete="off"/>
             <label>Service Quality</label>
         </div>
         <div>
-            <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="updateFilters()" autocomplete="off"/>
-            <label>Service Quality</label>
-        </div>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="" autocomplete="off"/>
             <label>Confidentiality and Data Disclosure</label>
         </div>
         <div>
-            <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="" autocomplete="off"/>
             <label>Laws, Regulations, Compliance</label>
         </div>
         <div>
-            <input type="checkbox" name="filter_checkbox" value="Technical" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox" name="filter_checkbox" value="Technical" onchange="" autocomplete="off"/>
             <label>Technical</label>
         </div>
         <div>
-            <input type="checkbox" name="filter_checkbox" value="Security" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox" name="filter_checkbox" value="Security" onchange="" autocomplete="off"/>
             <label >Security</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Privacy" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Privacy" onchange="" autocomplete="off"/>
             <label >Privacy</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="" autocomplete="off"/>
             <label >Trust</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="" autocomplete="off"/>
             <label >System Design</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="" autocomplete="off"/>
             <label >Governance Actors, Management, and Procedures</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="" autocomplete="off"/>
             <label >Social and Political</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="" autocomplete="off"/>
             <label >Functional Requirement</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="" autocomplete="off"/>
             <label >Integrity</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Availability" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Availability" onchange="" autocomplete="off"/>
             <label >Availability</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Transparency" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Transparency" onchange="" autocomplete="off"/>
             <label >Transparency</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="" autocomplete="off"/>
             <label >Surveillance</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="" autocomplete="off"/>
             <label >Authenticity of Data and Identity, Authorization</label>
         </div>
         <div>
-            <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="updateFilters()" autocomplete="off"/>
+            <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="" autocomplete="off"/>
             <label >Abuse of system functionality</label>
         </div>
 

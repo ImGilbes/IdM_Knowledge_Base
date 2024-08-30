@@ -166,6 +166,7 @@ def get_specific():
 
         df = read_and_cleanup(SPECIFIC_ENTITY)
         starting_record = df[df[SPECIFIC_ENTITY] == SPECIFIC_DEF]
+        starting_record = rename_columns(starting_record)
         for entity in connections[SPECIFIC_ENTITY]:
             (df, app) = build_connections_table(name=SPECIFIC_ENTITY,definition=SPECIFIC_DEF, conn_entity=entity)
             shared_cats.append(app)

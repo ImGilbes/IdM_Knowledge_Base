@@ -5,78 +5,119 @@
     <title>NDID Knowledge Base</title>
 
     <link rel="stylesheet" href="static/styles.css">
+
+    <script type="text/javascript" src="static/tables.js"></script>
+    <script type="text/javascript" src="static/filters.js"></script>
     <script>
-        async function getTable() {
-            const response = await fetch('/get_specific');
-            const data = await response.json();
-
-            if(data.starting_record){
-                document.getElementById("starting_record_table").innerHTML = data.starting_record;
-                document.getElementById("starting_record_container").style.display = "block";
-            }
-            else{
-                console.log("there is no starting record for some reason!");
-            }
-
-            if(data.entities && data.tables){
-
-                var tables = [...data.tables]; // this thing somehow converts a stringified list to an array
-                var entities = [...data.entities];
-
-                if(tables.length == entities.length){
-
-                    for (let i = 0; i < tables.length; i++) {
-
-                        let tmp_div = document.createElement("div");
-                        // use this block template for every entity table
-                        new_html_block = `<div class="container" id="${entities[i]}_container">
-                            <div class="content" id="item_name_container">
-                                <p id="${entities[i]}_name">Related ${entities[i]}</p>
-                                <p id="${entities[i]}_definition">The matched categories are highlighted in green &#128994</p>
-                            </div>
-                            <div class="content" id="item_content">
-                                <div id="${entities[i]}_table">${tables[i]}</div>
-                            </div>
-                        </div>`;
-                        tmp_div.innerHTML=new_html_block;
-
-                        // document.getElementById("where-all-tables-go").innerHTML += new_html_block; 
-                        //only using appendchild i can update the dom on the spot and search with get element by id
-                        document.getElementById("where-all-tables-go").appendChild(tmp_div);
-                        
-                        var abc = [...data.shared_cats];
-                        var headersToHighlight = abc[i];
-                        console.log(headersToHighlight);
-                        
-                        if(headersToHighlight){
-                            const table = document.getElementById(`${entities[i]}_table`);
-                            const headerCells = table.querySelectorAll("thead th");
-
-                            headerCells.forEach((cell, index) => {
-                                if (headersToHighlight.includes(cell.textContent.trim())) {
-                                    // If the header matches, highlight the entire column in the tbody
-                                    const rows = table.querySelectorAll("tbody tr");
-                                    rows.forEach(row => {
-                                        const cellToHighlight = row.cells[index];
-                                        cellToHighlight.classList.add("highlight");
-                                    });
-                                }
-                            });
-                        }
-                        else{
-                            console.log("No highlighting for some reason");
-                        }
-                    }                    
-                }
-            }
-            else
-                alert("luckily this is not working");
-        }  
+        var loaded = new Array();
+        var displayed = new Array();
+        var current_main_entity = new String();
     </script>
 </head>
-<body onload="getTable()">
+<body onload="getTablesConnections()">
 
-    <div class="container" id="starting_record_container" style="display: none;">
+    <div class="landingPresentation" id="landingPageIntro">
+        <h4 id="landingPresentationTitle">Welcome to the NDID Knowledge Base</h4>
+        <p id="landingPresentationParagraph">Here you can explore the various entities, discover their definitions and see what they contain!</p>
+    </div>
+
+    <fieldset>
+        <legend>Filters</legend>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="People Rights" onchange="" autocomplete="off"/>
+            <label>People Rights</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="" autocomplete="off"/>
+            <label>Adoption</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="" autocomplete="off"/>
+            <label>Service Quality</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="" autocomplete="off"/>
+            <label>Confidentiality and Data Disclosure</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="" autocomplete="off"/>
+            <label>Laws, Regulations, Compliance</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Technical" onchange="" autocomplete="off"/>
+            <label>Technical</label>
+        </div>
+        <div>
+            <input type="checkbox" name="filter_checkbox" value="Security" onchange="" autocomplete="off"/>
+            <label >Security</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Privacy" onchange="" autocomplete="off"/>
+            <label >Privacy</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="" autocomplete="off"/>
+            <label >Trust</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="" autocomplete="off"/>
+            <label >System Design</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="" autocomplete="off"/>
+            <label >Governance Actors, Management, and Procedures</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="updateFilters()" autocomplete="off"/>
+            <label >Social and Political</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="updateFilters()" autocomplete="off"/>
+            <label >Functional Requirement</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="updateFilters()" autocomplete="off"/>
+            <label >Integrity</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Availability" onchange="updateFilters()" autocomplete="off"/>
+            <label >Availability</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Transparency" onchange="updateFilters()" autocomplete="off"/>
+            <label >Transparency</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="updateFilters()" autocomplete="off"/>
+            <label >Surveillance</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="updateFilters()" autocomplete="off"/>
+            <label >Authenticity of Data and Identity, Authorization</label>
+        </div>
+        <div>
+            <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="updateFilters()" autocomplete="off"/>
+            <label >Abuse of system functionality</label>
+        </div>
+
+        <label for="filter_mode">Choose a filtering option:</label>
+        <select name="filter_mode" id="filter_mode_select">
+            <option value="columns">Columns</option>
+            <option value="rows">Rows</option>
+        </select>
+
+        <label for="filter_row_value">Choose a row value to filter (only if you have selected Rows as filtering option):</label>
+        <select name="filter_row_value" id="filter_row_value_select">
+            <option value="T">True</option>
+            <option value="F">False</option>
+        </select>
+
+        <button id="update_filters_button" onclick="updateFilters()">Update Filters</button>
+        <button id="update_filters_button" onclick="resetFilters()">Reset Filters</button>
+        <p>Row filters do not work on the staring record</p>
+    </fieldset>
+
+    <div class="container" id="starting_record_container" style="display: block;">
         <div class="content" id="item_name_container">
             <p id="item_name">Selected Record</p>
             <p id="item_definition"></p>
