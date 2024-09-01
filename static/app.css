@@ -1,0 +1,134 @@
+.collapsible {
+    background-color: #f1f1f1;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+  }
+  
+  .collapsible:hover {
+    background-color: #ccc;
+  }
+  
+  
+  .data-table th, .data-table td {
+      border: 0px solid #ddd;
+      padding: 8px;
+  }
+  
+  .content {
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+  
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    /* background: linear-gradient(45deg, #49a09d, #5f2c82); */
+    /* background: #51aba8; */
+    background-color: whitesmoke;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+  
+  /* table {
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    table-layout:fixed;
+    width: 95%;
+  } */
+  
+  table{
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    min-width: 95%;
+    width: auto;
+  }
+  
+  th,
+  td {
+    padding: 15px;
+    background-color: rgba(255,255,255,0.2);
+    text-align: center;
+    /* color: #fff; */ 
+  }
+  
+  
+  th {
+    text-align: left;
+  }
+  
+  thead {
+    th {
+      background-color: cornflowerblue;
+    }
+  }
+  
+  
+  tbody {
+    tr {
+      &:hover {
+        background-color: rgba(111, 112, 127, 0.237);
+      }
+    }
+    /* td {
+      position: relative;
+      &:hover {
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -9999px;
+          bottom: -9999px;
+          background-color: rgba(111, 112, 127, 0.237);
+          z-index: -1;
+        }
+      }
+    } */
+  }
+  
+  
+  .highlight {
+    background-color: lightgreen;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .checkmark::before {
+    content: '✅';
+    font-size: 20px;
+    color: green;
+  }
+  td{
+    font-size: 1px;
+  }
+  table td:first-child {
+      font-size: 18px; /* Change this value to whatever font size you prefer */
+      text-align: left;
+      min-width: 20%;
+      width: auto;
+      max-width: 25%;
+  }
+  .cross::before {
+    content: '❌';
+    font-size: 20px;
+  }
+  
+  .table-container {
+    overflow-x: auto; /* Enables horizontal scrolling */
+    width: 100%;      /* Make sure the container takes full page width */
+  }
