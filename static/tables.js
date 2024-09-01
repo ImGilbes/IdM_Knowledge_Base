@@ -43,6 +43,8 @@ async function loadTable(entity) {
     addToLoaded(entity);
 
     updateFilters();
+
+    checkmarks_and_crosses();
 }
 
 
@@ -56,6 +58,16 @@ function addToDisplayed(entity){
     if (displayed.indexOf(entity) == -1){
         displayed.push(entity);
     }
+}
+
+function checkmarks_and_crosses(){
+    document.querySelectorAll('td').forEach(function(cell) {
+        if (cell.textContent.trim() === 'T') {
+            cell.classList.add('checkmark');
+        } else if (cell.textContent.trim() === 'F') {
+            cell.classList.add('cross');
+        }
+    });
 }
 
 function add_table(entity,table,related_flag, div_name){}
@@ -102,7 +114,7 @@ async function getTablesConnections() {
                         <p id="${entities[i]}_definition">The matched categories are highlighted in green &#128994</p>
                     </div>
                     <div class="content" id="item_content">
-                        <div id="${entities[i]}_table">${tables[i]}</div>
+                        <div id="${entities[i]}_table" class="table-container">${tables[i]}</div>
                     </div>
                 </div>`;
                 tmp_div.innerHTML=new_html_block;
@@ -144,4 +156,6 @@ async function getTablesConnections() {
         alert("luckily this is not working");
 
     resetFilters();
+
+    checkmarks_and_crosses();
 }

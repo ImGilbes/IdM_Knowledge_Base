@@ -24,3 +24,4 @@
     3.  add limitations
     4.  add more links!
     5.  fill in attacks, vulnerabilities, architectures
+19. Replace T and F with checkmarks and crosses (but if possible only in the css)

@@ -41,25 +41,29 @@ body {
   font-weight: 100;
 }
 
-table {
-  /* width: 800px; */
+/* table {
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   table-layout:fixed;
-  width: 95%
-}
+  width: 95%;
+} */
 
-th.name, th.categories {
-  width: 30%
+table{
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  min-width: 95%;
+  width: auto;
 }
 
 th,
 td {
   padding: 15px;
   background-color: rgba(255,255,255,0.2);
+  text-align: center;
   /* color: #fff; */ 
 }
+
 
 th {
   text-align: left;
@@ -67,7 +71,6 @@ th {
 
 thead {
   th {
-    /* background-color: #6a739d; */
     background-color: cornflowerblue;
   }
 }
@@ -79,7 +82,7 @@ tbody {
       background-color: rgba(111, 112, 127, 0.237);
     }
   }
-  td {
+  /* td {
     position: relative;
     &:hover {
       &:before {
@@ -93,12 +96,9 @@ tbody {
         z-index: -1;
       }
     }
-  }
+  } */
 }
 
-th:first-child { 
-  width:20%;
-} 
 
 .highlight {
   background-color: lightgreen;
@@ -106,4 +106,29 @@ th:first-child {
 
 .hidden {
   display: none;
+}
+
+.checkmark::before {
+  content: '✅';
+  font-size: 20px;
+  color: green;
+}
+td{
+  font-size: 1px;
+}
+table td:first-child {
+    font-size: 18px; /* Change this value to whatever font size you prefer */
+    text-align: left;
+    min-width: 20%;
+    width: auto;
+    max-width: 25%;
+}
+.cross::before {
+  content: '❌';
+  font-size: 20px;
+}
+
+.table-container {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  width: 100%;      /* Make sure the container takes full page width */
 }
