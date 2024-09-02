@@ -1,3 +1,9 @@
+function toggle_filters() {
+    const element = document
+                    .getElementById('filters-div');
+    element.classList.toggle('visible');
+}
+
 function get_checkboxes_categories(){
     let checkboxes = document.getElementsByName('filter_checkbox');
     let result = new Array();

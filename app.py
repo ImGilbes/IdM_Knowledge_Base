@@ -92,8 +92,6 @@ def index():
 @app.route('/get_table', methods=['GET'])
 def get_table():
     entity = request.args.get("entity")
-
-    # df = read_and_cleanup(entity)
     df = rename_columns(read_and_cleanup(entity))
 
     # if you wanna display only the categories and not the entire table, uncomment either of these
@@ -116,7 +114,6 @@ def set_specific():
 
 
 def build_connections_table(name,definition,conn_entity):
-
     main_df = read_and_cleanup(name)
     df2 = read_and_cleanup(conn_entity)
 

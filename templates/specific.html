@@ -21,84 +21,92 @@
         <p id="landingPresentationParagraph">Here you can explore the various entities, discover their definitions and see what they contain!</p>
     </div>
 
-    <fieldset>
-        <legend>Filters</legend>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="People Rights" onchange="" autocomplete="off"/>
-            <label>People Rights</label>
-        </div>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="" autocomplete="off"/>
-            <label>Adoption</label>
-        </div>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="" autocomplete="off"/>
-            <label>Service Quality</label>
-        </div>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="" autocomplete="off"/>
-            <label>Confidentiality and Data Disclosure</label>
-        </div>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="" autocomplete="off"/>
-            <label>Laws, Regulations, Compliance</label>
-        </div>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="Technical" onchange="" autocomplete="off"/>
-            <label>Technical</label>
-        </div>
-        <div>
-            <input type="checkbox" name="filter_checkbox" value="Security" onchange="" autocomplete="off"/>
-            <label >Security</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Privacy" onchange="" autocomplete="off"/>
-            <label >Privacy</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="" autocomplete="off"/>
-            <label >Trust</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="" autocomplete="off"/>
-            <label >System Design</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="" autocomplete="off"/>
-            <label >Governance Actors, Management, and Procedures</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="updateFilters()" autocomplete="off"/>
-            <label >Social and Political</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="updateFilters()" autocomplete="off"/>
-            <label >Functional Requirement</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="updateFilters()" autocomplete="off"/>
-            <label >Integrity</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Availability" onchange="updateFilters()" autocomplete="off"/>
-            <label >Availability</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Transparency" onchange="updateFilters()" autocomplete="off"/>
-            <label >Transparency</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="updateFilters()" autocomplete="off"/>
-            <label >Surveillance</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="updateFilters()" autocomplete="off"/>
-            <label >Authenticity of Data and Identity, Authorization</label>
-        </div>
-        <div>
-            <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="updateFilters()" autocomplete="off"/>
-            <label >Abuse of system functionality</label>
-        </div>
+    <button onclick="toggle_filters()">
+        Toggle Filters
+    </button>
+
+    <div id="filters-div" class="filters-div">
+        <fieldset>
+            <legend>Filters</legend>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="People Rights" onchange="" autocomplete="off"/>
+                <label>People Rights</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="" autocomplete="off"/>
+                <label>Adoption</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="" autocomplete="off"/>
+                <label>Service Quality</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="" autocomplete="off"/>
+                <label>Confidentiality and Data Disclosure</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="" autocomplete="off"/>
+                <label>Laws, Regulations, Compliance</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Technical" onchange="" autocomplete="off"/>
+                <label>Technical</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Security" onchange="" autocomplete="off"/>
+                <label >Security</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Privacy" onchange="" autocomplete="off"/>
+                <label >Privacy</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="" autocomplete="off"/>
+                <label >Trust</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="" autocomplete="off"/>
+                <label >System Design</label>
+            </div>
+            
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="" autocomplete="off"/>
+                <label >Governance Actors, Management, and Procedures</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="" autocomplete="off"/>
+                <label >Social and Political</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="" autocomplete="off"/>
+                <label >Functional Requirement</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="" autocomplete="off"/>
+                <label >Integrity</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Availability" onchange="" autocomplete="off"/>
+                <label >Availability</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Transparency" onchange="" autocomplete="off"/>
+                <label >Transparency</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="" autocomplete="off"/>
+                <label >Surveillance</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="" autocomplete="off"/>
+                <label >Authenticity of Data and Identity, Authorization</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="" autocomplete="off"/>
+                <label >Abuse of system functionality</label>
+            </div>
+        </fieldset>
+
 
         <label for="filter_mode">Choose a filtering option:</label>
         <select name="filter_mode" id="filter_mode_select">
@@ -114,8 +122,8 @@
 
         <button id="update_filters_button" onclick="updateFilters()">Update Filters</button>
         <button id="update_filters_button" onclick="resetFilters()">Reset Filters</button>
-        <p>Row filters do not work on the staring record</p>
-    </fieldset>
+        <!-- <button id="update_filters_button" onclick="updateFilters()">Reset Rows</button> -->
+    </div>
 
     <div class="container" id="starting_record_container" style="display: block;">
         <div class="content" id="item_name_container">
@@ -126,6 +134,7 @@
             <div id="starting_record_table" class="table-container"></div>
         </div>
     </div>
+    
 
     <div id="where-all-tables-go"></div>
     

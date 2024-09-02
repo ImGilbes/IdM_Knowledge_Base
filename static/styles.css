@@ -135,3 +135,67 @@ table th{
   overflow-x: auto; /* Enables horizontal scrolling */
   width: 100%;      /* Make sure the container takes full page width */
 }
+
+
+
+.filters-div {
+  width: auto;
+  height: auto;
+  /* background-color: #ff3a7f; */
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  animation: slideInOut 0.5s ease-in-out;
+  border: 2px solid #4CAF50;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.filters-div.visible {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+@keyframes slideInOut {
+  0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0);
+  }
+
+  50% {
+      opacity: 0.5;
+      visibility: visible;
+      transform: translateY(0);
+  }
+
+  100% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+  }
+}
+
+/* .filters-row{
+  display: flex;
+}
+
+.filters-column{
+  width: 50%;
+} */
+
+fieldset{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+fieldset {
+  border: 0px solid #4CAF50;
+  padding: 5px;
+  background-color: #f9f9f9;
+}
+legend {
+  font-weight: bold;
+  /* color: #4CAF50; */
+}
