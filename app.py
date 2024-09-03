@@ -52,6 +52,9 @@ def cleanup_df(df,entity):
         return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN','Origin'], axis=1)
     elif entity == "Mitigations":
         return df.dropna(axis=1)
+    elif entity == "Goals":
+        return df.drop(labels=['References','Description'], axis=1)
+        
 
 
 def simplify_table(df,entity):
@@ -79,9 +82,11 @@ def simplify_table(df,entity):
 
 def read_and_cleanup(entity):
     df = pd.read_csv(CSV_BASE_PATH + entity + ".csv")
+    
     df = df.reset_index().set_index("index").reset_index()
     df.drop(labels=['index'], axis=1, inplace=True)
     df = cleanup_df(df,entity)
+    print(df)
     return df
 
 
@@ -154,7 +159,8 @@ def get_specific():
     connections = {
         "Requirements": ["Mitigations"],
         "Mitigations": ["Requirements","Threats"],
-        "Threats": ["Mitigations"]
+        "Threats": ["Mitigations"],
+        "Goals": ['Requirements']
     }
     
     tables = []

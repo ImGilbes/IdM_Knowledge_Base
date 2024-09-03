@@ -20,7 +20,7 @@
 17. add filters to the specific page ✅
 18. allow entries in the specific page to go to their own specific page (recursive specific) ✅
 19. add more entities!
-    1.  start by adding goals
+    1.  start by adding goals ✅
     2.  add issues
     3.  add limitations
     4.  add more links!
@@ -28,3 +28,10 @@
 20. Replace T and F with checkmarks and crosses (but if possible only in the css) ✅
 21. style filters menu ✅
 22. solve issue with row filtering and new content of the cells ✅
+23. You might wanna rethink how connections are made 
+
+---
+When you add a new entity you have to:
+1. add the button in index and rename the ids
+2. add it to connections map
+3. add it to cleanup_df
