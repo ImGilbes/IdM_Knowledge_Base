@@ -77,6 +77,7 @@ function updateFiltersRows(){
                         if(!header.classList.contains("hidden")){
                             if(checked.indexOf(header.textContent) != -1){
                                 const cell = row.cells[k];
+                                console.log(cell.textContent);
                                 if(cell.textContent == filter_value){
                                     row.classList.add("hidden");
                                 }

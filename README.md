@@ -27,4 +27,4 @@
     5.  fill in attacks, vulnerabilities, architectures
 20. Replace T and F with checkmarks and crosses (but if possible only in the css) ✅
 21. style filters menu ✅
-22. solve issue with row filtering and new content of the cells
+22. solve issue with row filtering and new content of the cells ✅
