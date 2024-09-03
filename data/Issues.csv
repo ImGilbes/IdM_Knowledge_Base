@@ -1,0 +1,31 @@
+Issues,Rights,Adoption,ServiceQuality,Law&Compliance,Technical,Security,Privacy,Trust,Governance&Procedures,User-related,Socio-political,Description,Ref,Impacts,ORIGIN
+"Centralization of data, services, resources",F,F,T,F,T,T,T,F,F,F,F,,hansen 2008,"Security, Privacy",Architecture
+Data Silos,F,F,T,F,T,F,F,F,F,F,F,,Sedlmeir 2021,Service Provision,Design
+SPoF,F,F,T,F,T,T,F,F,F,F,F,,"Badirova 2023, OIDF gov issued","Security, Privacy",Architecture
+Lack of trust between computing parties,F,F,T,F,T,F,F,T,F,F,F,,Khattak 2011,"Security, Trust",Design
+Difficulties establishing trust,F,F,T,F,T,F,F,T,F,F,F,,OIDF human-centric,"Security, Trust","Design, Architecture"
+Costs of SSI development,F,F,T,F,F,F,F,F,T,F,F,"very specific, idk why",Hünseler 2023,Affordability,Design
+"Higher development costs for new, under-experimented technologies",F,F,T,F,F,F,F,F,T,F,F,,,,
+"Difficulty preventing linkability and profiling due to system and data structures design, and/or designing anonymity support",F,F,T,F,T,F,T,F,F,F,F,,"Kassem 2019, Der 2017, Frederiksen 2019, Rathee 2022, Werner 2017, Satybaldy 2024",Privacy,Design
+Lack of interoperability/portability due to the system design,F,F,T,F,T,F,F,F,F,F,F,"The standards are there, but the system designers disregard them and create an isolated environment","Arias-Carbacos 2012, Rathee 2022, Jensen 2012, Satybaldy 2024, Campbell 2023",Privacy,Design
+Lack of user trust due to reputation of the system,F,T,F,F,F,F,F,F,T,T,F,Either bad reputation of governance actors or history of securityand privacy violations,,Adoption,Architecture
+Lack of user trust due to uncertain compliance or implementation of security and privacy safeguards,F,T,F,F,F,F,F,F,T,T,F,"with laws, framework, standards",Sule 2021,Adoption,Design
+Ensuring trustworthiness of the user,F,F,T,F,F,F,F,T,F,F,F,"This is not really a threat, but rather a threat enabler",Ghazizadeh 2012,Security,Design
+Lack of enforceability fo privacy and data protection rights,T,F,T,T,F,F,T,F,T,F,F,,Iglezakis 2015,Privacy,Design
+Management of dynamic user groups,F,F,T,F,T,F,F,F,F,F,F,For RBAC in cloud environments.,Badirova 2023,Security,Design
+Incompatible access control methods (among federations' OPs),F,F,T,F,T,T,F,F,F,F,F,,Badirova 2023,"Security, Service provision",Design
+Composition of federated services,F,F,T,F,T,F,F,F,F,F,F,Dynamicity of services complicates AC,Badirova 2023,Service Provision,Design
+"Managing different user types: regular users, IoT, digital user",F,F,T,F,T,F,F,F,F,F,F,"Complicates AC bc of the different access requirements, capabilities, and access methods",Badirova 2023,Service Provision,Design
+Lack of integration with traditional IdMs due to systems and data incompatibility,F,F,T,F,T,F,F,F,F,F,F,SSI specific,"Satybaldy 2024, Badirova 2023",Service Provision,Design 
+Device Compatibility,F,F,T,F,T,F,F,F,F,F,F,Can be a substantial obstacle in developing countries,Badirova 2023,Service Provision,Design
+Identification of all relevant identities,F,F,T,F,F,F,F,F,T,F,F,"This is something that is done at design it. Thought hard, can ony be tackled by the design itself.",Puchta 2019,Users' rights,Design
+Heterogeneity of various identities (data formats & interfaces),F,F,T,F,T,F,F,F,F,F,F,,"Puchta 2019,  Der 2017,",Service Provision,Design
+Lack of reusability of identities,F,F,T,F,T,F,F,F,F,F,F,"You could attribute this to regulations, but not that much, just a bit",Dunphy 2018,Service Provision,Design
+Difficulty deleting user data due to poor data minimization and sharing practices,T,F,T,F,T,F,T,F,T,F,F,,"Der 2017,  Guggenmos 2019",,
+Data handling mechanisms lack transparency,T,F,T,T,T,F,T,F,F,F,F,,"Sapelova 2014, Iglezakis 2015",Privacy,design
+Lack of data minimization compliance control,F,F,T,F,T,F,T,F,F,F,F,,Sapelova 2014,Privacy,design
+Reliance on end-user for data safety practices,F,F,T,F,F,T,T,F,T,T,F,,OIDF human-centric,Privacy,"Deisgn, Architecture"
+Struggle to gain access to proof of legal identity due to inequities and administrative barriers associated with the implementation of identification and registration systems,T,T,F,F,F,F,F,F,F,F,T,,sperfeldt 2021,Users' rights,Design
+Diversification of risk profiles linked to different access rights,F,F,T,F,T,T,F,F,F,F,F,,Alpar 2011,Security,Design
+Transformation from RBAC to ABAC,F,F,T,F,T,T,F,F,T,F,F,,Puchta 2019,"Security, Service provision",Design
+Design hinders compliance with national or international regulations,T,F,F,T,F,F,F,F,F,F,F,,"Badirova 2023, Ghazizadeh 2013",,

@@ -54,6 +54,10 @@ def cleanup_df(df,entity):
         return df.dropna(axis=1)
     elif entity == "Goals":
         return df.drop(labels=['References','Description'], axis=1)
+    elif entity == "Issues":
+        return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
+    elif entity == "Goals":
+        return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
         
 
 
@@ -157,10 +161,12 @@ def get_specific():
     starting_record = None
 
     connections = {
-        "Requirements": ["Mitigations"],
+        "Requirements": ["Mitigations", 'Goals'],
         "Mitigations": ["Requirements","Threats"],
         "Threats": ["Mitigations"],
-        "Goals": ['Requirements']
+        "Goals": ['Requirements'],
+        "Issues": ['Threats'],
+        "Limitations": ['Threats']
     }
     
     tables = []

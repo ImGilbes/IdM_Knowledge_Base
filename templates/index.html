@@ -159,6 +159,20 @@
         </div>
     </div>
 
+    <div class="container" class="table-container">
+        <button class="collapsible" id="Issues_collapsible" onclick="toggleContent('Issues')">Open Issues</button>
+        <div class="content" id="Issues_content" style="display: none;">
+            <div id="Issues_table" class="table-container"></div>
+        </div>
+    </div>
+
+    <div class="container" class="table-container">
+        <button class="collapsible" id="Limitations_collapsible" onclick="toggleContent('Limitations')">Open Limitations</button>
+        <div class="content" id="Limitations_content" style="display: none;">
+            <div id="Limitations_table" class="table-container"></div>
+        </div>
+    </div>
+
     <script>
         function toggleContent(entity) {
             var content = document.getElementById(entity+"_content");

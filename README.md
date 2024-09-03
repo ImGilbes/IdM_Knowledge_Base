@@ -35,3 +35,20 @@ When you add a new entity you have to:
 1. add the button in index and rename the ids
 2. add it to connections map
 3. add it to cleanup_df
+
+---
+Express formally connection formula in SQL.
+Extend the kind of queries!
+   modulate the way you build connections
+Setup the user experience and use cases
+
+landing page to define use cases
+
+act as someone designing an NDID for the first time
+use cases:
+   - op, rp
+   - system designer
+   - user
+     - users on different levels 
+     - someone who needs understanding
+   - regulations compliance
