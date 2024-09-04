@@ -52,3 +52,39 @@ use cases:
      - users on different levels 
      - someone who needs understanding
    - regulations compliance
+
+---
+## Methodology
+
+#### Collecting the Literature
+1. Semi-automated literature review, using a modification of script \<link to script\> available at \<github of the @\>
+2. The literature review was conducted on Google Scholar, which comprises \<list databases\>
+3. The review was conducted on keywords connected to identity management systems, such as IdM\*, IdP\*, NDID\*, eID\*, and the keywords threat\*, requirement\*, problem\*, issue\*, limitation\*, vulnerability\*, attack\*, mitigation\*, control\*
+   1. This list of keywords includes some synonyms that ensured that all relevant literature would be collected
+4. The initial number of papers collected was 1200, ~200 after the review
+5. Fig a describes shows the steps undertaken during the reviewing process
+6. Finally, we integrated the grey literature discovered during the review, bringing the total of relevant literature articles to n
+
+![literature review step](/Methodology_figures/lit%20review%20steps.png "Fig a - Literature Review Steps")
+
+#### Building the Knowledge Framework
+1. Analyze existing identity ecosystems to identify relevant entities
+2. Define entities with NIST definitions whenever possible
+3. Connect entities based on their interactions
+4. Validate the framework during the literature review by verifying that all entities are comprised in the framework
+
+![framework](/Methodology_figures/Framework%20v2%20Whole.drawio.png "Resulting Knowledge Framework")
+
+#### Problems with the existing literature
+1. Entities wrongly categorized and incorrect application of NIST definitions
+2. Little to no information for some entities
+3. Incomplete information for most entities
+
+#### Filling the tables
+1. Entities are initialized with the analysis of the relevant literature
+2. Entities are updated by analyzing the entries of the connected entities!
+   1. for entity in knowledge framework:
+      1. for connected_entity in connections_of(entity):
+         1. for entry in connected_entity:
+            1. describe related entity entries
+            2. remove duplicates
