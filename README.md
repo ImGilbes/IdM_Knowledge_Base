@@ -21,8 +21,8 @@
 18. allow entries in the specific page to go to their own specific page (recursive specific) ✅
 19. add more entities!
     1.  start by adding goals ✅
-    2.  add issues
-    3.  add limitations
+    2.  add issues ✅
+    3.  add limitations ✅
     4.  add more links!
     5.  fill in attacks, vulnerabilities, architectures
 20. Replace T and F with checkmarks and crosses (but if possible only in the css) ✅
@@ -61,6 +61,7 @@ use cases:
 2. The literature review was conducted on Google Scholar, which comprises \<list databases\>
 3. The review was conducted on keywords connected to identity management systems, such as IdM\*, IdP\*, NDID\*, eID\*, and the keywords threat\*, requirement\*, problem\*, issue\*, limitation\*, vulnerability\*, attack\*, mitigation\*, control\*
    1. This list of keywords includes some synonyms that ensured that all relevant literature would be collected
+   2. Provide example query
 4. The initial number of papers collected was 1200, ~200 after the review
 5. Fig a describes shows the steps undertaken during the reviewing process
 6. Finally, we integrated the grey literature discovered during the review, bringing the total of relevant literature articles to n
@@ -88,3 +89,22 @@ use cases:
          1. for entry in connected_entity:
             1. describe related entity entries
             2. remove duplicates
+
+---
+
+SQL equivalent of the connection query
+
+Provide an SQL query that, given a record of EntityA with an unknown number of booleans fields with value True, returns all the records of EntityB that have those same fields set as True
+
+SELECT *
+FROM EntityB b
+WHERE EXISTS (
+    SELECT 1
+    FROM EntityA a
+    WHERE a.id = :entityA_id
+      AND (a.flag1 = TRUE AND b.flag1 = TRUE OR a.flag1 = FALSE)
+      AND (a.flag2 = TRUE AND b.flag2 = TRUE OR a.flag2 = FALSE)
+      AND (a.flag3 = TRUE AND b.flag3 = TRUE OR a.flag3 = FALSE)
+      ...
+      AND (a.flagn = TRUE AND b.flagn = TRUE OR a.flagn = FALSE)
+);
