@@ -98,6 +98,10 @@ def read_and_cleanup(entity):
 def index():
     return render_template('index.html')
 
+@app.route('/knowledge_base')
+def knowledge_base():
+    return render_template('knowledge_base.html')
+
 @app.route('/get_table', methods=['GET'])
 def get_table():
     entity = request.args.get("entity")

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NDID Knowledge Base</title>
+
+    <link rel="stylesheet" href="static/styles.css">
+
+    <script type="text/javascript" src="static/tables.js"></script>
+    <script type="text/javascript" src="static/filters.js"></script>
+    <script>
+        var loaded = new Array();
+        var displayed = new Array();
+        var current_main_entity = new String();
+    </script>
+</head>
+</head>
+<body>
+
+    <div class="landingPresentation" id="landingPageIntro">
+        <h4 id="landingPresentationTitle">Welcome to the NDID Knowledge Base</h4>
+        <p id="landingPresentationParagraph">Here you can explore the various entities, discover their definitions and see what they contain!</p>
+    </div>
+
+    <button onclick="toggle_filters()">
+        Toggle Filters
+    </button>
+
+    <div id="filters-div" class="filters-div">
+        <fieldset>
+            <legend>Filters</legend>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="People Rights" onchange="" autocomplete="off"/>
+                <label>People Rights</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="" autocomplete="off"/>
+                <label>Adoption</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="" autocomplete="off"/>
+                <label>Service Quality</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="" autocomplete="off"/>
+                <label>Confidentiality and Data Disclosure</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="" autocomplete="off"/>
+                <label>Laws, Regulations, Compliance</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Technical" onchange="" autocomplete="off"/>
+                <label>Technical</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter_checkbox" value="Security" onchange="" autocomplete="off"/>
+                <label >Security</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Privacy" onchange="" autocomplete="off"/>
+                <label >Privacy</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="" autocomplete="off"/>
+                <label >Trust</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="" autocomplete="off"/>
+                <label >System Design</label>
+            </div>
+            
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="" autocomplete="off"/>
+                <label >Governance Actors, Management, and Procedures</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="" autocomplete="off"/>
+                <label >Social and Political</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="" autocomplete="off"/>
+                <label >Functional Requirement</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="" autocomplete="off"/>
+                <label >Integrity</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Availability" onchange="" autocomplete="off"/>
+                <label >Availability</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Transparency" onchange="" autocomplete="off"/>
+                <label >Transparency</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="" autocomplete="off"/>
+                <label >Surveillance</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="" autocomplete="off"/>
+                <label >Authenticity of Data and Identity, Authorization</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="" autocomplete="off"/>
+                <label >Abuse of system functionality</label>
+            </div>
+        </fieldset>
+
+
+        <label for="filter_mode">Choose a filtering option:</label>
+        <select name="filter_mode" id="filter_mode_select">
+            <option value="columns">Columns</option>
+            <option value="rows">Rows</option>
+        </select>
+
+        <label for="filter_row_value">Choose a row value to filter (only if you have selected Rows as filtering option):</label>
+        <select name="filter_row_value" id="filter_row_value_select">
+            <option value="T">True</option>
+            <option value="F">False</option>
+        </select>
+
+        <button id="update_filters_button" onclick="updateFilters()">Update Filters</button>
+        <button id="update_filters_button" onclick="resetFilters()">Reset Filters</button>
+        <!-- <button id="update_filters_button" onclick="updateFilters()">Reset Rows</button> -->
+        
+    </div>
+
+    <script>
+        
+    </script>
+    
+    <div class="container table-container">
+        <button class="collapsible" id="Goals_collapsible" onclick="toggleContent('Goals')">Open Goals</button>
+        <div class="content" id="Goals_content" style="display: none;">
+            <div id="Goals_table" class="table-container"></div>
+        </div>
+    </div>  
+    
+    <div class="container" class="table-container">
+        <button class="collapsible" id="Requirements_collapsible" onclick="toggleContent('Requirements')">Open Requirements</button>
+        <div class="content" id="Requirements_content" style="display: none;">
+            <div id="Requirements_table" class="table-container styled-table"></div>
+        </div>
+    </div>
+
+    <div class="container" class="table-container">
+        <button class="collapsible" id="Mitigations_collapsible" onclick="toggleContent('Mitigations')">Open Mitigations</button>
+        <div class="content" id="Mitigations_content" style="display: none;">
+            <div id="Mitigations_table" class="table-container"></div>
+        </div>
+    </div>
+
+    <div class="container" class="table-container">
+        <button class="collapsible" id="Threats_collapsible" onclick="toggleContent('Threats')">Open Threats</button>
+        <div class="content" id="Threats_content" style="display: none;">
+            <div id="Threats_table" class="table-container"></div>
+        </div>
+    </div>
+
+    <div class="container" class="table-container">
+        <button class="collapsible" id="Issues_collapsible" onclick="toggleContent('Issues')">Open Issues</button>
+        <div class="content" id="Issues_content" style="display: none;">
+            <div id="Issues_table" class="table-container"></div>
+        </div>
+    </div>
+
+    <div class="container" class="table-container">
+        <button class="collapsible" id="Limitations_collapsible" onclick="toggleContent('Limitations')">Open Limitations</button>
+        <div class="content" id="Limitations_content" style="display: none;">
+            <div id="Limitations_table" class="table-container"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(entity) {
+            var content = document.getElementById(entity+"_content");
+            var button = document.getElementById(entity+"_collapsible");
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                button.innerText = "Open " + entity;
+                array_remove(displayed, entity);
+            } else {
+                if(loaded.indexOf(entity) == -1){ //load only if it hasn't been loaded before lol
+                    loadTable(entity);
+                }
+                else{
+                    // resetRows();
+                }
+                content.style.display = "block";
+                button.innerText = "Close " + entity;
+                displayed.push(entity);
+            }
+        }
+    </script>
+
+</body>
+</html>
