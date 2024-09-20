@@ -1,0 +1,44 @@
+Attacks,Conf&DataDiscl,Integr,Avail,Surv,Authn&Authz,Generic,physical access,outer or adjacent network vector,priviledged access,References
+Man-in-the-middle,T,T,T,T,T,T,,,,"Naik 2017, Gruner 2023, Navas 2022, PIllai 2021, Le 2023"
+Man-in-the-mobile,T,T,T,T,T,F,,,,
+Man-in-the-browser,T,T,T,T,T,F,,,,
+traffic interception & eavesdropping,T,F,F,T,F,F,,,,"Naik 2017, Gruner 2023, Navas 2022, PIllai 2021, Le 2024"
+Authenticator duplication,T,T,F,F,T,F,,,,
+XSS,T,T,T,F,F,T,,,,"Naik 2017, Le 2023"
+Malicious URL,T,T,T,F,F,T,,,,Dominicini 2011
+Session Hijacking,T,T,T,F,T,T,,,,"Dominicini 2011, Bilal 2020, Le 2023"
+CSRF,T,T,T,F,T,T,,,,"Dominicini 2011, Le 2023"
+Flood Connections,F,F,T,F,F,T,,,,Gruner 2023
+"Blockchain network attacks (double spending, 51%, selfish mining, precomuntuing, sybil attacks, eclipse attacks, father forking)",F,T,F,F,F,F,,,,"Alamri 2022, Pohn 2023, Sheik 2021, PIllai 2021"
+(D)DoS,F,F,T,F,F,T,,,,"Naik 2022, Macedo 2015, Le 2023"
+Password attacks: stuffing and bruteforce + general password attacks,T,T,F,F,T,T,,,,"PIllai 2021, Madsen 2005"
+Pharming (Authenticator service spoofing),T,T,F,F,T,T,,,,Madsen 2005
+Malware and trojan attacks compromising private key or password,T,T,F,F,T,T,,,,"PIllai 2021, Le 2023"
+Phishing,T,T,F,F,T,T,,,,"PIllai 2021, Bilal 2020, Madsen 2005, Le 2023, sperfeldt 2021"
+social engineering,T,T,F,F,T,T,,,,sperfeldt 2021
+Cryptojacking,F,F,F,F,T,T,,,,PIllai 2021
+Clickjacking,T,T,T,F,T,T,,,,PIllai 2021
+Injection attack,T,T,T,F,F,T,,,,Le 2023
+Redirect attack (307 redirect),,,,,,,,,,Le 2023
+"Token/authz code spoofing, forging, replay, and leak attacks",T,T,F,F,T,T,,,,"Le 2023, Navas 2022, Dominicini 2011"
+Naive RP session integrity attack,T,T,F,F,T,T,,,,Le 2023
+Server-side request forgery (SSRF),T,T,T,F,F,T,,,,Le 2023
+Priviledge escalation,T,T,T,T,T,T,,,,Le 2023
+Key exposure attacks,T,T,F,F,T,F,,,,Le 2023
+Reverse engineering,T,T,F,F,T,T,,,,Le 2023
+Fraudulent issuance,F,T,F,F,T,F,,,,Le 2023
+IdP impersonation,T,T,T,F,T,T,,,,Le 2023
+Wallet query language (WQL) injection attacks,T,T,T,F,T,F,,,,Le 2023
+DID wallet database information disclosure attack,T,F,F,F,F,F,,,,Le 2023
+Jailbreak/Rooting attack against DID identity wallet,T,T,T,F,T,F,,,,Le 2023
+DNS Cache poisoning/Pollution attack,T,T,T,F,T,T,,,,Le 2023
+VDR partitioning,F,T,T,F,T,F,,,,Le 2023
+Social Recovery Attack,T,T,T,F,T,T,,,,Le 2023
+Blackmail,T,T,T,F,T,T,,,,Wangen 2012
+shoulder surfing,T,T,T,F,T,T,,,,
+eCard cloning,T,T,T,F,T,F,,,,
+eCard forgery,F,T,T,F,T,F,,,,
+Personal computer Theft,T,T,T,F,T,T,,,,
+Mobile Theft,T,T,T,F,T,T,,,,
+eCard Theft,T,T,T,F,T,F,,,,
+eCard destruction,F,F,T,F,T,F,,,,

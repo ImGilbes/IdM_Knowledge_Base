@@ -58,6 +58,10 @@ def cleanup_df(df,entity):
         return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
     elif entity == "Goals":
         return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
+    elif entity == "Attacks":
+        return df.drop(labels=["References"], axis=1)
+    elif entity == "Vulnerabilities":
+        return df.drop(labels=["Description","References"], axis=1)
         
 
 
@@ -170,7 +174,9 @@ def get_specific():
         "Threats": ["Mitigations"],
         "Goals": ['Requirements'],
         "Issues": ['Threats'],
-        "Limitations": ['Threats']
+        "Limitations": ['Threats'],
+        "Vulnerabilities":['Attacks','Mitigations'],
+        "Attacks":['Vulnerabilities','Threats']
     }
     
     tables = []

@@ -1,82 +1,82 @@
-Requirements,Rights,Adoption,ServiceQuality,Law&Compliance,Technical,Security,Privacy,Trust,SysDesign,Governance&Procedures,User-related,Socio-political,Functional,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Abuse,Description,References,Addresses
-Complying with human rights and non-discrimination law,T,F,F,T,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,"Beduschi 2019,  Guggenmos 2018, Satybaldy 2024, WB principles",Enable and ensure user rights
-"Clearly defined regulation for enrollment, inclusion in identity infrastructure",T,T,F,T,F,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,,DIACC making sense,Ensure users' rights
-"Meeting data protection and privacy imperatives, compliance with privacy laws and data protection regulations, accountability and legal compliance",F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Beduschi 2019, Puchta 2019, Aldosary 2021, Kassem 2019,  Guggenmos 2018, Pohn 2023, Satybaldy 2024, Werner 2017, Jensen 2012, Ahmad 2010, Storf 2010, Hansen 2008, Ayed 2011, Bakhaev 2023, DIACC Universal, DIACC making sense, WB principles, OECD governance didigd, OIDF human centric, sperfeldt 2021","Security, Privacy, Trust"
-Legal protection for users & protection of users' rights,T,F,F,T,F,F,F,T,F,F,T,T,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Haddouti 2019",Ensure users' rights
-Implementation of Liability and law enforcement assurance mechanisms,T,F,F,T,F,F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,"Digital evidence, digital signatures, necessary data retention","Ferdous 2012, Pohn 2020, Torres 2013, Boujezza 2015",Ensure users' rights
-Clear liability arrangements,T,F,F,T,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,,"DIACC making sense, OECD governance digid",Ensure users' rights
-Ability to have recourse in case of violation of user rights,T,F,F,T,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,,DIACC making sense,Ensure users' rights
-"Secure mechanisms for establishing, maintaining and managing trust among parties",F,F,T,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,,"Aldosary 2021, Alpar 2011, Rathee 2022, Jensen 2012, Habiba 2014, Zhu 2018, Pohn 2023, OIDF human-centric","Security, Trust"
-Confidence verification using risk and reputation metrics (trust enabler),F,F,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,,Werner 2017,"Security, Trust"
-"Data Accuracy & Identity information validity, also data quality, data trustworthiness",F,F,T,F,T,T,T,F,F,F,F,F,F,F,T,F,F,F,T,F,,"Ahmad 2010, Hansen 2008, Ayed 2011, Puchta 2019, Der 2017, Werner 2017, WB principles","Security, Privacy"
-Use of data standards,F,F,T,T,T,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,WEF ecosystems,quality and quantiy Service provision
-Testability of the data provided by the IdM,F,F,T,F,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,,Lenz 2015,"Security, Privacy"
-Unlinkability & minimal correlation possibility,F,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,T,F,F,,"Storf 2010, Mole 2023, DIACC making sense, OECD governance digid",Privacy
-Data Minimization,F,F,T,F,T,F,T,F,F,F,F,F,F,T,F,F,F,T,F,F,,"Zaeem 2021, Storf 2010, Akram 2008, Ferdous 2012, Pohn 2020, Mole 2023, Haddouti 2019, Kassem 2019, Werner 2017, Satybaldy 2024, OIDF human-centric, OIDF gov issued, sperfeldt 2021, DIACC Universal, DIACC making sense, OECD government digid",Privacy
-"Openness of data for the data subject, ability to access and control the shared data",T,F,T,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,,"Zaeem 2021, Storf 2010, Naik 2020, Hansen 2008, Ayed 2011, Ferdous 2012, Pohn 2020, Boujezza 2015, Haddouti 2019, Maliki 2007,Kassem 2019, Werner 2017, Habiba 2014, Dhamija 2007, Eddine 2021",Privacy
-"Consent, controllable and controlled data disclosure and processing",T,F,T,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,T,F,,"Zaeem 2021, Storf 2010, Akram 2008, Hansen 2008, Ayed 2011, Ferdous 2012, Pohn 2020, Mole 2023, Haddouti 2019, Kassem 2019, DIACC Universal, sperfeldt 2021, DIACC making sense, WEF ecosystems, OIDF gov issued, OECD governance digid",Privacy
-"Transparency of processes, transactions, and purposes",F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,T,F,F,F,,,
-Ensure user awareness,F,F,T,F,F,F,T,F,F,F,T,F,F,F,F,F,T,F,F,F,,,
-Long-term transparency,F,F,T,F,F,F,T,F,F,F,T,F,F,F,F,F,T,F,F,F,Notify all interested parties of changes made to the organization and the software that could impact their privacy,,
-Clear statement of use of credentials and data attributes,F,F,T,F,F,F,T,F,F,T,F,F,F,F,F,F,T,F,F,F,,"DIACC making sense, sperfeldt 2021","Security, Privacy"
-Establish clear policies and procedures for data handling,F,F,T,F,F,T,T,F,F,T,F,F,F,T,F,F,T,F,F,F,,,
-Only lawful use of data is allowed,T,F,T,T,F,F,T,F,F,T,F,T,F,F,F,F,F,F,F,T,,"DIACC making sense, OECD governance didgid",Ensure users' rights
-Purpose limitation,T,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,T,T,T,,"Storf 2010, Akram 2008, Hansen 2008, Ayed 2011",Privacy
-Storage limitation,T,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,T,T,,"Storf 2010, Hansen 2008, Ayed 2011",Privacy
-"Plan for breaches, violation, and emergency situations in general",F,F,T,F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,F,F,,Storf 2010,"Privacy, security"
-Non-repudiation & multilateral security,F,F,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,T,F,,"Akram 2008, Ferdous 2012, Pohn 2020, Mole 2023, Subenthiran 2004, Dhamija 2007",Security
-Use of trust marks & verification process ,F,F,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,,"Ayed 2011, Ferdous 2012, Pohn 2021","Privacy, security"
-Adoption of a privacy standard,F,F,T,T,F,F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,,"Ayed 2011, Ferdous 2012, Pohn 2021, OIDF human-centric, WEF ecosystems, OECD governance digid","Privacy, security"
-Adoption of a trust framework,F,F,T,T,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,,,
-Limit the initial data disclosure based on the functionalities desired by the user (also called choice of terms of the contract),T,F,F,F,F,F,F,F,F,T,T,F,F,T,F,F,F,F,F,F,"This one meant the user can choose for what reason to join the system, thus what are the attributes that he needs to disclose ",Ayed 2011,Privacy
-Anonymity and pseudonymity,F,F,T,F,T,F,T,F,F,F,F,F,F,T,F,F,F,T,F,F,,"Ferdous 2012, Pohn 2020, Zaeem 2021",Privacy
-Use of Open Source technologies,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Subenthiran 2004, OECD governance digid","Security, Adoption, Service Provision"
-Use of open standards,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,,"WB principles, OECD governance digid","Security, Adoption, Service Provision"
-Segregation of Power,T,F,T,F,F,F,F,T,T,T,F,F,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020","Security, Adoption, Service provision"
-Complexity Reduction,F,T,T,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020",Adoption
-"Integration into processes of the existing infrastructure, legal validity of the digital id",F,T,T,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Pohn 2020, Lenz 2015",Adoption
-"Pluralism of Operators and technologies, ensure variety of providers",F,T,T,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,,Maliki 2007. human centric 2023,"Security, Adoption & service provision"
-Support for federated IdM,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,Subenthiran 2004,Adoption
-Specialized hardware for secure private key storage,F,F,T,F,T,T,F,F,F,F,F,F,F,T,F,F,F,F,T,F,,Sedlmeir 2021,Security
-Assurance: demonstrate that security and privacy mechanisms are in place,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,,Jensen 2012,"Security, Privacy"
-ease of access (and remove the barriers to it),T,T,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,"Depends also on the ease of enrollment, how easy it is to use the id as a document (for NDIDs), how easy it is to authenticate and access services (always consider errors and rejection rates)","Lips 2021, Bakhaev 2023, WB principles, OECD governance digid",Ensure users' rights
-ease of enrollment (and remove the barriers to it),T,T,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,,"Lips 2021, Bakhaev 2023, WB principles, OECD governance digid",
-Voluntary enrollment,T,F,F,F,F,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,,DIACC universal principles,Unsure user's rights
-Security standards for biometrics (biohashing),F,F,T,F,T,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,OIDF human-centric,"Security, Privacy"
-"Set RP practices, controls, rules",F,F,T,F,T,T,T,T,F,T,F,F,F,T,T,T,T,T,T,F,,OIDF human-centric,"Security, Privacy"
-Minimum privacy & security standard (baseline),F,F,T,T,F,F,T,F,F,F,F,F,F,T,T,T,T,T,T,F,,OIDF human-centric,"Security, Privacy"
-Hub must be stateless (hub architectures only),F,F,T,F,T,T,T,F,T,F,F,F,F,F,F,F,F,T,F,F,,OIDF human-centric,"Security, Privacy"
-"Conduct ethical impact assessments to identify and address potential biases, discrimination, or unintended consequences",T,T,T,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,,sperfeldt 2021,Ensure users' rights
-Conduct regular security test and audits,F,F,T,F,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,sperfeldt 2021,"Security, Privacy"
-Network does not include honeypots that if breached would impact many subjects,F,F,T,F,T,T,T,F,T,F,F,F,F,T,F,F,F,F,F,F,,DIACC making sense,"Security, Privacy"
-Trust in downstream services (RPs),F,F,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,,DIACC making sense,"Security, Privacy"
-Credentials cannot be altered downstream,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,T,F,,DIACC making sense,"Security, Privacy"
-Digital identity cannot be inappropriately taken away,T,F,F,F,F,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,,DIACC making sense,Ensure users' rights
-"System does not place onerous service level requirements on provider, minimize access costs",F,T,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"DIACC making sense, OECD governance digid, WB principles",Adoption
-Auditing and oversight of infrastructure parties and memebers,F,T,T,T,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,,"WEF ecosystems, WB principles",Ensure users' rights
-Vendor neutrality,F,F,T,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,,OECD governance digid,quality and quantiy Service provision
-Consistency of user experience across different environments and contexts,F,F,T,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,,,
-Intuitive and easy-to-use UI,F,F,T,F,T,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,,"Pohn 2023, Satybaldy 2024, Lips 2021,",
-Accessibility of functionalities throught the UI,F,F,T,F,T,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,,,
-"Make available support for onboarding service providers with documentation, SDKs",F,F,T,F,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,OECD governance digid,quality and quantiy Service provision
-Modularity,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,DIACC Universal,quality and quantiy Service provision
-Mobility (IoT specific) & mobility (phone specific a long time ago),F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Boujezza 2015, Subenthiran 2004",Adoption
-Provability of VC,F,F,T,F,T,T,F,T,T,F,F,F,F,F,F,F,F,F,T,F,The ability for the identity owner to prove their identity,Zaeem 2021,Security
-"Fairness, Credibility and predictability of the identity provider ",T,T,T,F,F,F,F,T,F,T,F,T,F,F,F,F,F,F,F,F,,Mpofu 2014,"Security, Privacy"
-NDID project funding comes only from the government or uninterested parties that are not pursuing wider political and economical goals,T,T,T,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,,,
-The entitites funding the NDID are not seeking criminal objectives,T,T,T,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,,,
-The entitites funding the NDID project are honest and credible,T,T,T,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,,,
-Let the user access and modify their own data,T,F,T,F,F,F,T,F,F,F,T,F,T,F,F,F,F,F,F,F,,,
-Spam reduction,F,F,T,F,T,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,Maliki 2007,Security
-data synchronisation and consistency,F,F,T,F,T,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,Jensen 2012,Security
-Miners registration and active mining pool,F,F,T,F,T,T,F,T,F,F,F,F,T,F,F,F,F,F,F,F,,Bakare 2021,"Security, Privacy"
-multi-factor authentication methods,F,F,T,F,T,T,F,T,F,F,F,F,T,T,F,F,F,F,T,F,,sperfeldt 2021,"Security, Privacy"
-Selective Disclosure,F,F,T,F,T,F,T,F,F,F,F,F,T,T,F,F,T,F,F,F,,"OIDF gov issued, OECD governance digid","Security, Privacy"
-Identity attributes aggregation (need for),F,F,T,F,T,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,"Hünseler 2023, Mpofu 2014, Snehi 2013",quality and quantiy Service provision
-Provide recovery options,F,F,T,F,T,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,"OIDF human-centric, Zaeem 2021",quality and quantiy Service provision
-Biometrics support,F,F,T,F,T,T,F,T,F,F,F,F,T,F,F,F,F,F,F,F,,Zaeem 2021,Security
-Support for IoT,F,F,T,F,T,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,Zaeem 2021,Quality and quantity of Service provision
-Implementation of revocation mechanisms,F,F,T,F,T,T,F,F,F,F,F,F,T,F,F,F,F,F,T,F,,"Aldosary 2021, Jensen 2012, Satybaldy 2024",Security
-Secure IdP discovery mechanisms,F,F,T,F,T,T,F,T,F,F,F,F,T,F,F,F,F,F,F,F,,"Aldosary 2021, Jensen 2012",Security
-"Implementation of strong, reliable authentication mechanisms",F,F,T,F,T,T,F,T,F,F,F,F,T,T,F,F,F,F,T,F,,"Ferdous 2012, Pohn 2020, Snehi 2013",Security and privacy
-Transaction logging and auditing,F,F,T,F,T,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020",Security
+Requirements,OP,RP,User,Generic,User-interaction,Rights,Adoption,ServiceQuality,Law&Compliance,Technical,Security,Privacy,Trust,SysDesign,Governance&Procedures,Socio-political,Functional,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Abuse,Description,References
+Complying with human rights and non-discrimination law,T,T,T,T,F,T,F,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,"Beduschi 2019,  Guggenmos 2018, Satybaldy 2024, WB principles"
+"Clearly defined regulation for enrollment, inclusion in identity infrastructure",T,F,T,T,F,T,T,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,DIACC making sense
+"Meeting data protection and privacy imperatives, compliance with privacy laws and data protection regulations, accountability and legal compliance",T,F,T,T,F,F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,,"Beduschi 2019, Puchta 2019, Aldosary 2021, Kassem 2019,  Guggenmos 2018, Pohn 2023, Satybaldy 2024, Werner 2017, Jensen 2012, Ahmad 2010, Storf 2010, Hansen 2008, Ayed 2011, Bakhaev 2023, DIACC Universal, DIACC making sense, WB principles, OECD governance didigd, OIDF human centric, sperfeldt 2021"
+Legal protection for users & protection of users' rights,T,F,T,T,F,T,F,F,T,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Haddouti 2019"
+Implementation of Liability and law enforcement assurance mechanisms,T,F,T,T,F,T,F,F,T,F,F,F,T,T,F,T,F,F,F,F,F,F,F,F,"Digital evidence, digital signatures, necessary data retention","Ferdous 2012, Pohn 2020, Torres 2013, Boujezza 2015"
+Clear liability arrangements,T,F,T,T,F,T,F,F,T,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,,"DIACC making sense, OECD governance digid"
+Ability to have recourse in case of violation of user rights,T,F,T,T,F,T,F,F,T,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,DIACC making sense
+"Secure mechanisms for establishing, maintaining and managing trust among parties",T,T,F,T,F,F,F,T,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,,"Aldosary 2021, Alpar 2011, Rathee 2022, Jensen 2012, Habiba 2014, Zhu 2018, Pohn 2023, OIDF human-centric"
+Confidence verification using risk and reputation metrics (trust enabler),T,T,F,T,F,F,F,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,Werner 2017
+"Data Accuracy & Identity information validity, also data quality, data trustworthiness",T,T,F,T,F,F,F,T,F,T,T,T,F,F,F,F,F,F,T,F,F,F,T,F,,"Ahmad 2010, Hansen 2008, Ayed 2011, Puchta 2019, Der 2017, Werner 2017, WB principles"
+Use of data standards,T,T,F,T,F,F,F,T,T,T,T,T,F,T,F,F,F,F,F,F,F,F,F,F,,WEF ecosystems
+Testability of the data provided by the IdM,T,T,F,T,F,F,F,T,F,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,,Lenz 2015
+Unlinkability & minimal correlation possibility,T,T,T,T,F,F,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,T,F,F,,"Storf 2010, Mole 2023, DIACC making sense, OECD governance digid"
+Data Minimization,T,T,T,T,F,F,F,T,F,T,F,T,F,F,F,F,F,T,F,F,F,T,F,F,,"Zaeem 2021, Storf 2010, Akram 2008, Ferdous 2012, Pohn 2020, Mole 2023, Haddouti 2019, Kassem 2019, Werner 2017, Satybaldy 2024, OIDF human-centric, OIDF gov issued, sperfeldt 2021, DIACC Universal, DIACC making sense, OECD government digid"
+"Openness of data for the data subject, ability to access and control the shared data",T,T,T,T,T,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,,"Zaeem 2021, Storf 2010, Naik 2020, Hansen 2008, Ayed 2011, Ferdous 2012, Pohn 2020, Boujezza 2015, Haddouti 2019, Maliki 2007,Kassem 2019, Werner 2017, Habiba 2014, Dhamija 2007, Eddine 2021"
+Let the user access and modify their own data,T,F,T,T,T,T,F,T,F,F,F,T,F,F,F,F,T,F,F,F,F,F,F,F,,
+"Consent, controllable and controlled data disclosure and processing",T,T,T,T,T,T,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,T,F,,"Zaeem 2021, Storf 2010, Akram 2008, Hansen 2008, Ayed 2011, Ferdous 2012, Pohn 2020, Mole 2023, Haddouti 2019, Kassem 2019, DIACC Universal, sperfeldt 2021, DIACC making sense, WEF ecosystems, OIDF gov issued, OECD governance digid"
+"Transparency of processes, transactions, and purposes",T,T,T,T,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,T,F,F,F,,
+Ensure user awareness,T,T,T,T,T,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,T,F,F,F,,
+Long-term transparency,T,T,T,T,T,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,T,F,F,F,Notify all interested parties of changes made to the organization and the software that could impact their privacy,
+Clear statement of use of credentials and data attributes,T,T,T,T,T,F,F,T,F,F,F,T,F,F,T,F,F,F,F,F,T,F,F,F,,"DIACC making sense, sperfeldt 2021"
+Establish clear policies and procedures for data handling,T,T,F,T,F,F,F,T,F,F,T,T,F,F,T,F,F,T,F,F,T,F,F,F,,
+Only lawful use of data is allowed,T,T,F,T,F,T,F,T,T,F,F,T,F,F,T,T,F,F,F,F,F,F,F,T,,"DIACC making sense, OECD governance didgid"
+Purpose limitation,T,T,T,T,F,T,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,T,T,T,,"Storf 2010, Akram 2008, Hansen 2008, Ayed 2011"
+Storage limitation,T,T,T,T,F,T,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,T,T,,"Storf 2010, Hansen 2008, Ayed 2011"
+"Plan for breaches, violation, and emergency situations in general",T,F,F,T,F,F,F,T,F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,F,,Storf 2010
+Non-repudiation & multilateral security,T,T,F,T,F,F,F,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,T,F,,"Akram 2008, Ferdous 2012, Pohn 2020, Mole 2023, Subenthiran 2004, Dhamija 2007"
+Use of trust marks & verification process ,T,T,F,T,F,F,F,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Ayed 2011, Ferdous 2012, Pohn 2021"
+Adoption of a privacy standard,T,T,F,T,F,F,F,T,T,F,F,T,T,T,F,F,F,F,F,F,F,F,F,F,,"Ayed 2011, Ferdous 2012, Pohn 2021, OIDF human-centric, WEF ecosystems, OECD governance digid"
+Adoption of a trust framework,T,T,F,T,F,F,F,T,T,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,,
+Limit the initial data disclosure based on the functionalities desired by the user (also called choice of terms of the contract),T,T,T,T,T,T,F,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F,"This one meant the user can choose for what reason to join the system, thus what are the attributes that he needs to disclose ",Ayed 2011
+Anonymity and pseudonymity,T,F,F,T,F,F,F,T,F,T,F,T,F,F,F,F,F,T,F,F,F,T,F,F,,"Ferdous 2012, Pohn 2020, Zaeem 2021"
+Use of Open Source technologies,T,F,F,T,F,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Subenthiran 2004, OECD governance digid"
+Use of open standards,T,F,F,T,F,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,,"WB principles, OECD governance digid"
+Segregation of Power,T,F,F,T,F,T,F,T,F,F,F,F,T,T,T,F,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020"
+Complexity Reduction,T,T,T,T,F,F,T,T,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020"
+"Integration into processes of the existing infrastructure, legal validity of the digital id",T,F,F,T,F,F,T,T,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"Pohn 2020, Lenz 2015"
+"Pluralism of Operators and technologies, ensure variety of providers",T,F,F,T,F,F,T,T,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,,Maliki 2007. human centric 2023
+Vendor neutrality,T,F,F,T,F,F,F,T,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,,OECD governance digid
+Support for federated IdM,T,T,F,T,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,Subenthiran 2004
+Assurance: demonstrate that security and privacy mechanisms are in place,T,T,T,T,F,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,,Jensen 2012
+ease of access (and remove the barriers to it),T,T,T,T,T,T,T,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,"Depends also on the ease of enrollment, how easy it is to use the id as a document (for NDIDs), how easy it is to authenticate and access services (always consider errors and rejection rates)","Lips 2021, Bakhaev 2023, WB principles, OECD governance digid"
+ease of enrollment (and remove the barriers to it),T,F,T,T,T,T,T,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,,"Lips 2021, Bakhaev 2023, WB principles, OECD governance digid"
+Voluntary enrollment,T,F,T,T,T,T,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,DIACC universal principles
+Biometrics support,T,F,F,F,F,F,F,T,F,T,T,F,T,F,F,F,T,F,F,F,F,F,F,F,,Zaeem 2021
+Security standards for biometrics,T,T,T,F,F,F,F,T,F,T,T,T,F,T,F,F,F,F,F,F,F,F,F,F,,OIDF human-centric
+Implement data standards for biometric data,T,F,F,F,F,F,F,T,F,T,T,T,F,T,F,F,F,F,F,F,F,F,F,F,,
+"Set RP practices, controls, rules",F,T,T,T,F,F,F,T,F,T,T,T,T,F,T,F,F,T,T,T,T,T,T,F,,OIDF human-centric
+Minimum privacy & security standard (baseline),T,F,F,T,F,F,F,T,T,F,F,T,F,F,F,F,F,T,T,T,T,T,T,F,,OIDF human-centric
+Trust in downstream services (RPs),T,T,F,T,F,F,F,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,DIACC making sense
+Credentials cannot be altered downstream,T,T,F,T,F,F,F,T,F,T,T,T,T,T,F,F,F,F,F,F,F,F,T,F,,DIACC making sense
+Digital identity cannot be inappropriately taken away,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,DIACC making sense
+"System does not place onerous service level requirements on provider, minimize access costs",T,F,T,T,F,F,T,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,,"DIACC making sense, OECD governance digid, WB principles"
+Auditing and oversight of infrastructure parties and memebers,T,T,F,T,F,F,T,T,T,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,,"WEF ecosystems, WB principles"
+Consistency of user experience across different environments and contexts,T,T,T,T,T,F,F,T,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,
+Intuitive and easy-to-use UI,T,T,T,T,T,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"Pohn 2023, Satybaldy 2024, Lips 2021,"
+Accessibility of functionalities throught the UI,T,T,T,T,T,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,
+"Make available support for onboarding service providers with documentation, SDKs",T,T,F,T,F,F,F,T,F,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,,OECD governance digid
+Modularity,T,F,F,T,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,DIACC Universal
+Mobility (IoT specific) & mobility (phone specific a long time ago),F,F,F,F,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"Boujezza 2015, Subenthiran 2004"
+Provability of VC,F,F,F,F,F,F,F,T,F,T,T,F,T,T,F,F,F,F,F,F,F,F,T,F,The ability for the identity owner to prove their identity,Zaeem 2021
+"Fairness, Credibility and predictability of the identity provider ",T,F,F,T,F,T,T,T,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,,Mpofu 2014
+NDID project funding comes only from the government or uninterested parties that are not pursuing wider political and economical goals,T,F,F,T,F,T,T,T,F,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,,
+The entitites funding the NDID are not seeking criminal objectives,T,F,F,T,F,T,T,T,F,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,,
+The entitites funding the NDID project are honest and credible,T,F,F,T,F,T,T,T,F,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,,
+Data synchronisation and consistency,T,T,F,T,F,F,F,T,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,Jensen 2012
+Miners registration and active mining pool,T,F,F,F,F,F,F,T,F,T,T,F,T,F,F,F,T,F,F,F,F,F,F,F,,Bakare 2021
+Selective Disclosure,T,F,T,T,F,F,F,T,F,T,F,T,F,F,F,F,T,T,F,F,T,F,F,F,,"OIDF gov issued, OECD governance digid"
+Provide recovery options,T,F,F,T,F,F,F,T,F,T,T,F,F,F,F,F,T,F,F,F,F,F,F,F,,"OIDF human-centric, Zaeem 2021"
+Support for IoT,T,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,,Zaeem 2021
+Implementation of revocation mechanisms,T,F,F,T,F,F,F,T,F,T,T,F,F,F,F,F,T,F,F,F,F,F,T,F,,"Aldosary 2021, Jensen 2012, Satybaldy 2024"
+Secure IdP discovery mechanisms,T,T,F,T,F,F,F,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Aldosary 2021, Jensen 2012"
+"Implementation of strong, reliable authentication mechanisms",T,F,F,T,F,F,F,T,F,T,T,F,T,F,F,F,F,T,F,F,F,F,T,F,,"Ferdous 2012, Pohn 2020, Snehi 2013"
+Multi-factor authentication methods,T,F,F,T,F,F,F,T,F,T,T,F,T,F,F,F,F,T,F,F,F,F,T,F,,sperfeldt 2021
+Provide multiple authentication options,T,F,F,T,F,F,F,T,F,T,T,F,F,T,F,F,F,T,F,F,F,F,T,F,,
+Mutual communication parties authentication,T,T,F,T,F,F,F,T,F,T,T,F,F,F,F,F,F,T,T,F,F,F,T,F,,
+Secure communication channel,T,F,F,T,F,F,F,T,F,T,T,F,F,F,F,F,F,T,T,F,F,F,T,F,,
+Transaction logging and auditing,T,F,F,T,F,F,F,T,F,T,T,F,F,F,F,F,T,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020"
+eCard: use specialized middleware for cryptographic functionalities,F,F,F,F,F,F,F,T,F,T,T,F,T,F,F,F,F,T,T,F,F,F,T,F,,
+eCard data Portability,F,F,F,F,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,T,F,F,F,F,,
+eCard data and chip interoperability,F,F,F,F,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,T,F,F,F,F,,

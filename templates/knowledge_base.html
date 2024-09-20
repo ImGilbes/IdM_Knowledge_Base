@@ -173,6 +173,20 @@
         </div>
     </div>
 
+    <div class="container" class="table-container"></div>
+        <button class="collapsible" id="Attacks_collapsible" onclick="toggleContent('Attacks')">Open Attacks</button>
+        <div class="content" id="Attacks_content" style="display: none;">
+            <div id="Attacks_table" class="table-container"></div>
+        </div>
+    </div>
+
+    <div class="container" class="table-container"></div>
+        <button class="collapsible" id="Limitations_collapsible" onclick="toggleContent('Vulnerabilities')">Open Vulnerabilities</button>
+        <div class="content" id="Vulnerabilities_content" style="display: none;">
+            <div id="Vulnerabilities_table" class="table-container"></div>
+        </div>
+    </div>
+
     <script>
         function toggleContent(entity) {
             var content = document.getElementById(entity+"_content");
