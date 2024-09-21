@@ -1,8 +1,9 @@
 Threats,OP,RP,USER,Generic,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,Law&Compliance,Abuse,Socio-political,Rights,Description,References,Security,Privacy,STRIDE,LINDDUN
 Server-side Denial-of-service,T,F,F,T,F,F,T,F,F,F,F,F,T,T,Generic one,"Naik 2017, Dominicini 2011, Mayrhofer 2021, Hyperion 2016",T,F,D,
 Denied access to services of single targeted actors,T,F,T,T,F,F,T,F,F,F,F,F,T,T,,,,,,
+User cannot access services due to malfunctioning in the infrastructure,T,F,T,T,F,F,T,F,F,F,F,F,F,F,,,,,,
 Synthetic and forged claims and data attributes,T,T,F,T,F,T,F,F,F,T,F,F,F,F,,"Naik 2021, Ali 2022, Mayrhofer 2021, Naik 2022, Edu 2023",T,F,S,
-Identity Theft & Impersonation (spoofing),T,F,T,T,F,F,F,F,F,T,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016",T,F,SR,
+Identity Theft and Impersonation (spoofing),T,F,T,T,F,F,F,F,F,T,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016",T,F,SR,
 IdP account compromise,T,F,T,T,T,F,F,F,F,T,F,F,F,F,,"Navas 2022, Nweke 2022, Le 2023",T,T,I,Data Disclosure
 Credentials disclosure,T,F,T,T,T,F,F,F,F,T,F,F,F,F,,"Naik 2021, Dominicini 2011",T,T,I,Data Disclosure
 "PII leakage, data breach, unauthorized access to data",T,T,T,T,T,F,F,F,F,F,F,F,F,F,,"Navas 2022, Dominicini 2011, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Halperin 2012, Edu 2023, Beres 2007, Gruner 2023, Dunphy 2018, Frederiksen 2019, OIDF human-centric,Hyperion 2016",T,T,I,Data Disclosure
@@ -50,6 +51,13 @@ Hacked certificate authorities,T,T,F,T,F,F,F,F,F,T,F,F,F,F,,Sedlmeir 2021,T,T,ST
 "Data creep and excessive demand for attributes (overcollection), request of unnecessary data",T,T,T,T,T,F,F,F,F,F,T,T,F,T,,"Sedlmeir 2021, Iglezakis 2015, Gruner 2023, OIDF Human-centric",F,T,,"Linking, Non-compliance, Unwareness"
 Loss or lack of control over identity data,T,F,T,T,F,F,F,F,F,F,T,F,F,T,,"Sapelova 2014, Iglezakis 2015, Navas 2022",F,T,,Unwareness Unintervenability
 Data shared with unvetted or malicious parties,T,F,T,T,T,F,F,F,F,F,F,F,F,T,,"OIDF human-centric, Hyperion 2016",T,T,I,"Identifying,Data Disclosure"
+Data is not portable and siloed,T,T,F,F,F,F,T,F,F,F,F,F,F,F,,,,,,
+Different IdPs cannot exchange identity data,T,F,F,F,F,F,T,F,F,F,F,F,F,F,,,,,,
+RPs cannot read IdPs identity data,T,T,F,F,F,F,T,F,F,F,F,F,F,F,,,,,,
+User cannot access services outside of their country,T,F,T,F,F,F,T,F,F,F,F,F,F,F,,,,,,
+User cannot access services in foreign countries,T,F,T,F,F,F,T,F,F,F,F,F,F,F,,,,,,
+Data is bound to specific devices and drivers,T,F,F,F,F,F,T,F,F,F,F,F,F,F,,,,,,
+User cannot access services through multiple devices,T,F,T,F,F,F,T,F,F,F,F,F,F,F,,,,,,
 Denied access to state resources,T,F,T,T,F,F,F,F,F,F,F,F,T,T,,OIDF human-centric,F,F,,
 Limiting access to healthcare,T,F,T,T,F,F,F,F,F,F,F,F,T,T,,"CHRSJ Paving road, CHRSJ chased away",F,F,,
 Limiting access to food and social security,T,F,T,T,F,F,F,F,F,F,F,F,T,T,,CHRSJ Paving road,F,F,,

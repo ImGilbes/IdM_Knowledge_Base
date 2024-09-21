@@ -46,24 +46,28 @@ def get_categories(df):
     return tmp
 
 def cleanup_df(df,entity):
-    if entity == "Requirements":
-        return df.drop(labels=['References','Description','Addresses'], axis=1)
-    elif entity == "Threats":
-        return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN','Origin'], axis=1)
-    elif entity == "Mitigations":
-        return df.dropna(axis=1)
-    elif entity == "Goals":
-        return df.drop(labels=['References','Description'], axis=1)
-    elif entity == "Issues":
-        return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
-    elif entity == "Goals":
-        return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
-    elif entity == "Attacks":
-        return df.drop(labels=["References"], axis=1)
-    elif entity == "Vulnerabilities":
-        return df.drop(labels=["Description","References"], axis=1)
-        
-
+    match entity:
+        case "Requirements":
+            # return df.drop(labels=['References','Description'], axis=1)
+            return df.drop(labels=['References','Description','OP','RP','Generic'], axis=1)
+        case "Threats":
+            # return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN'], axis=1)
+            return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN','OP','RP','Generic'], axis=1)
+        case "Mitigations":
+            return df.drop(labels=['OP','RP','Generic'], axis=1).dropna(axis=1)
+        case "Goals":
+            # return df.drop(labels=['References','Description'], axis=1)
+            return df.drop(labels=['References','Description','OP','RP','Generic'], axis=1)
+        case "Issues":
+            return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
+        case "Limitations":
+            return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
+        case "Attacks":
+            return df.drop(labels=["References"], axis=1)
+        case "Vulnerabilities":
+            return df.drop(labels=["Description","References"], axis=1)
+        case _:
+            return df
 
 def simplify_table(df,entity):
     simplified_df = pd.DataFrame()
@@ -94,7 +98,7 @@ def read_and_cleanup(entity):
     df = df.reset_index().set_index("index").reset_index()
     df.drop(labels=['index'], axis=1, inplace=True)
     df = cleanup_df(df,entity)
-    print(df)
+    # print(df)
     return df
 
 
@@ -134,19 +138,22 @@ def build_connections_table(name,definition,conn_entity):
     main_df = read_and_cleanup(name)
     df2 = read_and_cleanup(conn_entity)
 
+    print(f"maind_df[name] ~~{main_df[name]}~~\n\n")
+    print(f"definition ~~{definition}~~\n\n")
+    print(f"selected row \n{main_df[main_df[name] == definition]}\n\n")
+
     # find specific row in main df
     row = main_df[main_df[name] == definition].reset_index()
-
+    # row = main_df[main_df[name] == definition]
     # interesect the categories between the two dfs
     shared_cats = set()
     # extract categories from the extracted row
     for cat in get_categories(main_df).intersection(get_categories(df2)):
-        if row.at[0,cat] == 'T':
+        if row.at[0,cat] == 'T': # here a weird error occurs, but only for some records
             shared_cats.add(cat)
 
     # select all rows in df2 that match the signature of the interesected categories
-    mask = pd.Series([True] * len(df2))
-    
+    mask = pd.Series([True] * len(df2)) 
     for col in shared_cats:
         mask &= df2[col].isin(['T'])
 

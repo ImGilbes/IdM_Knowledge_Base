@@ -2,7 +2,7 @@ Requirements,OP,RP,User,Generic,User-interaction,Rights,Adoption,ServiceQuality,
 Complying with human rights and non-discrimination law,T,T,T,T,F,T,F,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,"Beduschi 2019,  Guggenmos 2018, Satybaldy 2024, WB principles"
 "Clearly defined regulation for enrollment, inclusion in identity infrastructure",T,F,T,T,F,T,T,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,DIACC making sense
 "Meeting data protection and privacy imperatives, compliance with privacy laws and data protection regulations, accountability and legal compliance",T,F,T,T,F,F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,,"Beduschi 2019, Puchta 2019, Aldosary 2021, Kassem 2019,  Guggenmos 2018, Pohn 2023, Satybaldy 2024, Werner 2017, Jensen 2012, Ahmad 2010, Storf 2010, Hansen 2008, Ayed 2011, Bakhaev 2023, DIACC Universal, DIACC making sense, WB principles, OECD governance didigd, OIDF human centric, sperfeldt 2021"
-Legal protection for users & protection of users' rights,T,F,T,T,F,T,F,F,T,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Haddouti 2019"
+Legal protection for users and protection of users rights,T,F,T,T,F,T,F,F,T,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,"Ferdous 2012, Pohn 2020, Haddouti 2019"
 Implementation of Liability and law enforcement assurance mechanisms,T,F,T,T,F,T,F,F,T,F,F,F,T,T,F,T,F,F,F,F,F,F,F,F,"Digital evidence, digital signatures, necessary data retention","Ferdous 2012, Pohn 2020, Torres 2013, Boujezza 2015"
 Clear liability arrangements,T,F,T,T,F,T,F,F,T,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,,"DIACC making sense, OECD governance digid"
 Ability to have recourse in case of violation of user rights,T,F,T,T,F,T,F,F,T,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,DIACC making sense
@@ -25,8 +25,8 @@ Only lawful use of data is allowed,T,T,F,T,F,T,F,T,T,F,F,T,F,F,T,T,F,F,F,F,F,F,F
 Purpose limitation,T,T,T,T,F,T,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,T,T,T,,"Storf 2010, Akram 2008, Hansen 2008, Ayed 2011"
 Storage limitation,T,T,T,T,F,T,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,T,T,,"Storf 2010, Hansen 2008, Ayed 2011"
 "Plan for breaches, violation, and emergency situations in general",T,F,F,T,F,F,F,T,F,F,T,T,F,F,T,F,F,F,F,F,F,F,F,F,,Storf 2010
-Non-repudiation & multilateral security,T,T,F,T,F,F,F,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,T,F,,"Akram 2008, Ferdous 2012, Pohn 2020, Mole 2023, Subenthiran 2004, Dhamija 2007"
-Use of trust marks & verification process ,T,T,F,T,F,F,F,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Ayed 2011, Ferdous 2012, Pohn 2021"
+Non-repudiation and multilateral security,T,T,F,T,F,F,F,T,F,T,T,F,T,F,F,F,F,F,F,F,F,F,T,F,,"Akram 2008, Ferdous 2012, Pohn 2020, Mole 2023, Subenthiran 2004, Dhamija 2007"
+Use of trust marks and verification process,T,T,F,T,F,F,F,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Ayed 2011, Ferdous 2012, Pohn 2021"
 Adoption of a privacy standard,T,T,F,T,F,F,F,T,T,F,F,T,T,T,F,F,F,F,F,F,F,F,F,F,,"Ayed 2011, Ferdous 2012, Pohn 2021, OIDF human-centric, WEF ecosystems, OECD governance digid"
 Adoption of a trust framework,T,T,F,T,F,F,F,T,T,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,,
 Limit the initial data disclosure based on the functionalities desired by the user (also called choice of terms of the contract),T,T,T,T,T,T,F,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F,"This one meant the user can choose for what reason to join the system, thus what are the attributes that he needs to disclose ",Ayed 2011
@@ -58,7 +58,7 @@ Intuitive and easy-to-use UI,T,T,T,T,T,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"P
 Accessibility of functionalities throught the UI,T,T,T,T,T,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,
 "Make available support for onboarding service providers with documentation, SDKs",T,T,F,T,F,F,F,T,F,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,,OECD governance digid
 Modularity,T,F,F,T,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,DIACC Universal
-Mobility (IoT specific) & mobility (phone specific a long time ago),F,F,F,F,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"Boujezza 2015, Subenthiran 2004"
+"Mobility (IoT specific), mobility (phone specific a long time ago)",F,F,F,F,F,F,F,T,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,"Boujezza 2015, Subenthiran 2004"
 Provability of VC,F,F,F,F,F,F,F,T,F,T,T,F,T,T,F,F,F,F,F,F,F,F,T,F,The ability for the identity owner to prove their identity,Zaeem 2021
 "Fairness, Credibility and predictability of the identity provider ",T,F,F,T,F,T,T,T,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,,Mpofu 2014
 NDID project funding comes only from the government or uninterested parties that are not pursuing wider political and economical goals,T,F,F,T,F,T,T,T,F,F,F,F,F,F,T,T,F,F,F,F,F,F,F,F,,

@@ -108,3 +108,51 @@ WHERE EXISTS (
       ...
       AND (a.flagn = TRUE AND b.flagn = TRUE OR a.flagn = FALSE)
 );
+
+---
+### Validation
+Simulation using the CIE v1
+**Goals of CIE**
+Security
+
+**Requirements of Cie**
+securing communication channel
+mutual authentication for communication parties
+data interoperability
+identification
+authentication
+
+**Mitigations of CIE**
+
+
+**Tasks**
+Starting from **Goals**: see what requirements can be found
+Starting from **Requirements**: see which mitigations are required and what issues and limitations apply
+Starting from **Mitigations**: see which threat are mitigated and which are not.
+
+|Encourage user trust in the system|goal|
+|Security|goal|
+|mutual communication party authentication|requirement|
+|secure communication channel|requirement|
+|trust and compliance mark|requirement|
+|eCard data portability|requirement|
+|eCard data and chip interoperability|requirement|
+|eCard: use specialized middleware for cryptographic functionalities|requirement| 
+
+
+|attacks||
+|---|---|
+|Personal computer theft| found ✅ | connection to use tls mitigation when investigating the mutual comm party requirement (start) |
+|Mobile theft| found ✅ | same as personal computer theft, it is reported as theft of user agent device |
+|Card Theft|✅|
+|card destruction|✅|
+|Man in the Browser|✅|
+|Man in the Mobile|✅|
+|Social Engineering|already there|
+|Shoulder Surfing|✅|
+|Eavesdropping knowledge factor for authentication|✅|
+|Authenticator duplicator|✅|
+
+Main threats
+Spoofing (impersonation)
+UnauthZ access through legitimate account
