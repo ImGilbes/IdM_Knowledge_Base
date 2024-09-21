@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 import pandas as pd
 import json
+import numpy as np
 
 app = Flask(__name__)
 
@@ -136,28 +137,49 @@ def set_specific():
 
 def build_connections_table(name,definition,conn_entity):
     main_df = read_and_cleanup(name)
-    df2 = read_and_cleanup(conn_entity)
-
-    print(f"maind_df[name] ~~{main_df[name]}~~\n\n")
-    print(f"definition ~~{definition}~~\n\n")
-    print(f"selected row \n{main_df[main_df[name] == definition]}\n\n")
+    df2 = read_and_cleanup(conn_entity).reset_index().drop(labels=["index"],axis=1)
 
     # find specific row in main df
     row = main_df[main_df[name] == definition].reset_index()
-    # row = main_df[main_df[name] == definition]
+
+    # old method for creating connections by matching al the categories to T
     # interesect the categories between the two dfs
-    shared_cats = set()
-    # extract categories from the extracted row
-    for cat in get_categories(main_df).intersection(get_categories(df2)):
-        if row.at[0,cat] == 'T': # here a weird error occurs, but only for some records
-            shared_cats.add(cat)
+    # shared_cats = set()
+    # # extract categories from the extracted row
+    # for cat in get_categories(main_df).intersection(get_categories(df2)):
+    #     if row.at[0,cat] == 'T': # here a weird error occurs, but only for some records
+    #         shared_cats.add(cat)
 
-    # select all rows in df2 that match the signature of the interesected categories
-    mask = pd.Series([True] * len(df2)) 
-    for col in shared_cats:
-        mask &= df2[col].isin(['T'])
+    # # select all rows in df2 that match the signature of the interesected categories
+    # mask = pd.Series([True] * len(df2)) 
+    # for col in shared_cats:
+    #     mask &= df2[col].isin(['T'])
 
-    return (rename_columns(df2[mask]), list(shared_cats))
+    # return (rename_columns(df2[mask]), list(shared_cats))
+
+    
+
+    shared_cats = get_categories(main_df).intersection(get_categories(df2))
+    row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
+    df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
+    empty_df = pd.DataFrame(columns=df2.columns)
+
+    # threshold = 4 / len(shared_cats)
+
+    for index, row in df2_binary.iterrows():
+        # for each row, carry out the distance. If the records are close up to 
+        # distance = np.linalg.norm(row_binary - row)
+        # if(distance <= 2):
+        #     empty_df.loc[len(empty_df)] = df2.iloc[index]
+
+        dot_product = np.dot(row_binary, row)
+        norm_A = np.linalg.norm(row_binary)
+        norm_B = np.linalg.norm(row)
+        cosine_similarity = dot_product / (norm_A * norm_B)
+        if(cosine_similarity > 0.5):
+            empty_df.loc[len(empty_df)] = df2.iloc[index]
+
+    return (rename_columns(empty_df), list())
 
 
 def rename_shared_cats(shared_cats):
