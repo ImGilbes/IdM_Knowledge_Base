@@ -58,7 +58,7 @@ def cleanup_df(df,entity):
             return df.drop(labels=['OP','RP','Generic'], axis=1).dropna(axis=1)
         case "Goals":
             # return df.drop(labels=['References','Description'], axis=1)
-            return df.drop(labels=['References','Description','OP','RP','Generic'], axis=1)
+            return df.drop(labels=['References','Description','OP','RP'], axis=1)
         case "Issues":
             return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
         case "Limitations":
@@ -144,40 +144,39 @@ def build_connections_table(name,definition,conn_entity):
 
     # old method for creating connections by matching al the categories to T
     # interesect the categories between the two dfs
-    # shared_cats = set()
-    # # extract categories from the extracted row
-    # for cat in get_categories(main_df).intersection(get_categories(df2)):
-    #     if row.at[0,cat] == 'T': # here a weird error occurs, but only for some records
-    #         shared_cats.add(cat)
+    shared_cats = set()
+    # extract categories from the extracted row
+    for cat in get_categories(main_df).intersection(get_categories(df2)):
+        if row.at[0,cat] == 'T': # here a weird error occurs, but only for some records
+            shared_cats.add(cat)
 
-    # # select all rows in df2 that match the signature of the interesected categories
-    # mask = pd.Series([True] * len(df2)) 
-    # for col in shared_cats:
-    #     mask &= df2[col].isin(['T'])
+    # select all rows in df2 that match the signature of the interesected categories
+    mask = pd.Series([True] * len(df2)) 
+    for col in shared_cats:
+        mask &= df2[col].isin(['T'])
 
-    # return (rename_columns(df2[mask]), list(shared_cats))
+    return (rename_columns(df2[mask]), list(shared_cats))
 
-    
+    # shared_cats = get_categories(main_df).intersection(get_categories(df2))
+    # row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
+    # df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
+    # empty_df = pd.DataFrame(columns=df2.columns)
 
-    shared_cats = get_categories(main_df).intersection(get_categories(df2))
-    row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
-    df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
-    empty_df = pd.DataFrame(columns=df2.columns)
+    # # threshold = 4 / len(shared_cats)
 
-    # threshold = 4 / len(shared_cats)
+    # for index, row in df2_binary.iterrows():
+    #     # for each row, carry out the distance. If the records are close up to 
+    #     distance = np.linalg.norm(row_binary - row)
+    #     if(distance <= 2):
+    #         empty_df.loc[len(empty_df)] = df2.iloc[index]
 
-    for index, row in df2_binary.iterrows():
-        # for each row, carry out the distance. If the records are close up to 
-        # distance = np.linalg.norm(row_binary - row)
-        # if(distance <= 2):
-        #     empty_df.loc[len(empty_df)] = df2.iloc[index]
-
-        dot_product = np.dot(row_binary, row)
-        norm_A = np.linalg.norm(row_binary)
-        norm_B = np.linalg.norm(row)
-        cosine_similarity = dot_product / (norm_A * norm_B)
-        if(cosine_similarity > 0.5):
-            empty_df.loc[len(empty_df)] = df2.iloc[index]
+        # dot_product = np.dot(row_binary, row)
+        # norm_A = np.linalg.norm(row_binary)
+        # norm_B = np.linalg.norm(row)
+        # cosine_similarity = dot_product / (norm_A * norm_B)
+        # if(cosine_similarity > 0.5):
+        #     print(row_binary, row)
+        #     empty_df.loc[len(empty_df)] = df2.iloc[index] # append row
 
     return (rename_columns(empty_df), list())
 
@@ -198,9 +197,9 @@ def get_specific():
     starting_record = None
 
     connections = {
-        "Requirements": ["Mitigations", 'Goals'],
-        "Mitigations": ["Requirements","Threats"],
-        "Threats": ["Mitigations"],
+        "Requirements": ["Mitigations", 'Goals','Requirements'],
+        "Mitigations": ["Requirements","Threats",'Mitigations','Attacks'],
+        "Threats": ["Mitigations", "Attacks",'Threats'],
         "Goals": ['Requirements'],
         "Issues": ['Threats'],
         "Limitations": ['Threats'],

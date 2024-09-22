@@ -130,6 +130,13 @@ Starting from **Goals**: see what requirements can be found
 Starting from **Requirements**: see which mitigations are required and what issues and limitations apply
 Starting from **Mitigations**: see which threat are mitigated and which are not.
 
+Task 1) is shitty atm due to connection mechanism
+Task 2) is really good, but shows a bit too many attacks? maybe not actually
+Task 3) is decent. privact related entries leave much to be desired, security stuff is good
+
+
+|Start|category|finding|
+|---|---|---|
 |Encourage user trust in the system|goal|
 |Security|goal|
 |mutual communication party authentication|requirement|
@@ -137,22 +144,70 @@ Starting from **Mitigations**: see which threat are mitigated and which are not.
 |trust and compliance mark|requirement|
 |eCard data portability|requirement|
 |eCard data and chip interoperability|requirement|
-|eCard: use specialized middleware for cryptographic functionalities|requirement| 
+|eCard: use specialized middleware for cryptographic functionalities|requirement|
 
+STARTING FROM REQS
+- mutual communication party authentication and secure communication channel yield awesome results, almost all of the threats pop up.
+- trust marks yield great results, but goals right now are connected poorly
+- from reqs cannot find challenge-response for authn as mitigation
+- eCard data Portability has somewhat noisy results for mitigations / results identical to chip interoperability
+- eCard: use specialized middleware for cryptographic functionalities doesn't yield anything
+
+
+|eCard counterfeit protection: visual security elements (holograms, inks, policarbonate) | mitigation |
+|Biometric data is accessible only with special capabilities| mitigation |
+|Fingerprints are accessible only to law enforcement| mitigation (data min, authz)|
+|Access to PII requires user knowledge|mitigation (from PII disclosure without user ack - transparency & lawfulness & authz)|
+|eCard: Access PII only by scanning Machine Readable Zone (MRZ) and Card Access Number (CAN)|mitigation (user knowledge)|
+|eCard: allow access to stored user authentication certificate only with PIN|mitigation (knowledge factor for authentication)|
+|authentication with challenge-response protocol: bind communication party to public key |mitigation|
+|Authentication through ownership and knowledge factor|mitigation|
+|Authentication through biometric features|mitigation|
+
+STARTING FROM MITIGATIONS
+- eCard counterfeit protection -> synthentic or forged claims and data attributes -> ecard forgery, fraudolent issuance
+- Biometric data is accessible only with special capabilities and Fingerprints are accessible only to law enforcement-> **cannot** find privacy-related threats, this is because of how i made the connections
+- Access to PII requires user knowledge -> sadly same result, but itàs due to the connections
+- allow access to stored user authentication certificate only with PIN -> identity theft, unauthorized access to user agent device (btw erqs results here are good) -> ecard theft, e card cloning
+- challenge-response protocol -> synthetic data, id theft, idp account compromise, private key disclosure
+- Authentication through ownership and knowledge factors -> credentials disclosure -> related mitigations gives good results
+- Authentication through biometric features -> gives the same exact results as above
+
+
+
+NOTE FOR GIANLUCA: some threats are **connected VERY poorly**
+tweaks: full linddun + stride without merging, no semplifications. re-read some threats! retry cosine similarity instead of the T matching
+
+Main threats
+- Identity theft (almost found. found private key disclosure or theft, which is in scope for this ), found from mitigations ✅
+- UnauthZ access through legitimate credentials (result of device theft) found starting from reqs ✅, found from mitigations ✅
+- Denial of service for targeted individual (result of device dstruction) found starting from reqs ✅
+- Credentials disclosure, found starting from reqs ✅, found from mitigations ✅
 
 |attacks||
 |---|---|
-|Personal computer theft| found ✅ | connection to use tls mitigation when investigating the mutual comm party requirement (start) |
-|Mobile theft| found ✅ | same as personal computer theft, it is reported as theft of user agent device |
-|Card Theft|✅|
-|card destruction|✅|
-|Man in the Browser|✅|
-|Man in the Mobile|✅|
-|Social Engineering|already there|
-|Shoulder Surfing|✅|
-|Eavesdropping knowledge factor for authentication|✅|
-|Authenticator duplicator|✅|
+|Personal computer theft| found starting from reqs✅ | found starting from mitigs ✅|
+|Mobile theft| found starting from reqs ✅ | same as personal computer theft, it is reported as theft of user agent device | found starting from mitigs ✅|
+|Card Theft|found starting from reqs ✅|found starting from mitigs ✅|
+|card destruction|||
+|Man in the Browser|found starting from reqs✅|found starting from mitigs ✅|
+|Man in the Mobile|found starting from reqs✅|found starting from mitigs ✅|
+|Social Engineering|found starting from reqs✅| found starting from mitigs ✅|
+|Shoulder Surfing| found starting from reqs ✅ from unauthz access of user agent device| found starting from mitigs ✅|
+|Eavesdropping knowledge factor for authentication||
+|Authenticator duplicator|found starting from reqs ✅ (it's called ecard cloning)| found starting from mitigs ✅|
 
-Main threats
-Spoofing (impersonation)
-UnauthZ access through legitimate account
+
+
+
+Extra things found:
+- authentication knowledge factor bruteforcing - ATTACK
+- Keep user agent device in a safe place - MITIGATION
+- Use strong authentication methods to access user agent device - MITIGATION
+- Implement out-of-band recovery mechanisms - MITIGATION
+- User cannot access services due to losing authentication factors - THREAT
+- Auditing and oversight of infrastructure parties and memebers - REQUIREMENT
+- ecard forgery - ATTACK
+- fraudolent issuance - ATTACK
+- private key disclosure - THREAT
+- IdP Impersonation - ATTACK - can interpret this as RP impersonation, or spoofing of authn interface too

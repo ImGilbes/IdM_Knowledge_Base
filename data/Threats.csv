@@ -2,8 +2,9 @@ Threats,OP,RP,USER,Generic,Conf&DataDiscl,Integr,Avail,Transp,Surv,Authn&Authz,L
 Server-side Denial-of-service,T,F,F,T,F,F,T,F,F,F,F,F,T,T,Generic one,"Naik 2017, Dominicini 2011, Mayrhofer 2021, Hyperion 2016",T,F,D,
 Denied access to services of single targeted actors,T,F,T,T,F,F,T,F,F,F,F,F,T,T,,,,,,
 User cannot access services due to malfunctioning in the infrastructure,T,F,T,T,F,F,T,F,F,F,F,F,F,F,,,,,,
+User cannot access services due to losing authentication factors,T,F,T,T,F,F,T,F,F,F,F,F,F,F,,,,,,
 Synthetic and forged claims and data attributes,T,T,F,T,F,T,F,F,F,T,F,F,F,F,,"Naik 2021, Ali 2022, Mayrhofer 2021, Naik 2022, Edu 2023",T,F,S,
-Identity Theft and Impersonation (spoofing),T,F,T,T,F,F,F,F,F,T,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016",T,F,SR,
+Identity Theft and Impersonation,T,F,T,T,F,F,F,F,F,T,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016",T,F,SR,
 IdP account compromise,T,F,T,T,T,F,F,F,F,T,F,F,F,F,,"Navas 2022, Nweke 2022, Le 2023",T,T,I,Data Disclosure
 Credentials disclosure,T,F,T,T,T,F,F,F,F,T,F,F,F,F,,"Naik 2021, Dominicini 2011",T,T,I,Data Disclosure
 "PII leakage, data breach, unauthorized access to data",T,T,T,T,T,F,F,F,F,F,F,F,F,F,,"Navas 2022, Dominicini 2011, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Halperin 2012, Edu 2023, Beres 2007, Gruner 2023, Dunphy 2018, Frederiksen 2019, OIDF human-centric,Hyperion 2016",T,T,I,Data Disclosure
@@ -19,17 +20,18 @@ User profiling,T,T,T,T,F,F,F,F,T,F,T,F,F,T,,"Navas 2022, Mayrhofer 2021, Nweke 2
 Linking transactions and data flows,T,F,T,T,F,F,F,F,T,F,T,F,F,T,,,F,T,,"Linking, Detecting, Unawareness"
 Location tracking,T,T,T,T,F,F,F,F,T,F,T,F,F,T,,"Navas 2022, Le 2023, OIDF human-centric",F,T,,"Linking, Detecting, Unawareness"
 "Private key disclosure, theft, acquisition",T,F,F,T,T,T,F,F,F,T,F,F,F,F,,Gruner 2023,T,T,STRI,Data Disclosure
-"Theft, unauthorized access to, destruction of user agent device",F,F,T,T,T,T,F,F,F,T,F,F,F,F,,Gruner 2023,T,T,STRI,Data Disclosure
+Unauthorized access to user agent device,F,F,T,T,T,T,F,F,F,T,F,F,F,F,,Gruner 2023,,,,
+"Destruction of user agent device, causing damages to property and denial of service",F,F,T,T,F,T,T,F,F,F,F,F,F,F,,Gruner 2023,,,,
 Circumvent VC verification,F,T,F,T,F,F,F,F,F,T,F,F,F,F,,Gruner 2023,T,F,E,
 Insider threat,T,T,F,T,T,F,F,F,F,T,F,F,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2021",T,T,STRIDE,Data disclosure
 Non-compliance and malpractice of employees,T,T,F,T,T,F,F,F,F,T,T,F,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2022",T,T,STRIDE,Data disclosure
-"No user consent, lack of awareness",T,F,T,T,F,F,F,F,F,F,T,F,F,T,"Wangen calls this ""exclusion""","Nweke 2022, Beltran 2023, Wangen 2012, Navas 2022, OIDF human-centric",F,T,,Unawareness & Unintervenability
+"No user consent, lack of awareness",T,F,T,T,F,F,F,T,F,F,T,F,F,T,"Wangen calls this ""exclusion""","Nweke 2022, Beltran 2023, Wangen 2012, Navas 2022, OIDF human-centric",F,T,,Unawareness & Unintervenability
 Claims could contain malicious data,T,T,F,T,T,T,T,F,F,F,F,F,F,F,,Pohn 2023,T,F,TIDE,
 "Detectability of a data flow, record existence",T,F,F,T,F,F,F,F,T,F,F,F,F,F,,Beltran 2023,F,T,,Detectability
 "Non-compliance with agreements, contracts, standards",T,F,F,T,F,F,F,T,F,F,T,F,F,T,,Beltran 2023,T,T,,Non-compliance
 "Mass Surveillance (government, big-tech)",T,F,T,T,F,F,F,F,T,F,T,T,T,T,,"Wangen 2012, Halperin 2012,Sedlmeir 2021, OIDF human-centric, CHRGJ Paving road, Masiero 2021 degenerative, Hyperion 2016, DIACC Universal, OIDF gov issued",F,T,,"Linking, Identifying, Detecting"
 Interrogation: pressuring an individual to divulge information,T,T,T,T,T,F,F,F,F,F,F,F,F,T,pressuring an individual to divulge information,Wangen 2012,T,F,I,
-Lack of transparency and awareness of data processing,T,F,T,T,F,F,F,T,F,F,F,F,F,T,"Wangen calls this ""exclusion""","Wangen 2012, Navas 2022, OIDF human-centric",F,T,,"Unawareness, Unintervenability"
+Lack of transparency and awareness of data processing,T,F,T,T,F,F,F,T,F,F,T,F,F,T,"Wangen calls this ""exclusion""","Wangen 2012, Navas 2022, OIDF human-centric",F,T,,"Unawareness, Unintervenability"
 Function Creep,T,F,T,T,F,F,F,T,F,F,T,T,T,T,,Wangen 2012,F,T,,Non-compliance
 Non-compliance of data controller,T,F,T,T,F,F,F,F,F,F,T,F,F,T,Referring to laws and regulations (different from standards),"Wangen 2012, Beres 2007, Arias-Carbacos 2012, DIACC Universal",F,T,,Non-compliance
 Lack of accountability,T,F,T,T,F,F,F,F,F,F,T,F,F,T,Referring to laws and regulations (different from standards),"Wangen 2012, Beres 2007, Arias-Carbacos 2012, DIACC Universal",F,T,,Non-compliance
