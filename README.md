@@ -28,7 +28,12 @@
 20. Replace T and F with checkmarks and crosses (but if possible only in the css) ✅
 21. style filters menu ✅
 22. solve issue with row filtering and new content of the cells ✅
-23. You might wanna rethink how connections are made 
+23. You might wanna rethink how connections are made
+24. FULL STRIDE + LINDDUN
+25. cosine similarity (add sort)
+26. Generic IdP validation
+27. search filter js
+28. 
 
 ---
 When you add a new entity you have to:

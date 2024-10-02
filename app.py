@@ -144,39 +144,60 @@ def build_connections_table(name,definition,conn_entity):
 
     # old method for creating connections by matching al the categories to T
     # interesect the categories between the two dfs
-    shared_cats = set()
-    # extract categories from the extracted row
-    for cat in get_categories(main_df).intersection(get_categories(df2)):
-        if row.at[0,cat] == 'T': # here a weird error occurs, but only for some records
-            shared_cats.add(cat)
+    # shared_cats = set()
+    # # extract categories from the extracted row
+    # for cat in get_categories(main_df).intersection(get_categories(df2)):
+    #     if row.at[0,cat] == 'T': # here a weird error occurs, but only for some records
+    #         shared_cats.add(cat)
 
-    # select all rows in df2 that match the signature of the interesected categories
-    mask = pd.Series([True] * len(df2)) 
-    for col in shared_cats:
-        mask &= df2[col].isin(['T'])
+    # # select all rows in df2 that match the signature of the interesected categories
+    # mask = pd.Series([True] * len(df2)) 
+    # for col in shared_cats:
+    #     mask &= df2[col].isin(['T'])
 
-    return (rename_columns(df2[mask]), list(shared_cats))
+    # return (rename_columns(df2[mask]), list(shared_cats))
 
-    # shared_cats = get_categories(main_df).intersection(get_categories(df2))
-    # row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
-    # df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0}).reset_index()
-    # empty_df = pd.DataFrame(columns=df2.columns)
+    shared_cats = get_categories(main_df).intersection(get_categories(df2))
+    # it should be sorted, but i should try
+    row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
+    df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
+    empty_df = pd.DataFrame(columns=df2.columns)
 
-    # # threshold = 4 / len(shared_cats)
+    # threshold = 4 / len(shared_cats)
 
-    # for index, row in df2_binary.iterrows():
-    #     # for each row, carry out the distance. If the records are close up to 
-    #     distance = np.linalg.norm(row_binary - row)
-    #     if(distance <= 2):
-    #         empty_df.loc[len(empty_df)] = df2.iloc[index]
+    for index, row in df2_binary.iterrows():
 
-        # dot_product = np.dot(row_binary, row)
-        # norm_A = np.linalg.norm(row_binary)
-        # norm_B = np.linalg.norm(row)
-        # cosine_similarity = dot_product / (norm_A * norm_B)
-        # if(cosine_similarity > 0.5):
-        #     print(row_binary, row)
-        #     empty_df.loc[len(empty_df)] = df2.iloc[index] # append row
+        tmp = pd.DataFrame(row).T
+
+        #EUCLIDEAN DISTANCE METHOD
+        # for each row, carry out the distance. If the records are close up to 
+        # distance = np.linalg.norm(row_binary - row)
+        # if(distance <= 2):
+        #     empty_df.loc[len(empty_df)] = df2.iloc[index]
+        # print(row_binary, row)
+
+        #COSINE SIMILARITY NORM
+        try:
+            dot_product = tmp.dot(row_binary.T) # doesnt change if i do this row_binary.dot(tmp.T)
+            dot_product = dot_product.iloc[0][0] # this is because a datframe is returned from the operation above
+            norm_A = np.linalg.norm(row_binary)
+            norm_B = np.linalg.norm(tmp)
+            # print(row_binary)
+            # print(tmp)
+            # print(norm_A)
+            # print(norm_B)
+            if (norm_A != 0) and (norm_B != 0):
+                cosine_similarity = dot_product / (norm_A * norm_B)
+            else: 
+                cosine_similarity = 0
+        except:
+            cosine_similarity = 0
+
+        if(cosine_similarity > 0.8):
+            # print(row_binary)
+            # print(tmp)
+            # print(cosine_similarity)
+            empty_df.loc[len(empty_df)] = df2.iloc[index] # append row
 
     return (rename_columns(empty_df), list())
 
