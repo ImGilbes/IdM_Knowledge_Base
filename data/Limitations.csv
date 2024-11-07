@@ -1,26 +1,26 @@
-Limitations,Rights,Adoption,ServiceQuality,Law&Compliance,Technical,Security,Privacy,Trust,Governance&Procedures,User-related,Socio-political,Description,Ref,Impacts,ORIGIN
-Exclusion deriving from gap in legal framework,T,F,F,T,F,F,F,F,F,F,T,,Beduschi 2019,Users' rights,Legal
-Obsolescence of regulations,T,F,F,T,F,F,F,F,F,F,T,,Sapelova 2014,"Users' rights, Security, Privacy. Service Provision",Laws and regulations
-Absence of data protection laws,T,F,T,T,F,F,T,F,F,F,T,,Sule 2021,Users' rights,Laws and regulations
-Cognitive Fatigue or burden,F,T,F,F,F,F,F,F,F,T,F,Bc it depends on the users' willingness to learn new technologies,"Hünseler 2023, Badirova 2023, Dhamija 2007",Adoption,User-dependent
-Difficulty prohibiting linkability and profiling due to gaps in the data protection regulations,F,F,T,T,F,F,T,F,F,F,F,,,Privacy,Laws and regulations
-Immaturity of Technology,F,F,T,F,T,F,F,F,F,F,F,Pohn refers to SSI specifically,"Pohn 2023, DIACC making sense","Users' rights, Security, Privacy. Service Provision",State-of-the-art
-Immaturity of the identity project,F,F,T,F,T,F,F,F,F,F,F,,"Pohn 2023, DIACC making sense","Users' rights, Security, Privacy. Service Provision",State-of-the-art
-Difficulty ensuring interoperability/portability due to the absence of standards (both for data and interfaces),F,F,T,T,T,F,F,F,F,F,F,,"Edu 2023, Arias-Carbacos 2012, Lips 2021",Service Provision,Laws and regulations
-Difficulty ensuring interoperability/portability due to the absence of laws that enable portability and reuse of data,F,F,T,T,F,F,F,F,F,F,F,,"Edu 2023, Arias-Carbacos 2012, Lips 2021",Service Provision,Laws and regulations
-Lack of user trust due to absence of legal safeguards for users,T,T,F,T,F,F,F,F,F,T,F,,,"Users' rights, Adoption",Laws and regulations
-Protections Missing in Regulation and Standards,T,F,F,T,F,F,F,F,F,T,F,,OIDF gov issued,"Security, Privacy, Service Provision",Regulations and standards
-Dependency on specific ledger technology and manager,F,F,T,F,T,F,F,F,T,F,F,Just how the technology works,Satybaldy 2024,Service Provision,State-of-the-art
-"Lack of frameworks (security, privacy, and trust)",F,F,T,T,T,T,T,T,F,F,F,,Satybaldy 2024,"Security, Privacy, service provision",State-of-the-art
-Lack of data standards,F,F,T,T,T,T,T,F,F,F,F,,Bakare 2021,"Security, privacy, Service Provision",Regulations and standards
-Propagation time & network approval time,F,F,T,F,T,F,F,F,F,F,F,Just how the technology works,Bakare 2021,Service Provision,State-of-the-art
-"Cross-border issues: lack of guidelines for unique identifiers, collaboration barriers, difficult access delegation ",T,F,T,T,F,F,F,F,F,F,F,,Lips 2021,Service Provision,Laws and regulations
-Problem ownership issue and different interpretation of users' rights and international regulations in national legal framework ,F,F,T,T,F,F,F,F,F,F,F,,Lips 2021,Service Provision,Laws and regulations
-Lack of frameworks/common practices for conformity testing,F,F,T,F,T,F,F,T,T,F,F,,Lips 2021,"Security, Privacy",Laws and regulations
-Lack of Integration with traditional IdMs due to gaps in the legal framework,F,F,T,T,F,F,F,F,F,F,F,SSI specific,"Satybaldy 2024, Badirova 2024","Service Provision, Adoption",Laws and regulations
-Overbearing bureaucracy,F,F,T,T,F,F,F,F,F,T,F,,Halperin 2012,"Service Provision, Adoption",Laws and regulations
-Intrinsic limitation of the protocols,F,F,T,F,T,F,F,F,F,F,F,,OIDF gov issued,"Security, Privacy, Service Provision",standards
-Digital divide,F,T,F,F,F,F,F,F,F,F,T,,"sperfeldt 2021, WB principles","Adoption, Service Provision",social condition
-Entities funding the NDID infrastructure are in conflict with security and protection goals,T,F,T,F,F,F,F,F,T,F,T,This may enable threats!,"DIACC making sense, WEF ecosystems","Adoption, Service Provision, Trustworthiness","initial project ownership, collaboration group"
-Entities funding the NDID infrastructure are pursuing economical or political interests,T,F,F,F,F,F,F,F,T,F,T,This may enable threats!,"DIACC making sense, WEF ecosystems","Adoption, Service Provision, Trustworthiness","initial project ownership, collaboration group"
-NDID can operate in a grey area of the legal framework,T,F,F,T,F,F,F,F,T,F,T,,,,
+Limitations,Laws and Regulations,Infrastructure Management,Trust,Security,Privacy,Usability,Description,Ref
+Exclusion deriving from gap in legal framework,T,F,F,F,F,F,,Beduschi 2019
+Obsolescence of regulations,T,F,F,F,F,F,,Sapelova 2014
+Absence of data protection laws,T,F,F,F,F,F,,Sule 2021
+Cognitive Fatigue or burden,F,F,F,F,F,T,Bc it depends on the users' willingness to learn new technologies,"Hünseler 2023, Badirova 2023, Dhamija 2007"
+Difficulty prohibiting linkability and profiling due to gaps in the data protection regulations,F,F,F,F,T,F,,
+Immaturity of Technology,F,T,F,F,F,F,Pohn refers to SSI specifically,"Pohn 2023, DIACC making sense"
+Immaturity of the identity project,F,T,F,F,F,F,,"Pohn 2023, DIACC making sense"
+Difficulty ensuring interoperability/portability due to the absence of standards (both for data and interfaces),F,T,F,F,F,F,,"Edu 2023, Arias-Carbacos 2012, Lips 2021"
+Difficulty ensuring interoperability/portability due to the absence of laws that enable portability and reuse of data,T,T,F,F,F,F,,"Edu 2023, Arias-Carbacos 2012, Lips 2021"
+Lack of user trust due to absence of legal safeguards for users,T,F,F,F,F,F,,
+Protections Missing in Regulation and Standards,T,F,F,F,F,F,,OIDF gov issued
+Dependency on specific ledger technology and manager,F,T,F,F,F,F,Just how the technology works,Satybaldy 2024
+"Lack of frameworks (security, privacy, and trust)",F,F,F,T,T,F,,Satybaldy 2024
+Lack of data standards,F,T,F,F,F,F,,Bakare 2021
+Propagation time & network approval time,F,T,F,F,F,F,Just how the technology works,Bakare 2021
+"Cross-border issues: lack of guidelines for unique identifiers, collaboration barriers, difficult access delegation ",T,F,F,F,F,T,,Lips 2021
+Problem ownership issue and different interpretation of users' rights and international regulations in national legal framework ,T,F,F,F,F,F,,Lips 2021
+Lack of frameworks/common practices for conformity testing,F,T,F,F,F,F,,Lips 2021
+Lack of Integration with traditional IdMs due to gaps in the legal framework,T,F,F,F,F,F,SSI specific,"Satybaldy 2024, Badirova 2024"
+Overbearing bureaucracy,F,T,F,F,F,F,,Halperin 2012
+Intrinsic limitation of the protocols,F,T,F,F,F,F,,OIDF gov issued
+Digital divide,F,F,F,F,F,T,,"sperfeldt 2021, WB principles"
+Entities funding the NDID infrastructure are in conflict with security and protection goals,F,T,F,F,F,F,This may enable threats!,"DIACC making sense, WEF ecosystems"
+Entities funding the NDID infrastructure are pursuing economical or political interests,F,T,F,F,F,F,This may enable threats!,"DIACC making sense, WEF ecosystems"
+NDID can operate in a grey area of the legal framework,T,F,F,F,F,F,,

@@ -30,6 +30,54 @@ CATEGORIES_MAP = {"Conf&DataDiscl":"Confidentiality and Data Disclosure",
               "Abuse": "Abuse of system functionality"
               }
 
+SECURITY_PROPERTIES = [
+    "Authorization",
+    "Authenticity",
+    "Confidentiality",
+    "Integrity",
+    "Availability",
+    "Non-repudiability"
+]
+
+PRIVACY_PROPERTIES = [
+    "Confidentiality",
+    "Unlinkability",
+    "Anonymity and Pseudonymity",
+    "Plausible Deniability",
+    "Undetectability and Unobservability",
+    "Awareness and Intervenability",
+    "Compliance"
+]
+
+TRUST_PROPERTIES = [
+    "Trust Establishment",
+    "Trust Management"
+]
+
+USABILITY_PROPERTIES = [
+    "User Interaction",
+    "Accessibility"
+]
+
+HIGH_CATEGORIES = [
+    "Laws and Regulations",
+    "Infrastructure Management",
+    "Trust",
+    "Security",
+    "Privacy",
+    "Usability"
+]
+
+LOW_CATEGORIES = []
+
+LOW_ENTITIES = [ "Requirements","Mitigations","Threats","Attacks","Vulnerabilities"]
+HIGH_ENTITIES = [ "Goals","Issues","Limitations"]
+
+def is_high_level_entity(name):
+    if name in HIGH_CATEGORIES:
+        return True
+    return False
+
 def rename_columns(df):
     global CATEGORIES_MAP
     return df.rename(columns=CATEGORIES_MAP)
@@ -47,28 +95,84 @@ def get_categories(df):
     return tmp
 
 def cleanup_df(df,entity):
-    match entity:
-        case "Requirements":
-            # return df.drop(labels=['References','Description'], axis=1)
-            return df.drop(labels=['References','Description','OP','RP','Generic'], axis=1)
-        case "Threats":
-            # return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN'], axis=1)
-            return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN','OP','RP','Generic'], axis=1)
-        case "Mitigations":
-            return df.drop(labels=['OP','RP','Generic'], axis=1).dropna(axis=1)
-        case "Goals":
-            # return df.drop(labels=['References','Description'], axis=1)
-            return df.drop(labels=['References','Description','OP','RP'], axis=1)
-        case "Issues":
-            return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
-        case "Limitations":
-            return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
-        case "Attacks":
-            return df.drop(labels=["References"], axis=1)
-        case "Vulnerabilities":
-            return df.drop(labels=["Description","References"], axis=1)
-        case _:
-            return df
+    tmp = []
+    if "USER" in df.columns:
+        tmp.append("USER")
+    if "User" in df.columns:
+        tmp.append("User")
+    if "User-interaction" in df.columns:
+        tmp.append("User-interaction")
+    if "Adoption" in df.columns:
+        tmp.append("Adoption")
+    if "Generic" in df.columns:
+        tmp.append("Generic")
+    if "ServiceQuality" in df.columns:
+        tmp.append("ServiceQuality")
+    if "OP" in df.columns:
+        tmp.append("OP")
+    if "RP" in df.columns:
+        tmp.append("RP")
+    if "Functional" in df.columns:
+        tmp.append("Functional")
+    if "Abuse" in df.columns:
+        tmp.append("Abuse")
+    if "Technical" in df.columns:
+        tmp.append("Technical")
+
+    if "References" in df.columns:
+        tmp.append("References")
+    if "Description" in df.columns:
+        tmp.append("Description")
+    if "STRIDE" in df.columns:
+        tmp.append("STRIDE")
+    if "LINDDUN" in df.columns:
+        tmp.append("LINDDUN")
+    if "Ref" in df.columns:
+        tmp.append("Ref")
+    if "Impacts" in df.columns:
+        tmp.append("Impacts")
+    if "ORIGIN" in df.columns:
+        tmp.append("ORIGIN")
+    if "Abuse" in df.columns:
+        tmp.append("Abuse")
+
+    if "ORG IMPACT" in df.columns:
+        tmp.append("ORG IMPACT")
+    if "Organization" in df.columns:
+        tmp.append("Organization")
+    
+    #this is just patchwork, waiting to have a better version of the tags
+    df = df.drop(labels=tmp, axis=1)
+    return df
+
+    # match entity:
+    #     case "Requirements":
+    #         # return df.drop(labels=['References','Description'], axis=1)
+    #         return df.drop(labels=['References','Description','OP','RP','Generic'], axis=1)
+    #     case "Threats":
+    #         # return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN'], axis=1)
+    #         return df.drop(labels=['References','Description','Security','Privacy','STRIDE','LINDDUN','OP','RP','Generic'], axis=1)
+    #     case "Mitigations":
+    #         return df.drop(labels=['OP','RP','Generic'], axis=1).dropna(axis=1)
+    #     case "Goals":
+    #         # return df.drop(labels=['References','Description'], axis=1)
+    #         return df.drop(labels=['References','Description','OP','RP'], axis=1)
+    #     case "Issues":
+    #         return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
+    #     case "Limitations":
+    #         return df.drop(labels=["Description","Ref","Impacts","ORIGIN"], axis=1)
+    #     case "Attacks":
+    #         return df.drop(labels=["References"], axis=1)
+    #     case "Vulnerabilities":
+    #         return df.drop(labels=["Description","References"], axis=1)
+    #     case _:
+    #         return df
+
+def index_cleanup(df):
+    if "index" in df.columns:
+        df.drop(labels=['index'],axis=1, inplace = True)
+    return df
+
 
 def simplify_table(df,entity):
     simplified_df = pd.DataFrame()
@@ -135,12 +239,63 @@ def set_specific():
     return "ok"
 
 
+def build_high_level(df,entity_name):
+    # assumption: we are working with a lower level entity
+    #find trues
+
+    if is_high_level_entity(entity_name):
+        print("passed high level entity to build high level")
+        return None
+
+    new_df = pd.DataFrame(columns=HIGH_CATEGORIES)
+
+    for index, _ in df.iterrows():
+
+        security = "F"
+        for property in SECURITY_PROPERTIES:
+            if df[property][index] == "T":
+                security = "T"
+                break
+        
+        privacy = "F"
+        for property in PRIVACY_PROPERTIES:
+            if df[property][index] == "T":
+                privacy = "T"
+                break
+        
+        trust = "F"
+        for property in TRUST_PROPERTIES:
+            if df[property][index] == "T":
+                trust = "T"
+                break
+
+        usability = "F"
+        for property in USABILITY_PROPERTIES:
+            if df[property][index] == "T":
+                usability = "T"
+                break
+        
+        law = "F"
+        if entity_name == "Requirements":
+            if df["Rights"][index] == "T":
+                law = "T"
+        elif entity_name == "Mitigations":
+            if df["Rights"][index] == "T":
+                law = "T"
+                
+        # TODO: add ORGANIZATION CATEGORIES here
+
+        new_df.loc[index] = [law, "F", trust, security, privacy, usability]
+    return new_df
+    
+
 def build_connections_table(name,definition,conn_entity):
     main_df = read_and_cleanup(name)
     df2 = read_and_cleanup(conn_entity).reset_index().drop(labels=["index"],axis=1)
 
     # find specific row in main df
     row = main_df[main_df[name] == definition].reset_index()
+    row = index_cleanup(row)
 
     # old method for creating connections by matching al the categories to T
     # interesect the categories between the two dfs
@@ -157,13 +312,26 @@ def build_connections_table(name,definition,conn_entity):
 
     # return (rename_columns(df2[mask]), list(shared_cats))
 
-    shared_cats = get_categories(main_df).intersection(get_categories(df2))
-    # it should be sorted, but i should try
-    row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
-    df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
+
+    # need to convert to 0s and 1s because otherwise i cant do the cosine similarity
+
+    if name == "Goals" and conn_entity == "Requirements":
+        df_tmp = build_high_level(df2, conn_entity)
+        df2_binary = df_tmp.replace({'T': 1, 'F': 0})
+        row_binary = row.replace({'T': 1, 'F': 0}) # This is converted just fine
+        row_binary.drop(labels=[name],axis=1, inplace=True)
+    else:
+        shared_cats = get_categories(main_df).intersection(get_categories(df2))
+        # it should be sorted, but i should try
+        row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
+        df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
+
     empty_df = pd.DataFrame(columns=df2.columns)
 
-    # threshold = 4 / len(shared_cats)
+    if is_high_level_entity(name):
+        threshold = 0.80
+    else:
+        threshold = 0.60
 
     for index, row in df2_binary.iterrows():
 
@@ -193,7 +361,7 @@ def build_connections_table(name,definition,conn_entity):
         except:
             cosine_similarity = 0
 
-        if(cosine_similarity > 0.8):
+        if(cosine_similarity > threshold):
             # print(row_binary)
             # print(tmp)
             # print(cosine_similarity)
