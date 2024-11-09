@@ -34,25 +34,13 @@
                 <label>People Rights</label>
             </div>
             <div>
-                <input type="checkbox" name="filter_checkbox" value="Adoption" onchange="" autocomplete="off"/>
-                <label>Adoption</label>
-            </div>
-            <div>
-                <input type="checkbox" name="filter_checkbox" value="Service Quality" onchange="" autocomplete="off"/>
-                <label>Service Quality</label>
-            </div>
-            <div>
-                <input type="checkbox" name="filter_checkbox" value="Confidentiality and Data Disclosure" onchange="" autocomplete="off"/>
-                <label>Confidentiality and Data Disclosure</label>
+                <input type="checkbox" name="filter_checkbox" value="Confidentiality" onchange="" autocomplete="off"/>
+                <label>Confidentiality</label>
             </div>
             <div>
                 <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="" autocomplete="off"/>
                 <label>Laws, Regulations, Compliance</label>
-            </div>
-            <div>
-                <input type="checkbox" name="filter_checkbox" value="Technical" onchange="" autocomplete="off"/>
-                <label>Technical</label>
-            </div>
+            </div>>
             <div>
                 <input type="checkbox" name="filter_checkbox" value="Security" onchange="" autocomplete="off"/>
                 <label >Security</label>
@@ -64,23 +52,6 @@
             <div>
                 <input type="checkbox"  name="filter_checkbox" value="Trust" onchange="" autocomplete="off"/>
                 <label >Trust</label>
-            </div>
-            <div>
-                <input type="checkbox"  name="filter_checkbox" value="System Design" onchange="" autocomplete="off"/>
-                <label >System Design</label>
-            </div>
-            
-            <div>
-                <input type="checkbox"  name="filter_checkbox" value="Governance Actors, Management, and Procedures" onchange="" autocomplete="off"/>
-                <label >Governance Actors, Management, and Procedures</label>
-            </div>
-            <div>
-                <input type="checkbox"  name="filter_checkbox" value="Social and Political" onchange="" autocomplete="off"/>
-                <label >Social and Political</label>
-            </div>
-            <div>
-                <input type="checkbox"  name="filter_checkbox" value="Functional Requirement" onchange="" autocomplete="off"/>
-                <label >Functional Requirement</label>
             </div>
             <div>
                 <input type="checkbox"  name="filter_checkbox" value="Integrity" onchange="" autocomplete="off"/>
@@ -96,15 +67,11 @@
             </div>
             <div>
                 <input type="checkbox"  name="filter_checkbox" value="Surveillance" onchange="" autocomplete="off"/>
-                <label >Surveillance</label>
+                <label >Linkability</label>
             </div>
             <div>
-                <input type="checkbox"  name="filter_checkbox" value="Authenticity of Data and Identity, Authorization" onchange="" autocomplete="off"/>
-                <label >Authenticity of Data and Identity, Authorization</label>
-            </div>
-            <div>
-                <input type="checkbox"  name="filter_checkbox" value="Abuse of system functionality" onchange="" autocomplete="off"/>
-                <label >Abuse of system functionality</label>
+                <input type="checkbox"  name="filter_checkbox" value="Authenticity" onchange="" autocomplete="off"/>
+                <label >Authenticity</label>
             </div>
         </fieldset>
 
@@ -186,6 +153,10 @@
             <div id="Vulnerabilities_table" class="table-container"></div>
         </div>
     </div>
+
+    <button onclick="generate_threats()">
+        Generate Threats
+    </button>
 
     <script>
         function toggleContent(entity) {

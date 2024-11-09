@@ -30,6 +30,34 @@ function add_goto_specific(entity){
     });
 }
 
+// This function adds a checkbox next to each table row that will be used to directly generate the threats for the selected rows
+function add_generate_threats_checkboxes(entity){
+
+    const table = document.getElementById(entity+'_table');
+    const rows = document.getElementById(entity+'_table').querySelectorAll('table tr');
+
+    rows.forEach(row => {
+        const tds = row.querySelectorAll('td'); // Get all <td> elements in the row
+        
+        var checkbox_value;
+        if (tds.length > 0) {
+            // Assign the function to the first <td>
+            checkbox_value = tds[0].textContent;
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.classList.add("threat_generation_checkbox");
+            checkbox.value = checkbox_value; //all good until here
+
+            // const newCell = document.createElement("td");
+            // newCell.appendChild(checkbox);
+
+            tds[tds.length-1].after(checkbox); //works! appends right after the tds
+        } 
+    });
+}
+
+
 async function loadTable(entity) {
 
     const response = await fetch('/get_table?entity=' + entity);
@@ -38,13 +66,15 @@ async function loadTable(entity) {
 
     document.getElementById(entity+'_table').innerHTML = table_html;
 
-    add_goto_specific(entity);
+    add_goto_specific(entity); //this add the functionality to call the specific page (with the links to related entities for the selected row)
+
+    add_generate_threats_checkboxes(entity);
     
-    addToLoaded(entity);
+    addToLoaded(entity); // this is to keep in memory the set of tables that have been already loaded
 
-    updateFilters();
+    updateFilters(); //this is just to reset the filters
 
-    checkmarks_and_crosses();
+    checkmarks_and_crosses(); //this is just to present the emojis on the table, nothing special
 }
 
 
@@ -158,4 +188,53 @@ async function getTablesConnections() {
     resetFilters();
 
     checkmarks_and_crosses();
+}
+
+// Here it generates a json to be passed to the generate_threats endpoint
+function generate_threats(){
+    
+    var json_for_threats_endpoint = {};
+
+    var selected_mitigations = [];
+    {
+        const mitigations_table = document.getElementById("Mitigations_table");
+        const checkboxes = mitigations_table.getElementsByClassName("threat_generation_checkbox");
+
+        for (let checkbox_element of checkboxes) {
+            if (checkbox_element.checked){
+                selected_mitigations.push(checkbox_element.value);
+            }
+        }
+    }
+
+    json_for_threats_endpoint["Mitigations"] = selected_mitigations;
+
+    // repeat for requirements
+    var selected_requirements = [];
+    {
+        const requirements_table = document.getElementById("Requirements_table");
+        const checkboxes = requirements_table.getElementsByClassName("threat_generation_checkbox");
+
+        for (let checkbox_element of checkboxes) {
+            if (checkbox_element.checked){
+                selected_requirements.push(checkbox_element.value);
+            }
+        }
+    }
+
+    json_for_threats_endpoint["Requirements"] = selected_requirements;
+
+    alert("The related threats will be output on a specific file - this is a temporary feature for testing");
+
+    query_generate_threats(json_for_threats_endpoint);
+}
+
+function query_generate_threats(json){
+    fetch("/generate_threats", {
+        method: "POST",
+        body: JSON.stringify(json),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+    });
 }

@@ -377,6 +377,33 @@ def rename_shared_cats(shared_cats):
         tmp.append([CATEGORIES_MAP.get(c, c) for c in cats1])
     return tmp
 
+# For how it is currently developed, this function creates a lot of duplicate results, which decrease the readability but also the performance - TO BE CHANGED in the future
+@app.route('/generate_threats', methods=['POST'])
+def generate_threats():
+    # First version is direct from mitigations
+    # Allow user to select some mitigations (check boxes on the right), then use a generate threats button
+    # build_connections_table(name,definition,conn_entity)
+
+    mitigations = request.json['Mitigations']
+    requirements = request.json['Requirements']
+
+    with open("./generated_threats.txt", "w"): # clear file before appending
+        pass
+
+    with open("./generated_threats.txt", "a") as file:
+    # Get the mitigations connected to the selected requirements, then get the threats from the mitigations
+        for el in requirements:
+            mitigs_from_reqs, _ = build_connections_table("Requirements", el, "Mitigations")
+            for el in mitigs_from_reqs["Mitigations"]:
+                threats, _ = build_connections_table("Mitigations", el, "Threats")
+                file.write(threats["Threats"].to_csv(index=False))
+
+    # Write the threats deriving from mitigations
+        for el in mitigations:
+            threats, _ = build_connections_table("Mitigations", el, "Threats")
+            file.write(threats["Threats"].to_csv(index=False))
+
+    return "ok"
 
 @app.route('/get_specific', methods=['GET'])
 def get_specific():
@@ -416,4 +443,5 @@ def get_specific():
     
 
 if __name__ == '__main__':
+    pd.set_option('future.no_silent_downcasting', True)
     app.run(debug=True)
