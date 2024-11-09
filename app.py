@@ -390,18 +390,24 @@ def generate_threats():
     with open("./generated_threats.txt", "w"): # clear file before appending
         pass
 
-    with open("./generated_threats.txt", "a") as file:
-    # Get the mitigations connected to the selected requirements, then get the threats from the mitigations
-        for el in requirements:
-            mitigs_from_reqs, _ = build_connections_table("Requirements", el, "Mitigations")
-            for el in mitigs_from_reqs["Mitigations"]:
-                threats, _ = build_connections_table("Mitigations", el, "Threats")
-                file.write(threats["Threats"].to_csv(index=False))
-
-    # Write the threats deriving from mitigations
-        for el in mitigations:
+# Get the mitigations connected to the selected requirements, then get the threats from the mitigations
+    threats_set = set() # use a set to remove duplicates
+    for el in requirements:
+        mitigs_from_reqs, _ = build_connections_table("Requirements", el, "Mitigations")
+        for el in mitigs_from_reqs["Mitigations"]:
             threats, _ = build_connections_table("Mitigations", el, "Threats")
-            file.write(threats["Threats"].to_csv(index=False))
+            threats_set.update(threats["Threats"].to_list()) # this would remove duplicates in the file
+            # file.write(threats["Threats"].to_csv(index=False))
+
+# Write the threats deriving from mitigations
+    for el in mitigations:
+        threats, _ = build_connections_table("Mitigations", el, "Threats")
+        threats_set.update(threats["Threats"].to_list())
+        # file.write(threats["Threats"].to_csv(index=False))
+
+    with open("./generated_threats.txt", "a") as file:
+        for el in threats_set:
+            file.write(f"{el}\n")
 
     return "ok"
 
