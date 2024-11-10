@@ -3,7 +3,7 @@ Mitigations,Digital Infrastructure Management,Actors and Assets Management,Organ
 "Verification by super partes legal authority to ensure respect of all applicable laws and regulations, including identity laws and human rights",F,T,T,"compliance to standards, laws. Impacts directly people rights",T,F,F,F,F,F,F,F,F,F,F,F,T,F,T,F,F
 Design and development takes into account all possible users and people influenced by the NDID,F,T,T,"compliance to standards, laws. Impacts directly people rights and accessibility",T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T
 Test on all population sets before release,F,T,T,Impacts directly people rights and accessibility,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T
-Conduct harm assessment ,F,T,T,Impacts directly people rights and accessibility,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Conduct harm assessment,F,T,T,Impacts directly people rights and accessibility,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
 "Conduct ethical impact assessments to identify and address potential biases, discrimination, or unintended consequences",F,T,T,Impacts directly people rights and accessibility,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
 Define the design and architecture of the system based on the least amount of potential harm posed to all the population,F,T,T,"Impacts directly people rights and accessibility, prevents possible misuse of system functionalities",T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
 Rely on a certificate authority to authenticate parties (PKI),F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F

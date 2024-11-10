@@ -30,6 +30,26 @@ CATEGORIES_MAP = {"Conf&DataDiscl":"Confidentiality and Data Disclosure",
               "Abuse": "Abuse of system functionality"
               }
 
+THREAT_CATEGORIES_MAP = {"Spoofing":"Authenticity", 
+              "Tampering":"Integrity", 
+              "Repudiation": "Non-repudiability",
+              "Information Disclosure": "Confidentiality",
+              "Denial of Service": "Availability",
+              "Elevation of Priviledge": "Authorization",
+              "Linking":"Unlinkability",
+              "Identification": "Anonymity and Pseudonymity",
+              "Non-repudiation": "Plausible Deniability",
+              "Detecting": "Undetectability and Unobservability",
+              "Unawareness and Unintervenability": "Awareness and Intervenability",
+              "Non-compliance": "Compliance",
+              "Access denial": "Accessibility",
+              "Unusable system": "Usability",
+              "Lack of Trust" : "Trust Management",
+              "Lack of Trust" : "Trust Establishment",
+              "Digital Infrastructure Mismanagement":"Digital Infrastructure Management",
+              "Actors and Assets Mismanagement": "Actors and Assets Management"
+              }
+
 SECURITY_PROPERTIES = [
     "Authorization",
     "Authenticity",
@@ -293,6 +313,8 @@ def build_connections_table(name,definition,conn_entity):
     main_df = read_and_cleanup(name)
     df2 = read_and_cleanup(conn_entity).reset_index().drop(labels=["index"],axis=1)
 
+    definition = definition.strip() # this is here to avoid weird problems in the future
+
     # find specific row in main df
     row = main_df[main_df[name] == definition].reset_index()
     row = index_cleanup(row)
@@ -321,15 +343,30 @@ def build_connections_table(name,definition,conn_entity):
         row_binary = row.replace({'T': 1, 'F': 0}) # This is converted just fine
         row_binary.drop(labels=[name],axis=1, inplace=True)
     else:
-        shared_cats = get_categories(main_df).intersection(get_categories(df2))
-        # it should be sorted, but i should try
-        row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
-        df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
+        if conn_entity == "Threats":
+            df2_tmp = df2.rename(columns=THREAT_CATEGORIES_MAP)
+            shared_cats = get_categories(main_df).intersection(get_categories(df2_tmp))
+            row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
+            df2_binary = df2_tmp[list(shared_cats)].replace({'T': 1, 'F': 0})
+        else:
+            shared_cats = get_categories(main_df).intersection(get_categories(df2))
+            row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
+            df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
+
+
+    # print("\n\n SELECTED ROW\n")
+    # print(row_binary)
+    # print("\n\n SELECTED connection\n")
+    # print(df2_binary)
+    # print("\n\n SELECTED connection columns\n")
+    # print(df2_binary.columns)
+    # print("\n\n ROW  columns\n")
+    # print(row_binary.columns)
 
     empty_df = pd.DataFrame(columns=df2.columns)
 
     if is_high_level_entity(name):
-        threshold = 0.80
+        threshold = 0.70
     else:
         threshold = 0.60
 
@@ -408,6 +445,8 @@ def generate_threats():
     with open("./generated_threats.txt", "a") as file:
         for el in threats_set:
             file.write(f"{el}\n")
+
+    print("Finished threats output")
 
     return "ok"
 
