@@ -200,3 +200,12 @@ tbody tr {
 tbody tr:last-of-type {
   border-bottom: 2px solid #018369;
 }
+
+
+
+input.threat_generation_checkbox {
+  text-align: center;
+  margin-top: 20px;
+  width: 25px;
+  height: 25px;
+}
