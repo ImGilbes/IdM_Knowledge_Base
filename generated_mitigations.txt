@@ -1,0 +1,26 @@
+Share data in a common, high-assurance format
+Provide proof of non-revocation alongside VPs (tails file)
+Store private keys in secure isolated local environment
+Multi-factor authentication methods
+Revoke user credentials in case they are compromised
+Use load balancers and replicate services whenever possible
+Release trust marks as assurance method
+Static and dynamic testing of software for vulnerabilities
+Store private keys on hardware wallets
+Verification by super partes legal authority to ensure respect of all applicable laws and regulations, including identity laws and human rights
+Specialized hardware for secure private key storage
+Store private keys on an encrypted hard drive
+eCard counterfeit protection: visual security elements (holograms, inks, policarbonate)
+Periodically revoke employees capabilities
+Verify RP policies and controls before sharing sensitive information or PII
+Check CA CRL on every transaction
+Secure communication channels with mutual authentication TLS
+Ensure alternatives to the main service providers
+Log user transactions
+Overseeing judicial authority periodically checks the activities of the NDID, its policies and procedures
+Mutual communication parties authentication
+Use firewalls and anomaly detection systems to prevent network attacks
+Use proxy services
+Enforce a least priviledge policy for all company roles
+use Diffie-Hellman to exchange session key
+Secure comunication channel by establishing a session key

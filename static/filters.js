@@ -117,3 +117,18 @@ function resetFilters(){
     resetRows();
     updateFiltersColumns(); //if you reset the checkboxes before, this resets the columns
 }
+
+function selectAllFilters(){
+    const checkboxes = document.querySelectorAll('#filters-div input[type="checkbox"]');
+    // Set each checkbox to checked
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = true;
+    });
+}
+function unselectAllFilters(){
+    const checkboxes = document.querySelectorAll('#filters-div input[type="checkbox"]');
+    // Set each checkbox to checked
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+}

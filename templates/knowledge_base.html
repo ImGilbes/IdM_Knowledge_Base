@@ -36,7 +36,7 @@
             <div>
                 <input type="checkbox" name="filter_checkbox" value="Laws, Regulations, Compliance" onchange="" autocomplete="off"/>
                 <label>Laws, Regulations, Compliance</label>
-            </div>>
+            </div>
             <div>
                 <input type="checkbox" name="filter_checkbox" value="Security" onchange="" autocomplete="off"/>
                 <label >Security</label>
@@ -78,8 +78,8 @@
                 <label >Transparency</label>
             </div>
             <div>
-                <input type="checkbox"  name="filter_checkbox" value="Linkability" onchange="" autocomplete="off"/>
-                <label >Linkability</label>
+                <input type="checkbox"  name="filter_checkbox" value="Unlinkability" onchange="" autocomplete="off"/>
+                <label >Unlinkability</label>
             </div>
             <div>
                 <input type="checkbox"  name="filter_checkbox" value="Anonymity and Pseudonymity" onchange="" autocomplete="off"/>
@@ -94,14 +94,29 @@
                 <label >Plausible Deniability</label>
             </div>
             <div>
-                <input type="checkbox"  name="filter_checkbox" value="Undetectability and Unobservability" onchange="" autocomplete="off"/>
-                <label >Undetectability and Unobservability</label>
+                <input type="checkbox"  name="filter_checkbox" value="Awareness and Intervenability" onchange="" autocomplete="off"/>
+                <label >Awareness and Intervenability</label>
             </div>
             <div>
                 <input type="checkbox"  name="filter_checkbox" value="Compliance" onchange="" autocomplete="off"/>
                 <label >Compliance</label>
             </div>
-            
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Digital Infrastructure Management" onchange="" autocomplete="off"/>
+                <label >Digital Infrastructure Management</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Actors and Assets Management" onchange="" autocomplete="off"/>
+                <label >Actors and Assets Management</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Trust Establishment" onchange="" autocomplete="off"/>
+                <label >Trust Establishment</label>
+            </div>
+            <div>
+                <input type="checkbox"  name="filter_checkbox" value="Trust Management" onchange="" autocomplete="off"/>
+                <label >Trust Management</label>
+            </div>
         </fieldset>
 
 
@@ -119,6 +134,8 @@
 
         <button id="update_filters_button" onclick="updateFilters()">Update Filters</button>
         <button id="update_filters_button" onclick="resetFilters()">Reset Filters</button>
+        <button id="update_filters_button" onclick="selectAllFilters()">Select All Filters</button>
+        <button id="update_filters_button" onclick="unselectAllFilters()">Unselect All Filters</button>
         <!-- <button id="update_filters_button" onclick="updateFilters()">Reset Rows</button> -->
         
     </div>
