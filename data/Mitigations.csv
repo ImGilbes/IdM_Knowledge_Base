@@ -38,8 +38,8 @@ Release trust marks as assurance method,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
 Tests to verify compliance with a privacy standard,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
 Tests to verify compliance with a trust framework,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
 "Test RP controls, mitigations and policies periodically",F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Test compliance with baseline security practices,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Test compliance with baseline privacy practices,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
+Test compliance with baseline security practices,F,F,F,,T,T,T,T,T,F,T,F,F,F,F,F,F,F,F,F,F
+Test compliance with baseline privacy practices,F,F,F,,T,F,F,F,T,F,F,T,T,T,T,T,T,F,F,F,F
 Verify RP policies and controls before sharing sensitive information or PII,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
 Allow user to granularly select the services they will use during enrollment,F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
 Anonymity: Pseudonymize data at rest (through encryption or tokenization),F,F,F,,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F
@@ -49,16 +49,15 @@ Anonymity: Use differential privacy techniques for sharing data statistics,F,F,F
 Ensure alternatives to the main infrastructural asset providers (hardware and software),F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F
 Ensure alternatives to the main service providers,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,T
 "Share data in a common, high-assurance format",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Specialized hardware for secure private key storage,F,F,F,,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F
+Specialized hardware for secure private key storage,T,F,T,,F,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F
 Store private keys in secure isolated local environment,F,F,F,,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F
 Store private keys on an encrypted hard drive,F,F,F,,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F
 Store private keys on hardware wallets,F,F,F,,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F
 Use biohashing,F,F,F,,F,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F
-Store biometrics on a secure encrypted drive,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
+Store biometrics on a secure encrypted drive,T,F,T,,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F
 Store biometrics on a hardware wallet,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
 Store biometrics in secure isolated environments,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
 Biometric data is accessible only with special capabilities,F,F,F,,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F
-Fingerprints are accessible only to law enforcement,F,F,F,,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F
 Access to PII requires user knowledge,F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
 eCard: Access PII only by scanning Machine Readable Zone (MRZ) and Card Access Number (CAN),F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
 eCard: allow access to stored user authentication certificate only with PIN,F,F,F,,F,T,F,F,T,F,T,F,F,F,F,T,F,F,F,F,F
@@ -102,7 +101,6 @@ Use dynamic resource allocation and test workloads at maximum capacity,F,F,F,,F,
 "Hide PII from public disclosure, search engine indexing, web scrapers",F,F,F,,F,F,F,F,T,F,F,T,T,T,T,F,F,F,F,F,F
 Implement deepfake detection service,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
 Provide alternatives to NDID access ,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Provide identity to all people,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
 Do not include data attributes that could lead to discrimination,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
 Minimize or avoid hardware and software compatibility requirements,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
 "eCard counterfeit protection: visual security elements (holograms, inks, policarbonate)",F,F,F,,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F

@@ -55,9 +55,8 @@ Hacked certificate authorities,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,Sedlmeir 
 Loss or lack of control over identity data,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,"Sapelova 2014, Iglezakis 2015, Navas 2022"
 Data shared with unvetted or malicious parties,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,"OIDF human-centric, Hyperion 2016"
 Data is not portable and siloed,T,F,T,"usability, accessibility",F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
-Different IdPs cannot exchange identity data,T,F,T,"this would be a collaboration barrier, idk whether to put usability and accessibility here too",F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
+Lack of cross-border interoperability,T,F,T,"this would be a collaboration barrier, idk whether to put usability and accessibility here too",F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
 RPs cannot read IdPs identity data,T,F,T,"this would be a collaboration barrier, idk whether to put usability and accessibility here too",F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
-User cannot access services outside of their country,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
 User cannot access services in foreign countries,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
 Data is bound to specific devices and drivers,T,F,T,usability & accessibility,F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
 User cannot access services through multiple devices,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,,

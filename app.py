@@ -30,7 +30,7 @@ CATEGORIES_MAP = {"Conf&DataDiscl":"Confidentiality and Data Disclosure",
               "Abuse": "Abuse of system functionality"
               }
 
-THREAT_CATEGORIES_MAP = {"Spoofing":"Authenticity", 
+THREAT_TO_LOW_CATEGORIES_MAP = {"Spoofing":"Authenticity", 
               "Tampering":"Integrity", 
               "Repudiation": "Non-repudiability",
               "Information Disclosure": "Confidentiality",
@@ -46,9 +46,12 @@ THREAT_CATEGORIES_MAP = {"Spoofing":"Authenticity",
               "Unusable system": "Usability",
               "Lack of Trust" : "Trust Management",
               "Lack of Trust" : "Trust Establishment",
-              "Digital Infrastructure Mismanagement":"Digital Infrastructure Management",
-              "Actors and Assets Mismanagement": "Actors and Assets Management"
+              "Digital Infrastructure Management":"Digital Infrastructure Management",
+              "Actors and Assets Management": "Actors and Assets Management"
               }
+
+LOW_TO_THREAT_CATEGORIES_MAP = dict(zip(THREAT_TO_LOW_CATEGORIES_MAP.values(), THREAT_TO_LOW_CATEGORIES_MAP.keys()))
+
 
 SECURITY_PROPERTIES = [
     "Authorization",
@@ -57,6 +60,24 @@ SECURITY_PROPERTIES = [
     "Integrity",
     "Availability",
     "Non-repudiability"
+]
+
+STRIDE_PROPERTIES = [
+    "Spoofing",
+    "Tampering",
+    "Repudiation",
+    "Information Disclosure",
+    "Denial of Service",
+    "Elevation of Priviledge"
+]
+
+LINDDUN_PROPERTIES = [
+    "Linking",
+    "Identification",
+    "Non-repudiation",
+    "Detecting",
+    "Unawareness and Unintervenability",
+    "Non-compliance"
 ]
 
 PRIVACY_PROPERTIES = [
@@ -79,6 +100,16 @@ USABILITY_PROPERTIES = [
     "Accessibility"
 ]
 
+USABILITY_THREAT_PROPERTIES = [
+    "Unusable system",
+    "Access denial"
+]
+
+ORGANIZATIONAL_PROPERTIES = [
+    "Digital Infrastructure Management",
+    "Actors and Assets Management"
+]
+
 HIGH_CATEGORIES = [
     "Laws and Regulations",
     "Infrastructure Management",
@@ -89,6 +120,27 @@ HIGH_CATEGORIES = [
 ]
 
 LOW_CATEGORIES = []
+
+THREAT_CATEGORIES = [
+    "Digital Infrastructure Management",
+    "Actors and Assets Management",
+    "Rights",
+    "Spoofing",
+    "Tampering",
+    "Repudiation",
+    "Information Disclosure",
+    "Denial of Service",
+    "Elevation of Priviledge",
+    "Linking",
+    "Identification",
+    "Non-repudiation",
+    "Detecting",
+    "Unawareness and Unintervenability",
+    "Non-compliance",
+    "Lack of Trust",
+    "Unusable system",
+    "Access denial"
+]
 
 LOW_ENTITIES = [ "Requirements","Mitigations","Threats","Attacks","Vulnerabilities"]
 HIGH_ENTITIES = [ "Goals","Issues","Limitations"]
@@ -116,39 +168,14 @@ def get_categories(df):
 
 def cleanup_df(df,entity):
     tmp = []
-    if "USER" in df.columns:
-        tmp.append("USER")
-    if "User" in df.columns:
-        tmp.append("User")
-    if "User-interaction" in df.columns:
-        tmp.append("User-interaction")
-    if "Adoption" in df.columns:
-        tmp.append("Adoption")
-    if "Generic" in df.columns:
-        tmp.append("Generic")
-    if "ServiceQuality" in df.columns:
-        tmp.append("ServiceQuality")
-    if "OP" in df.columns:
-        tmp.append("OP")
-    if "RP" in df.columns:
-        tmp.append("RP")
-    if "Functional" in df.columns:
-        tmp.append("Functional")
-    if "Abuse" in df.columns:
-        tmp.append("Abuse")
-    if "Technical" in df.columns:
-        tmp.append("Technical")
 
     if "References" in df.columns:
         tmp.append("References")
     if "Description" in df.columns:
         tmp.append("Description")
-    if "STRIDE" in df.columns:
-        tmp.append("STRIDE")
-    if "LINDDUN" in df.columns:
-        tmp.append("LINDDUN")
     if "Ref" in df.columns:
         tmp.append("Ref")
+
     if "Impacts" in df.columns:
         tmp.append("Impacts")
     if "ORIGIN" in df.columns:
@@ -162,8 +189,7 @@ def cleanup_df(df,entity):
         tmp.append("Organization")
     
     #this is just patchwork, waiting to have a better version of the tags
-    df = df.drop(labels=tmp, axis=1)
-    return df
+    return df.drop(labels=tmp, axis=1)
 
     # match entity:
     #     case "Requirements":
@@ -260,64 +286,87 @@ def set_specific():
 
 
 def build_high_level(df,entity_name):
-    # assumption: we are working with a lower level entity
-    #find trues
 
     if is_high_level_entity(entity_name):
         print("passed high level entity to build high level")
         return None
 
-    new_df = pd.DataFrame(columns=HIGH_CATEGORIES)
+    string_or = lambda a, b: "F" if a == "F" and b == "F" else "T" 
 
-    for index, _ in df.iterrows():
+    new_df = pd.DataFrame(columns=[entity_name]+HIGH_CATEGORIES)
 
-        security = "F"
-        for property in SECURITY_PROPERTIES:
-            if df[property][index] == "T":
-                security = "T"
-                break
-        
-        privacy = "F"
-        for property in PRIVACY_PROPERTIES:
-            if df[property][index] == "T":
-                privacy = "T"
-                break
-        
-        trust = "F"
-        for property in TRUST_PROPERTIES:
-            if df[property][index] == "T":
-                trust = "T"
-                break
-
-        usability = "F"
-        for property in USABILITY_PROPERTIES:
-            if df[property][index] == "T":
-                usability = "T"
-                break
-        
-        law = "F"
-        if entity_name == "Requirements":
-            if df["Rights"][index] == "T":
-                law = "T"
-        elif entity_name == "Mitigations":
-            if df["Rights"][index] == "T":
-                law = "T"
-                
-        # TODO: add ORGANIZATION CATEGORIES here
-
-        new_df.loc[index] = [law, "F", trust, security, privacy, usability]
-    return new_df
+    new_df[entity_name] = df[entity_name] 
+    security = df["Authenticity"] if entity_name != "Threats" else df["Spoofing"]
+    privacy = df["Unlinkability"] if entity_name != "Threats" else df["Linking"]
+    usability = df["Accessibility"] if entity_name != "Threats" else df["Access denial"]
+    trust = df["Trust Establishment"] if entity_name != "Threats" else df["Lack of Trust"]
+    org = df["Digital Infrastructure Management"] if entity_name != "Threats" else df["Digital Infrastructure Management"]
     
+    property_list = SECURITY_PROPERTIES if entity_name != "Threats" else STRIDE_PROPERTIES
+    for property in property_list:
+        security = security.combine(df[property], func = string_or)
+    new_df["Security"] = security
+
+    property_list = PRIVACY_PROPERTIES if entity_name != "Threats" else LINDDUN_PROPERTIES
+    for property in property_list:
+        privacy = privacy.combine(df[property], func = string_or)
+    new_df["Privacy"] = privacy
+
+    property_list = USABILITY_PROPERTIES if entity_name != "Threats" else USABILITY_THREAT_PROPERTIES
+    for property in property_list:
+        usability = usability.combine(df[property], func = string_or)
+    new_df["Usability"] = usability
+
+    if entity_name in ["Requirements", "Mitigations"]:
+        for property in TRUST_PROPERTIES:
+            trust = trust.combine(df[property], func = string_or)
+    
+        for property in ORGANIZATIONAL_PROPERTIES:
+            org = org.combine(df[property], func = string_or)
+
+    new_df["Trust"] = trust
+    new_df["Infrastructure Management"] = org
+
+    match entity_name:
+        case "Requirements":
+            new_df["Laws and Regulations"] = df["Rights"]
+        case "Mitigations":
+            new_df["Laws and Regulations"] = df["Rights"]
+        case "Threats":
+            new_df["Laws and Regulations"] = df["Rights"]
+            print(new_df)
+
+    return new_df
+
+
+# Convert mitigation categories to threat
+def build_low_level_to_threat(df,entity_name):
+
+    if is_high_level_entity(entity_name):
+        print("passed high level entity to build high level")
+        return None
+
+    string_or = lambda a, b: "F" if a == "F" and b == "F" else "T" 
+
+    trust = df["Trust Establishment"].combine(df["Trust Management"], func = string_or)
+    df["Trust Establishment"] = trust
+    df.drop(labels=["Trust Management"], axis=1, inplace=True)
+
+    org = df["Digital Infrastructure Management"].combine(df["Actors and Assets Management"], func = string_or)
+    df["Digital Infrastructure Management"] = org
+    df.drop(labels=["Actors and Assets Management"], axis=1, inplace=True)
+
+    return df
 
 def build_connections_table(name,definition,conn_entity):
     main_df = read_and_cleanup(name)
     df2 = read_and_cleanup(conn_entity).reset_index().drop(labels=["index"],axis=1)
+    conn_entity_original = df2.copy(deep=True)
+    empty_df = pd.DataFrame(columns=df2.columns)
 
     definition = definition.strip() # this is here to avoid weird problems in the future
 
-    # find specific row in main df
-    row = main_df[main_df[name] == definition].reset_index()
-    row = index_cleanup(row)
+    threshold = 0.8 if is_high_level_entity(name) else 0.60 # threashold for the similarity metric to select a record
 
     # old method for creating connections by matching al the categories to T
     # interesect the categories between the two dfs
@@ -337,38 +386,62 @@ def build_connections_table(name,definition,conn_entity):
 
     # need to convert to 0s and 1s because otherwise i cant do the cosine similarity
 
-    if name == "Goals" and conn_entity == "Requirements":
-        df_tmp = build_high_level(df2, conn_entity)
-        df2_binary = df_tmp.replace({'T': 1, 'F': 0})
-        row_binary = row.replace({'T': 1, 'F': 0}) # This is converted just fine
-        row_binary.drop(labels=[name],axis=1, inplace=True)
-    else:
-        if conn_entity == "Threats":
-            df2_tmp = df2.rename(columns=THREAT_CATEGORIES_MAP)
-            shared_cats = get_categories(main_df).intersection(get_categories(df2_tmp))
-            row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
-            df2_binary = df2_tmp[list(shared_cats)].replace({'T': 1, 'F': 0})
-        else:
-            shared_cats = get_categories(main_df).intersection(get_categories(df2))
-            row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
-            df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
+    match name:
+        case "Goals":
+            if conn_entity == "Requirements" :
+                df2 = build_high_level(df2, "Requirements")
 
+        case "Requirements":
+            if conn_entity in ["Mitigations","Requirements"] :
+                pass
 
-    # print("\n\n SELECTED ROW\n")
-    # print(row_binary)
-    # print("\n\n SELECTED connection\n")
-    # print(df2_binary)
-    # print("\n\n SELECTED connection columns\n")
-    # print(df2_binary.columns)
-    # print("\n\n ROW  columns\n")
-    # print(row_binary.columns)
+            elif conn_entity == "Goals":
+                main_df = build_high_level(main_df, "Requirements")
 
-    empty_df = pd.DataFrame(columns=df2.columns)
+        case "Mitigations":
+            if conn_entity in ["Mitigations","Requirements"]:
+                pass
+            elif conn_entity in ["Threats", "Attacks", "Vulnerabilities"]:
+                # convert mitigations to threats
+                main_df = build_low_level_to_threat(main_df, "Mitigations")
+                main_df.rename(columns=LOW_TO_THREAT_CATEGORIES_MAP, inplace=True)
 
-    if is_high_level_entity(name):
-        threshold = 0.70
-    else:
-        threshold = 0.60
+        case "Threats":
+            if conn_entity in ["Mitigations"]:
+                df2 = build_low_level_to_threat(df2, "Mitigations")
+                df2.rename(columns=LOW_TO_THREAT_CATEGORIES_MAP, inplace=True)
+
+            elif conn_entity in ["Attacks","Vulnerbilities"]:
+                pass
+
+        case "Issues":
+            if conn_entity in ["Threats"]:
+                df2 = build_high_level(df2, "Threats")
+
+        case "Limitations":
+            if conn_entity in ["Threats"]:
+                df2 = build_high_level(df2, "Threats")
+
+        case _:
+            return None
+    
+    # find specific row in main df
+    row = main_df[main_df[name] == definition].reset_index()
+    row = index_cleanup(row)
+
+    shared_cats = get_categories(main_df).intersection(get_categories(df2))
+    row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
+    df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
+
+    print("\n\n SELECTED ROW\n")
+    print(row_binary)
+    print("\n\n SELECTED connection\n")
+    print(df2_binary)
+    print("\n\n SELECTED connection columns\n")
+    print(df2_binary.columns)
+    print("\n\n ROW  columns\n")
+    print(row_binary.columns)
+    print(f"\n\n are the columns the samelength? {len(df2_binary.columns)} vs {len(row_binary.columns)} \nare the columns the same, and in the same order??? {df2_binary.columns == row_binary.columns }\n")
 
     for index, row in df2_binary.iterrows():
 
@@ -402,7 +475,7 @@ def build_connections_table(name,definition,conn_entity):
             # print(row_binary)
             # print(tmp)
             # print(cosine_similarity)
-            empty_df.loc[len(empty_df)] = df2.iloc[index] # append row
+            empty_df.loc[len(empty_df)] = conn_entity_original.iloc[index] # append row
 
     return (rename_columns(empty_df), list())
 
@@ -464,15 +537,23 @@ def get_specific():
 
     starting_record = None
 
+    # connections = {
+    #     "Requirements": ["Mitigations", 'Goals','Requirements'],
+    #     "Mitigations": ["Requirements","Threats",'Mitigations','Attacks'],
+    #     "Threats": ["Mitigations", "Attacks",'Threats'],
+    #     "Goals": ['Requirements'],
+    #     "Issues": ['Threats'],
+    #     "Limitations": ['Threats'],
+    #     "Vulnerabilities":['Attacks','Mitigations'],
+    #     "Attacks":['Vulnerabilities','Threats']
+    # }
     connections = {
         "Requirements": ["Mitigations", 'Goals','Requirements'],
-        "Mitigations": ["Requirements","Threats",'Mitigations','Attacks'],
-        "Threats": ["Mitigations", "Attacks",'Threats'],
+        "Mitigations": ["Requirements","Threats",'Mitigations'],
+        "Threats": ["Mitigations", 'Threats'],
         "Goals": ['Requirements'],
         "Issues": ['Threats'],
-        "Limitations": ['Threats'],
-        "Vulnerabilities":['Attacks','Mitigations'],
-        "Attacks":['Vulnerabilities','Threats']
+        "Limitations": ['Threats']
     }
     
     tables = []

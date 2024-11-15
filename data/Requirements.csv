@@ -78,5 +78,5 @@ Transaction logging and auditing,T,F,T,????,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,"
 eCard: use specialized middleware for cryptographic functionalities,T,F,T,impacts trust management?,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,,
 eCard data Portability,T,F,T,impacts usability and accessibility,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,T,,
 eCard data and chip interoperability,T,F,T,impacts usability and accessibility,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,T,,
-ICAO Machine Readable Travel Data (MRTD),T,F,T,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,
-Identification Authentication Signature - European Citizen Card (IAS-ECC),T,F,T,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,
+ICAO Machine Readable Travel Data (MRTD),T,F,T,,F,T,F,F,T,F,T,F,F,F,F,F,F,F,F,T,F,,
+Identification Authentication Signature - European Citizen Card (IAS-ECC),T,F,T,,F,T,T,F,T,F,F,F,T,F,F,F,F,T,T,F,F,,
