@@ -1,31 +1,31 @@
-Vulnerabilities,Conf&DataDiscl,Integr,Avail,Surv,Authn&Authz,Generic,References,Description
-Consensus mechanism vuln.,T,T,F,F,T,F,Alamri 2022,
-Smart contract vuln.,T,T,T,T,T,F,"Alamri 2022, Gruner 2023",
-Communication protocol vuln.,T,T,T,T,T,T,Alamri 2022,
-Open (unsecured) communication network,T,T,T,T,T,T,Edu 2023,
-Vulnerabilities in blockchain networks,F,T,T,F,T,F,Satybaldy 2024,
-Digital identity data duplicated across multiple organizations,T,F,F,T,F,F,Hyperion 2016,Vulnerab. of fair and lawful use of data
-Use of self asserted data,F,T,F,F,T,T,Hyperion 2016,
-Use of static or long-lived identities or credentials,T,F,F,F,T,T,Hyperion 2016,Vuln. for quality and authorized access
-Data collected without a clearly defined purpose of scope of processing,F,F,F,F,T,T,Hyperion 2016,
-Single user identifiers used for many purposes,F,F,F,T,F,T,Hyperion 2016,
-Lack of blinding: other transaction parties are visible,F,F,F,T,F,T,Hyperion 2016,
-Large amounts of data potentially shared in single assertions (lack of pseudonymisation0,T,F,F,T,F,T,Hyperion 2016,
-Biometric data shared or stored centrally,T,F,F,T,F,F,Hyperion 2016,
-It is unclear what data is being collected or more data is collected than what the user hs been told,T,F,F,T,F,T,Hyperion 2016,
-Lack of notification prior to data collection,F,F,F,F,T,T,Hyperion 2016,
-Data is (partially) stored in clear,T,T,F,F,T,T,Hyperion 2016,
-"cached consent: after consent is given once, it is reused an arbitrary number of times",F,F,F,F,T,T,Hyperion 2016,
-Lack of consent revocation mechanism,F,F,F,F,T,T,Hyperion 2016,
-Shared data attributes can be used to infer data,F,F,F,T,F,T,Hyperion 2016,
-Lack of verification process for parties with whom the data is shared,T,F,F,T,T,T,Hyperion 2016,
-Users identity relies on personal computing devices,T,T,T,F,T,T,Hyperion 2016,This can make the system susceptible to malware
-Lack of explicity mutual authentication,T,T,F,F,T,T,Hyperion 2016,
-Use of low assurance identities,F,F,F,F,T,T,Hyperion 2016,become more susceptible to identity theft
-Compromised private keys,T,T,F,F,T,T,Hyperion 2016,vulnerability
-"failure to review security protocols, lack of security updates",T,T,T,F,T,T,Hyperion 2016,vulnerability
-,,,,,,,,
-No way to guarantee user and population rights,,,,,,,,
-Enrollment barrier due to costs for individual or need for specific devices,,,,,,,Hyperion 2016,
-System is proprietary or bespoke,,,,,,,Hyperion 2016,"can lead to vendor lock-in, interoperability issues, chance of hidden security/privacy issues"
-Significant manual bureaucratic procedures in place alongside the NDID system,,,,,,,Hyperion 2016,"impacts efficiency, can crate a separate set of threat on those manual procedures"
+Vulnerabilities,Digital Infrastructure Management,Actors and Assets Management,Organization,ORG IMPACT,Rights,Spoofing,Tampering,Repudiation,Information Disclosure,Denial of Service,Elevation of Priviledge,Linking,Identification,Non-repudiation,Detecting,Unawareness and Unintervenability,Non-compliance,Lack of Trust,Unusable system,Access denial,References,Description
+Consensus mechanism vuln.,F,F,F,F,F,F,T,T,F,T,T,F,F,F,F,F,F,F,F,F,Alamri 2022,
+Smart contract vuln.,F,F,F,F,F,F,T,F,F,T,T,F,F,F,F,F,F,F,F,F,"Alamri 2022, Gruner 2023",
+Communication protocol vuln.,F,F,F,F,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,Alamri 2022,
+Open (unsecured) communication network,F,F,F,F,F,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,Edu 2023,
+Vulnerabilities in blockchain networks,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,Satybaldy 2024,
+Digital identity data duplicated across multiple organizations,F,F,F,F,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,Hyperion 2016,Vulnerab. of fair and lawful use of data
+Use of self asserted data,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,Hyperion 2016,
+Use of static or long-lived identities or credentials,F,F,F,F,F,F,F,F,F,F,F,T,T,T,T,F,F,F,F,F,Hyperion 2016,Vuln. for quality and authorized access
+Data collected without a clearly defined purpose of scope of processing,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,F,Hyperion 2016,
+Single user identifiers used for many purposes,F,F,F,F,F,F,F,F,T,F,F,T,T,T,T,F,F,F,F,F,Hyperion 2016,
+Lack of blinding: other transaction parties are visible,F,F,F,F,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,Hyperion 2016,
+Large amounts of data potentially shared in single assertions (lack of pseudonymisation0,F,F,F,F,F,F,F,F,T,F,F,T,T,F,F,F,F,F,F,F,Hyperion 2016,
+Biometric data shared or stored centrally,F,F,F,F,F,F,F,F,T,T,F,T,F,F,F,F,F,F,F,F,Hyperion 2016,
+It is unclear what data is being collected or more data is collected than what the user hs been told,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,T,T,F,F,F,Hyperion 2016,
+Lack of notification prior to data collection,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,F,Hyperion 2016,
+Data is (partially) stored in clear,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,Hyperion 2016,
+"cached consent: after consent is given once, it is reused an arbitrary number of times",F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,Hyperion 2016,
+Lack of consent revocation mechanism,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,Hyperion 2016,
+Shared data attributes can be used to infer data,F,F,F,F,F,F,F,F,T,F,F,T,T,F,F,F,F,F,F,F,Hyperion 2016,
+Lack of verification process for parties with whom the data is shared,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,Hyperion 2016,
+Users identity relies on personal computing devices,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,Hyperion 2016,This can make the system susceptible to malware
+Lack of explicity mutual authentication,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,Hyperion 2016,
+Use of low assurance identities,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,Hyperion 2016,become more susceptible to identity theft
+Compromised private keys,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,Hyperion 2016,vulnerability
+"failure to review security protocols, lack of security updates",T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,Hyperion 2016,vulnerability
+,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,
+No way to guarantee user and population rights,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,
+Enrollment barrier due to costs for individual or need for specific devices,F,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,Hyperion 2016,
+System is proprietary or bespoke,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,Hyperion 2016,"can lead to vendor lock-in, interoperability issues, chance of hidden security/privacy issues"
+Significant manual bureaucratic procedures in place alongside the NDID system,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,Hyperion 2016,"impacts efficiency, can crate a separate set of threat on those manual procedures"

@@ -359,6 +359,7 @@ def build_low_level_to_threat(df,entity_name):
     return df
 
 def build_connections_table(name,definition,conn_entity):
+    
     main_df = read_and_cleanup(name)
     df2 = read_and_cleanup(conn_entity).reset_index().drop(labels=["index"],axis=1)
     conn_entity_original = df2.copy(deep=True)
@@ -422,9 +423,14 @@ def build_connections_table(name,definition,conn_entity):
             if conn_entity in ["Threats"]:
                 df2 = build_high_level(df2, "Threats")
 
+        case "Vulnerabilities":
+            pass
+
+        case "Attacks":
+            pass
+
         case _:
             return None
-    
     # find specific row in main df
     row = main_df[main_df[name] == definition].reset_index()
     row = index_cleanup(row)
@@ -433,15 +439,15 @@ def build_connections_table(name,definition,conn_entity):
     row_binary = row[list(shared_cats)].replace({'T': 1, 'F': 0})
     df2_binary = df2[list(shared_cats)].replace({'T': 1, 'F': 0})
 
-    print("\n\n SELECTED ROW\n")
-    print(row_binary)
-    print("\n\n SELECTED connection\n")
-    print(df2_binary)
-    print("\n\n SELECTED connection columns\n")
-    print(df2_binary.columns)
-    print("\n\n ROW  columns\n")
-    print(row_binary.columns)
-    print(f"\n\n are the columns the samelength? {len(df2_binary.columns)} vs {len(row_binary.columns)} \nare the columns the same, and in the same order??? {df2_binary.columns == row_binary.columns }\n")
+    # print("\n\n SELECTED ROW\n")
+    # print(row_binary)
+    # print("\n\n SELECTED connection\n")
+    # print(df2_binary)
+    # print("\n\n SELECTED connection columns\n")
+    # print(df2_binary.columns)
+    # print("\n\n ROW  columns\n")
+    # print(row_binary.columns)
+    # print(f"\n\n are the columns the samelength? {len(df2_binary.columns)} vs {len(row_binary.columns)} \nare the columns the same, and in the same order??? {df2_binary.columns == row_binary.columns }\n")
 
     for index, row in df2_binary.iterrows():
 
@@ -477,6 +483,8 @@ def build_connections_table(name,definition,conn_entity):
             # print(cosine_similarity)
             empty_df.loc[len(empty_df)] = conn_entity_original.iloc[index] # append row
 
+    print(empty_df)
+
     return (rename_columns(empty_df), list())
 
 
@@ -497,14 +505,15 @@ def generate_threats():
     mitigations = request.json['Mitigations']
     requirements = request.json['Requirements']
 
-    with open("./generated_threats.txt", "w"): # clear file before appending
-        pass
-    with open("./generated_mitigations.txt", "w"): # clear file before appending
-        pass
+    # with open("./generated_threats.txt", "w"): # clear file before appending
+    #     pass
+    # with open("./generated_mitigations.txt", "w"): # clear file before appending
+    #     pass
 
 # Get the mitigations connected to the selected requirements, then get the threats from the mitigations
     threats_set = set() # use a set to remove duplicates
     mitigations_set = set()
+    attacks_set = set()
     for el in requirements:
         mitigs_from_reqs, _ = build_connections_table("Requirements", el, "Mitigations")
         mitigations_set.update(mitigs_from_reqs["Mitigations"].to_list())
@@ -519,11 +528,19 @@ def generate_threats():
         threats_set.update(threats["Threats"].to_list())
         # file.write(threats["Threats"].to_csv(index=False))
 
-    with open("./generated_threats.txt", "a") as file:
+# Write attacks enabling threats
+    for el in threats_set:
+        attacks, _ = build_connections_table("Threats", el, "Attacks")
+        attacks_set.update(attacks["Attacks"].to_list())
+
+    with open("./generated_threats.txt", "w") as file:
         for el in threats_set:
             file.write(f"{el}\n")
-    with open("./generated_mitigations.txt", "a") as file:
+    with open("./generated_mitigations.txt", "w") as file:
         for el in mitigations_set:
+            file.write(f"{el}\n")
+    with open("./generated_attacks.txt", "w") as file:
+        for el in attacks_set:
             file.write(f"{el}\n")
 
     print("Finished threats output")
@@ -537,23 +554,15 @@ def get_specific():
 
     starting_record = None
 
-    # connections = {
-    #     "Requirements": ["Mitigations", 'Goals','Requirements'],
-    #     "Mitigations": ["Requirements","Threats",'Mitigations','Attacks'],
-    #     "Threats": ["Mitigations", "Attacks",'Threats'],
-    #     "Goals": ['Requirements'],
-    #     "Issues": ['Threats'],
-    #     "Limitations": ['Threats'],
-    #     "Vulnerabilities":['Attacks','Mitigations'],
-    #     "Attacks":['Vulnerabilities','Threats']
-    # }
     connections = {
         "Requirements": ["Mitigations", 'Goals','Requirements'],
-        "Mitigations": ["Requirements","Threats",'Mitigations'],
-        "Threats": ["Mitigations", 'Threats'],
+        "Mitigations": ["Requirements","Threats",'Vulnerabilities',"Mitigations"],
+        "Threats": ["Mitigations", "Attacks",'Threats'],
         "Goals": ['Requirements'],
         "Issues": ['Threats'],
-        "Limitations": ['Threats']
+        "Limitations": ['Threats'],
+        "Vulnerabilities":['Attacks','Mitigations'],
+        "Attacks":['Vulnerabilities','Threats']
     }
     
     tables = []
