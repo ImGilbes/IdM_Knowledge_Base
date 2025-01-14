@@ -255,7 +255,7 @@ def read_and_cleanup(entity):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('knowledge_base.html')
 
 @app.route('/knowledge_base')
 def knowledge_base():
