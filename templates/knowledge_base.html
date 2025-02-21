@@ -2,29 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NDID Knowledge Base</title>
+    <title>IdM Knowledge Base</title>
 
     <link rel="stylesheet" href="static/styles.css">
 
+    <link rel="stylesheet" href="static/headerstyles.css">
+
     <script type="text/javascript" src="static/tables.js"></script>
     <script type="text/javascript" src="static/filters.js"></script>
+
     <script>
         var loaded = new Array();
         var displayed = new Array();
         var current_main_entity = new String();
     </script>
 </head>
-</head>
+
 <body>
 
-    <div class="landingPresentation" id="landingPageIntro">
-        <h4 id="landingPresentationTitle">Welcome to the NDID Knowledge Base</h4>
-        <p id="landingPresentationParagraph">Here you can explore the various entities, discover their definitions and see what they contain!</p>
+    <header class="nav-header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <span class="logo-text">IdM KB</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="knowledge_base" class="nav-link" id="homeLink">
+                    <span class="icon">🏠</span> Home
+                </a>
+                <a href="guide" class="nav-link" id="guideLink">
+                    <span class="icon">📚</span> Guide
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="presentation-container">
+        <div class="presentation-content">
+            <h1 class="presentation-title">Welcome to NDID Knowledge Base</h1>
+            
+            <div class="presentation-text">
+                <p class="highlight-text">
+                    🛡️ Your Comprehensive Security Intelligence Hub
+                </p>
+                <p class="main-description">
+                    Explore our dynamic threat intelligence database, designed to help you identify, analyze, and understand potential security risks. Our platform provides real-time insights and actionable intelligence for enhanced digital security decision-making.
+                </p>
+                <div class="feature-highlights">
+                    <span class="feature-pill">🔍 Smart Filtering</span>
+                    <span class="feature-pill">📊 Threat Analysis</span>
+                    <span class="feature-pill">🔄 Real-time Updates</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <button onclick="toggle_filters()">
-        Toggle Filters
+    <button class="toggle-filters-btn collapsible" type="button" 
+        aria-expanded="false" aria-controls="filters-section" onclick="toggle_filters()">
+        Filter Options 
     </button>
+    <!-- <button onclick="toggle_filters()">
+        Toggle Filters
+    </button> -->
+
+
 
     <div id="filters-div" class="filters-div">
         <fieldset>
@@ -200,8 +241,12 @@
         </div>
     </div>
 
-    <button onclick="generate_threats()">
-        Generate Threats
+
+    <button class="generate-threats-btn collapsible" 
+        aria-label="Generate security threats list"
+        data-loading-text="Generating..."
+        onclick="generate_threats()">
+    Generate Threats
     </button>
 
     <script>
@@ -225,6 +270,20 @@
                 displayed.push(entity);
             }
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page path
+            const currentPath = window.location.pathname;
+            
+            // Set active class based on current page
+            if (currentPath.includes('guide')) {
+                document.getElementById('guideLink').classList.add('active');
+            } else {
+                document.getElementById('homeLink').classList.add('active');
+            }
+        });
     </script>
 
 </body>

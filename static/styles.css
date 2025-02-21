@@ -24,6 +24,20 @@
   padding-bottom: 10px;
 }
 
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Individual Table Centering */
+table {
+  width: 100%;               /* Full width of container */
+  margin: 0 auto;            /* Center within container */
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
 html,
 body {
   height: 100%;
@@ -120,6 +134,7 @@ table th{
 .filters-div {
   width: auto;
   height: auto;
+  max-width: 1000px;
   /* background-color: #ff3a7f; */
   opacity: 0;
   visibility: hidden;
@@ -208,4 +223,415 @@ input.threat_generation_checkbox {
   margin-top: 20px;
   width: 25px;
   height: 25px;
+}
+
+
+/* styles.css */
+/* ==== CHANGES FROM ORIGINAL ==== */
+/* Original: color: #018369; */
+:root {
+  --primary: #2B8C67;      /* + Better contrast (4.6:1) */
+  --surface: #F8F9FA;      /* + Soft background */
+  --on-surface: #2D3748;   /* + WCAG compliant text */
+  --hover-state: #E2E8F0;  /* + Defined hover color */
+  --focus-ring: #90CDF4;   /* + Visible focus indicator */
+}
+
+/* NEW: Mobile-first approach */
+html {
+  font-size: 16px;         /* + Base typography */
+  line-height: 1.5;
+}
+
+body {
+  background: var(--surface);
+  color: var(--on-surface);
+  padding: 1rem;           /* + 8px spacing scale */
+}
+
+/* MODIFIED: Table styling */
+table {
+  width: 100%;
+  border: 1px solid #E2E8F0;        /* - Original #dddddd */
+  border-radius: 6px;              /* + Consistent rounding */
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* + Depth indicator */
+}
+
+thead th {
+  background: var(--primary);
+  color: white;
+  padding: 12px;                   /* + Systematic spacing */
+  font-weight: 600;
+}
+
+tbody td {
+  padding: 1rem;                   /* + 8px scale */
+  border-bottom: 1px solid #EDF2F7;
+}
+
+/* MODIFIED: Hover states */
+tbody tr:hover {
+  background: var(--hover-state);  /* - Original rgba() */
+  outline: 2px solid #CBD5E0;      /* + Contrast improvement */
+}
+
+/* NEW: Mobile adaptation */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  td:first-child {
+    min-width: 200px;              /* + Mobile adjustment */
+  }
+}
+
+/* MODIFIED: Icon styling */
+.checkmark::before, .cross::before {
+  font-size: 1.25rem;             /* + Relative sizing */
+  filter: contrast(1.2);          /* + Accessibility boost */
+}
+.checkmark::before {
+  color: var(--primary);          /* - Original green */
+}
+.cross::before {
+  color: #E53E3E;                 /* + Error color system */
+}
+
+/* NEW: Focus states */
+button:focus, [tabindex]:focus {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+
+
+.toggle-filters-btn {
+  padding: 12px 24px;            /* ↑ from 8px-16px */
+  font-size: 1.1rem;             /* ↑ from 0.9rem */
+  background-color: #018369;    /* Using existing table header color */
+  color: #ffffff !important;     /* Force contrast */
+  border: 2px solid rgba(255,255,255,0.2); /* Existing color reference */
+  border-radius: 6px;           /* + New rounded corners */
+  transition: all 0.3s ease;
+  display: inline-flex;         /* + Better icon alignment */
+  align-items: center;
+  gap: 8px;                     /* + Spacing system */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  letter-spacing: 0.5px;        /* + Readability improvement */
+}
+
+/* Hover state enhancement */
+.toggle-filters-btn:hover {
+  background-color: #016652;    /* 10% darker */
+  transform: translateY(-1px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Focus state for accessibility */
+.toggle-filters-btn:focus {
+  outline: 2px solid #90CDF4;    /* Existing focus ring color */
+  outline-offset: 2px;
+}
+
+/* Icon styling */
+.toggle-filters-btn::after {
+  content: '▼';                 /* Indicator */
+  font-size: 0.8em;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+/* Active state rotation */
+.toggle-filters-btn.active::after {
+  transform: rotate(180deg);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .toggle-filters-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 16px; 
+    font-size: 1rem;
+  }
+}
+
+.collapsible {
+  width: max(80%, 300px);  /* Prevents full-screen width */
+  margin: 1rem auto;       /* Centered alignment */
+  transition: width 0.3s ease; /* Smooth resize */
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .collapsible {
+    width: 95%;            /* More screen utilization */
+    min-width: 280px;      /* Prevents overflow */
+  }
+}
+
+/* Container adjustments for hierarchy */
+.collapsible-content {
+  max-width: 600px;       /* Constrained content width */
+  margin: 0 auto;          /* Central alignment */
+  padding: 1.5rem;         /* Maintain spacing system */
+}
+
+/* Hover state refinement */
+.collapsible:hover {
+  width: 85%;              /* Dynamic interaction */
+}
+
+.collapsible {
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  width: max(80%, 300px);
+  margin: 1rem auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+/* Hover State Enhancement */
+.collapsible:hover {
+  border: 2px solid #000807;  /* Solid border using primary color */
+  box-shadow: 0 4px 8px rgba(1, 131, 105, 0.15); /* Shadow with primary color */
+  transform: translateY(-1px);
+}
+
+/* Active State */
+.collapsible.active {
+  background-color: #018369;
+  color: white;
+  border-color: #018369;
+}
+
+/* Indicator Arrow Enhancement */
+.collapsible:after {
+  content: '\002B';
+  font-size: 20px;
+  font-weight: bold;
+  float: right;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.collapsible.active:after {
+  content: '\2212';
+  color: white;
+}
+
+
+/* Table Column Width Adjustment */
+table {
+  table-layout: fixed;    /* Forces fixed layout algorithm <sup data-citation="7" className="inline select-none [&>a]:rounded-2xl [&>a]:border [&>a]:px-1.5 [&>a]:py-0.5 [&>a]:transition-colors shadow [&>a]:bg-ds-bg-subtle [&>a]:text-xs [&>svg]:w-4 [&>svg]:h-4 relative -top-[2px] citation-shimmer"><a href="https://www.w3schools.com/cssref/pr_tab_table-layout.php">7</a></sup> */
+  width: 100%;           /* Full table width */
+}
+
+/* First column width control */
+thead tr th:first-child,
+tbody tr td:first-child {
+  width: 16em;           /* Fixed width for first column <sup data-citation="1" className="inline select-none [&>a]:rounded-2xl [&>a]:border [&>a]:px-1.5 [&>a]:py-0.5 [&>a]:transition-colors shadow [&>a]:bg-ds-bg-subtle [&>a]:text-xs [&>svg]:w-4 [&>svg]:h-4 relative -top-[2px] citation-shimmer"><a href="https://stackoverflow.com/questions/40213703/fixed-width-for-table-first-column">1</a></sup> */
+  min-width: 16em;       /* Ensures minimum width */
+  max-width: 16em;       /* Prevents expansion <sup data-citation="1" className="inline select-none [&>a]:rounded-2xl [&>a]:border [&>a]:px-1.5 [&>a]:py-0.5 [&>a]:transition-colors shadow [&>a]:bg-ds-bg-subtle [&>a]:text-xs [&>svg]:w-4 [&>svg]:h-4 relative -top-[2px] citation-shimmer"><a href="https://stackoverflow.com/questions/40213703/fixed-width-for-table-first-column">1</a></sup> */
+  word-break: break-all; /* Handles long content */
+}
+
+button.generate-threats-btn {
+  background-color: #ff6b6b;       /* Light red base color */
+  border-color: rgba(255,255,255,0.3); /* Enhanced contrast border */
+}
+
+button.generate-threats-btn:hover {
+  background-color: #ff5252;        /* 10% darker red */
+}
+
+button.generate-threats-btn::before {  /* Pulse effect color update */
+  border-color: #ff6b6b;
+}
+
+button.generate-threats-btn::after {   /* Icon color adjustment */
+  color: #ffe3e3;                      /* Light red accent */
+}
+
+.toggle-filters-btn,
+.generate-threats-btn,
+.nav-link ,
+.collapsible{
+  min-width: 160px;        /* Minimum interactivity width */
+  max-width: 600px;        /* Maximum allowed width */
+  width: 30vw;             /* Responsive relative width */
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center; /* Center button content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Center Alignment for Filters */
+.filters-div {
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Nav Button Special Case */
+.nav-link {
+  width: auto;           /* Prevent nav buttons from shrinking */
+}
+
+.presentation-container {
+  background: linear-gradient(145deg, #018369 0%, #016152 100%);
+  padding: 2.5rem 1rem;
+  margin-bottom: 2rem;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.presentation-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.presentation-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-text {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #e0f2f1;
+  font-weight: 500;
+}
+
+.main-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feature-highlights {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.feature-pill {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature-pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation for content entrance */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.presentation-content > * {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .presentation-title {
+      font-size: 2rem;
+  }
+
+  .highlight-text {
+      font-size: 1.2rem;
+  }
+
+  .main-description {
+      font-size: 1rem;
+      padding: 0 1rem;
+  }
+
+  .feature-pill {
+      padding: 0.4rem 0.8rem;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .presentation-container {
+      background: #018369;
+  }
+  
+  .feature-pill {
+      border: 2px solid white;
+  }
+}
+
+
+table td, 
+table th {
+    padding: 12px 16px;        /* Consistent padding */
+    line-height: 1.5;          /* Improved line spacing */
+    vertical-align: top;       /* Align content to top */
+    word-wrap: break-word;     /* Allow word breaks */
+    overflow-wrap: break-word; /* Modern word breaking */
+    text-align: center;
+}
+
+/* Other Columns */
+table td:not(:first-child),
+table th:not(:first-child) {
+    min-width: 120px;         /* Minimum width for other columns */
+    max-width: 140px;
+    width: auto;
+}
+
+/* Table Layout Control */
+table {
+    table-layout: fixed;      /* Fixed table layout */
+    width: auto;             /* Full width */
+    border-collapse: collapse;
+}
+
+/* Long Text Management */
+td {
+    white-space: normal;      /* Allow text wrapping */
+    hyphens: auto;           /* Enable hyphenation */
+}
+
+/* Multi-line Cell Content */
+.long-content {
+    max-height: none;         /* Remove max height restriction */
+    overflow: visible;        /* Show all content */
 }

@@ -5,6 +5,7 @@
     <title>NDID Knowledge Base</title>
 
     <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/headerstyles.css">
 
     <script type="text/javascript" src="static/tables.js"></script>
     <script type="text/javascript" src="static/filters.js"></script>
@@ -15,6 +16,23 @@
     </script>
 </head>
 <body onload="getTablesConnections()">
+
+    <header class="nav-header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <span class="logo-text">IdM KB</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="knowledge_base" class="nav-link" id="homeLink">
+                    <span class="icon">🏠</span> Home
+                </a>
+                <a href="guide" class="nav-link" id="guideLink">
+                    <span class="icon">📚</span> Guide
+                </a>
+            </div>
+        </nav>
+    </header>
 
     <div class="landingPresentation" id="landingPageIntro">
         <h4 id="landingPresentationTitle">Welcome to the NDID Knowledge Base</h4>
@@ -137,6 +155,20 @@
     
 
     <div id="where-all-tables-go"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page path
+            const currentPath = window.location.pathname;
+            
+            // Set active class based on current page
+            if (currentPath.includes('guide')) {
+                document.getElementById('guideLink').classList.add('active');
+            } else {
+                document.getElementById('homeLink').classList.add('active');
+            }
+        });
+    </script>
     
 </body>
 </html>

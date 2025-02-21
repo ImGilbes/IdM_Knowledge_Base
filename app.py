@@ -284,6 +284,10 @@ def set_specific():
     SPECIFIC_DEF = request.args.get("def")
     return "ok"
 
+@app.route('/guide',methods=['GET'])
+def guide():
+    return render_template('guide.html')
+
 
 def build_high_level(df,entity_name):
 
