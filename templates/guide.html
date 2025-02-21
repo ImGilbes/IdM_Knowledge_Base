@@ -36,6 +36,292 @@
         </nav>
     </header>
     
-    ciao
+    <section class="user-guide" aria-labelledby="guide-heading">
+        <div class="guide-container">
+            <!-- Section Header -->
+            <h2 id="guide-heading" class="guide-title">
+                <span class="guide-icon">📘</span> Knowledge Base User Guide
+            </h2>
 
+            <div class="guide-section">
+                <h3 class="section-title filter-title">
+                    <span class="section-icon">⚡</span> Quickstart guide
+                </h3>
+                <div class="feature-pills">
+                    <span class="feature-pill">Access the Data Base</span>
+                    <span class="feature-pill">Find Connections</span>
+                </div>
+                <div class="instruction-list">
+                    <div class="instruction-item">
+                        <div class="step-number">1</div>
+                        <p class="instruction-text">
+                            Click on entity buttons to see all the database entries
+                        </p>
+                    </div>
+                    <div class="instruction-item">
+                        <div class="step-number">2</div>
+                        <p class="instruction-text">
+                            Click on an try to find other connected entries, such as related requirements, mitigations, and threats.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Filtering System Section -->
+            <div class="guide-section">
+                <h3 class="section-title filter-title">
+                    <span class="section-icon">🔍</span> Filtering System
+                </h3>
+                <div class="feature-pills">
+                    <span class="feature-pill">Category Filters</span>
+                    <span class="feature-pill">Entry Filters</span>
+                </div>
+                <div class="instruction-list">
+                    <div class="instruction-item">
+                        <div class="step-number">1</div>
+                        <p class="instruction-text">
+                            Click the <span class="ui-element">Filters</span> button 
+                            to reveal filtering options
+                        </p>
+                    </div>
+                    <div class="instruction-item">
+                        <div class="step-number">2</div>
+                        <p class="instruction-text">
+                            Choose whether you want to filter rows (entries) or columns (categories) and check the categories boxes
+                        </p>
+                    </div>
+                    <div class="instruction-item">
+                        <div class="step-number">3</div>
+                        <p class="instruction-text">
+                            Click update filters. If you filtered by rows, then the tables will contain only entries where the categories you selecetd have the vaue specified in the row value to filter. If you filtered by columns, the categories you selecetd won't be shown anymore.
+                        </p>
+                    </div>
+                </div>
+                <div class="pro-tip">
+                    <strong>Tip:</strong> Did you make any mistakes while filtering? Use Reset Filters!
+                </div>
+            </div>
+    
+            <!-- Button Functionality Section -->
+            <!-- <div class="guide-section">
+                <h3 class="section-title button-title">
+                    <span class="section-icon">🕹️</span> Control Buttons
+                </h3>
+                <div class="button-grid">
+                    <div class="button-card">
+                        <div class="button-preview generate-btn">Generate Threats</div>
+                        <p class="button-description">
+                            Creates new threat analysis based on current filters
+                        </p>
+                    </div>
+                    <div class="button-card">
+                        <div class="button-preview reset-btn">Reset Filters</div>
+                        <p class="button-description">
+                            Clears all active filters and returns to default view
+                        </p>
+                    </div>
+                    <div class="button-card">
+                        <div class="button-preview export-btn">Export CSV</div>
+                        <p class="button-description">
+                            Downloads current threat data in spreadsheet format
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+    
+            <!-- Generate Threats Section -->
+            <div class="guide-section">
+                <h3 class="section-title generate-title">
+                    <span class="section-icon">⚠️</span> Threat Generation
+                </h3>
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="step-icon">1</div>
+                        <p>Select the checkbox next to each table row</p>
+                    </div>
+                    <div class="workflow-arrow">➔</div>
+                    <div class="workflow-step">
+                        <div class="step-icon">2</div>
+                        <p>Click Generate Threats</p>
+                    </div>
+                    <div class="workflow-arrow">➔</div>
+                    <div class="workflow-step">
+                        <div class="step-icon">3</div>
+                        <p>Review analysis results</p>
+                    </div>
+                </div>
+                <div class="pro-tip">
+                    <strong>Attention:</strong> This feature is not fully integrated in the tool interface yet! The user will find the text files generated by the process in the project folder.
+                </div>
+                <div class="pro-tip">
+                    <strong>Tip:</strong> You can select any number of rows from any entity!
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+    /* Core Guide Styling */
+    .user-guide {
+        background: #ffffff;
+        padding: 2rem 1rem;
+        margin: 2rem auto;
+        max-width: 1200px;
+    }
+    
+    .workflow-step{
+        max-width: 180px;
+    }
+    .guide-title {
+        color: #018369;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .guide-section {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(1, 131, 105, 0.1);
+    }
+    
+    .section-title {
+        color: #1e293b;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    /* Filter Section Styles */
+    .feature-pills {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .feature-pill {
+        background: rgba(1, 131, 105, 0.1);
+        color: #018369;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Instruction List */
+    .instruction-list {
+        display: grid;
+        gap: 1.5rem;
+    }
+    
+    .instruction-item {
+        display: flex;
+        align-items: start;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .step-number {
+        background: #018369;
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    /* Button Grid */
+    .button-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .button-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .button-preview {
+        padding: 12px 24px;
+        border-radius: 6px;
+        margin: 0 auto 1rem;
+        font-weight: 500;
+        width: fit-content;
+    }
+    
+    .generate-btn { background: #ff6b6b; color: white; }
+    .reset-btn { background: #e2e8f0; color: #1e293b; }
+    .export-btn { background: #818cf8; color: white; }
+    
+    /* Workflow Diagram */
+    .workflow-diagram {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    .workflow-step {
+        text-align: center;
+        padding: 1rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        min-width: 120px;
+    }
+    
+    .step-icon {
+        background: #018369;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 0 auto 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .pro-tip {
+        background: #fef3c7;
+        color: #92400e;
+        padding: 1rem;
+        border-radius: 8px;
+        border-left: 4px solid #f59e0b;
+        margin-top: 1.5rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .workflow-diagram {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .button-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .guide-title {
+            font-size: 1.8rem;
+        }
+    }
+    </style>
+    
 </body>
