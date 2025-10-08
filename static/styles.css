@@ -27,7 +27,10 @@
 .table-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align items to start so wide tables are left-aligned and not clipped */
+  align-items: flex-start;
+  width: 100%;
+  overflow-x: auto; /* enable horizontal scrolling when table is wider than container */
 }
 
 /* Individual Table Centering */
@@ -53,7 +56,7 @@ body {
 table{
   border-collapse: collapse;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  min-width: 95%;
+  min-width: 100%;
   width: auto;
 }
 
@@ -103,11 +106,16 @@ th {
 
 .checkmark::before {
   content: '✅';
-  font-size: 20px;
+  font-size: 1.25rem;
   color: green;
+  /* emoji-capable fonts for broader support */
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'EmojiOne Color', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
 }
+/* Set a readable default font size for table cells (was accidentally 1px) */
 td{
-  font-size: 1px;
+  font-size: 14px;
 }
 table td:first-child {
     font-size: 18px; /* Change this value to whatever font size you prefer */
@@ -121,7 +129,17 @@ table th{
 }
 .cross::before {
   content: '❌';
-  font-size: 20px;
+  font-size: 1.25rem;
+  color: #E53E3E;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'EmojiOne Color', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ensure empty cells used for icons keep height and alignment */
+.table-container td.checkmark, .table-container td.cross {
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-container {

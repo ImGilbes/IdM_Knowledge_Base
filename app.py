@@ -435,6 +435,35 @@ def build_connections_table(name,definition,conn_entity):
 
         case _:
             return None
+    # Special-case: when requesting Goals for a Threat, traverse Threat -> Mitigations -> Requirements -> Goals
+    if name == "Threats" and conn_entity == "Goals":
+        # find mitigations related to this threat
+        mit_df, _ = build_connections_table("Threats", definition, "Mitigations")
+        goal_names = set()
+        # for each mitigation, find related requirements, then goals
+        for mit in mit_df[mit_df.columns[0]].to_list():
+            req_df, _ = build_connections_table("Mitigations", mit, "Requirements")
+            if req_df is None or req_df.empty:
+                continue
+            for req in req_df[req_df.columns[0]].to_list():
+                g_df, _ = build_connections_table("Requirements", req, "Goals")
+                if g_df is None or g_df.empty:
+                    continue
+                # accumulate goal names
+                if "Goals" in g_df.columns:
+                    goal_names.update(g_df["Goals"].to_list())
+                else:
+                    # fallback: take first column as name
+                    goal_names.update(g_df[g_df.columns[0]].to_list())
+
+        if not goal_names:
+            return (pd.DataFrame(columns=read_and_cleanup("Goals").columns), list())
+
+        # load full Goals table and filter by collected goal names
+        all_goals = read_and_cleanup("Goals")
+        result_goals = all_goals[all_goals["Goals"].isin(list(goal_names))]
+        result_goals = rename_columns(result_goals)
+        return (result_goals.reset_index(drop=True), list())
     # find specific row in main df
     row = main_df[main_df[name] == definition].reset_index()
     row = index_cleanup(row)
@@ -561,7 +590,8 @@ def get_specific():
     connections = {
         "Requirements": ["Mitigations", 'Goals','Requirements'],
         "Mitigations": ["Requirements","Threats",'Vulnerabilities',"Mitigations"],
-        "Threats": ["Mitigations", "Attacks",'Threats'],
+        # include Goals so that selecting a Threat also shows related Goals
+        "Threats": ["Mitigations", "Attacks", 'Threats', 'Goals'],
         "Goals": ['Requirements'],
         "Issues": ['Threats'],
         "Limitations": ['Threats'],

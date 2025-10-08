@@ -113,8 +113,9 @@
     font-size: 20px;
     color: green;
   }
+  /* Set a readable default font size for table cells (was accidentally 1px) */
   td{
-    font-size: 1px;
+    font-size: 14px;
   }
   table td:first-child {
       font-size: 18px; /* Change this value to whatever font size you prefer */

@@ -91,11 +91,20 @@ function addToDisplayed(entity){
 }
 
 function checkmarks_and_crosses(){
-    document.querySelectorAll('td').forEach(function(cell) {
-        if (cell.textContent.trim() === 'T') {
+    // Target only table cells inside table-container elements
+    document.querySelectorAll('.table-container td').forEach(function(cell) {
+        const txt = cell.textContent.trim();
+        // keep the first column (typically the entity name) intact
+        if (typeof cell.cellIndex === 'number' && cell.cellIndex === 0) return;
+
+        if (txt === 'T') {
             cell.classList.add('checkmark');
-        } else if (cell.textContent.trim() === 'F') {
+            cell.setAttribute('aria-label', 'true');
+            cell.textContent = '';
+        } else if (txt === 'F') {
             cell.classList.add('cross');
+            cell.setAttribute('aria-label', 'false');
+            cell.textContent = '';
         }
     });
 }
@@ -141,7 +150,6 @@ async function getTablesConnections() {
                 new_html_block = `<div class="container" id="${entities[i]}_container">
                     <div class="content" id="item_name_container">
                         <p id="${entities[i]}_name">Related ${entities[i]}</p>
-                        <p id="${entities[i]}_definition">The matched categories are highlighted in green &#128994</p>
                     </div>
                     <div class="content" id="item_content">
                         <div id="${entities[i]}_table" class="table-container">${tables[i]}</div>
