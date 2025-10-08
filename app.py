@@ -338,7 +338,7 @@ def build_high_level(df,entity_name):
             new_df["Laws and Regulations"] = df["Rights"]
         case "Threats":
             new_df["Laws and Regulations"] = df["Rights"]
-            print(new_df)
+            # print(new_df)
 
     return new_df
 
@@ -499,10 +499,6 @@ def build_connections_table(name,definition,conn_entity):
             dot_product = dot_product.iloc[0][0] # this is because a datframe is returned from the operation above
             norm_A = np.linalg.norm(row_binary)
             norm_B = np.linalg.norm(tmp)
-            # print(row_binary)
-            # print(tmp)
-            # print(norm_A)
-            # print(norm_B)
             if (norm_A != 0) and (norm_B != 0):
                 cosine_similarity = dot_product / (norm_A * norm_B)
             else: 
@@ -511,12 +507,7 @@ def build_connections_table(name,definition,conn_entity):
             cosine_similarity = 0
 
         if(cosine_similarity > threshold):
-            # print(row_binary)
-            # print(tmp)
-            # print(cosine_similarity)
             empty_df.loc[len(empty_df)] = conn_entity_original.iloc[index] # append row
-
-    print(empty_df)
 
     return (rename_columns(empty_df), list())
 
@@ -577,8 +568,12 @@ def generate_threats():
             file.write(f"{el}\n")
 
     print("Finished threats output")
-
-    return "ok"
+    # Return JSON so the frontend can show results immediately in a new window
+    return jsonify({
+        'Mitigations': sorted(list(mitigations_set)),
+        'Threats': sorted(list(threats_set)),
+        'Attacks': sorted(list(attacks_set))
+    })
 
 @app.route('/get_specific', methods=['GET'])
 def get_specific():

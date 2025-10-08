@@ -9,3 +9,9 @@ This paper can be found at the following [DOI](https://doi.org/10.1007/978-3-032
 
 ## User guide
 The user guide can be found at localhost:5000
+
+
+#### TODOs
+New page for generated threats
+Rewrite Guide, with methodological sections as in the paper - use it for the readme as well
+Graph display for the first page, following the ontology display

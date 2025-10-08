@@ -232,9 +232,141 @@ function generate_threats(){
 
     json_for_threats_endpoint["Requirements"] = selected_requirements;
 
-    alert("The related threats will be output on a specific file - this is a temporary feature for testing");
+    // POST to server and open results in a new window as HTML tables
+    fetch('/generate_threats', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(json_for_threats_endpoint)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        // build HTML for new window
+        const buildTable = (title, arr) => {
+            if (!arr || arr.length === 0) return `<h3>${title} (none)</h3>`;
+            let html = `<h3>${title}</h3><table class="data-table"><thead><tr><th>${title}</th></tr></thead><tbody>`;
+            for (const v of arr) {
+                html += `<tr><td>${v}</td></tr>`;
+            }
+            html += `</tbody></table>`;
+            return html;
+        }
 
-    query_generate_threats(json_for_threats_endpoint);
+        const serialized = JSON.stringify(data);
+        const content = `<!doctype html><html><head><meta charset="utf-8"><title>Generated threats</title>` +
+            '<link rel="stylesheet" href="/static/styles.css">' +
+            '</head><body>' +
+            `<h1>Generated Results</h1>` +
+            `<div style="margin-bottom:12px"><button id="exportBtn">Export results (.txt)</button> <button id="closeBtn">Close</button></div>` +
+            buildTable('Mitigations', data.Mitigations) +
+            buildTable('Threats', data.Threats) +
+            buildTable('Attacks', data.Attacks) +
+            `<script>
+                (function(){
+                    const resultData = ${serialized};
+                    function exportResults(){
+                        let parts = [];
+                        if(resultData.Mitigations && resultData.Mitigations.length){
+                            parts.push('Mitigations:');
+                            parts.push(...resultData.Mitigations);
+                            parts.push('');
+                        }
+                        if(resultData.Threats && resultData.Threats.length){
+                            parts.push('Threats:');
+                            parts.push(...resultData.Threats);
+                            parts.push('');
+                        }
+                        if(resultData.Attacks && resultData.Attacks.length){
+                            parts.push('Attacks:');
+                            parts.push(...resultData.Attacks);
+                            parts.push('');
+                        }
+                        const blob = new Blob([parts.join('\n')], {type: 'text/plain;charset=utf-8'});
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'generated_results.txt';
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        URL.revokeObjectURL(url);
+                    }
+
+                    function attachListeners(){
+                        const exportBtn = document.getElementById('exportBtn');
+                        if(exportBtn) exportBtn.addEventListener('click', exportResults);
+                        const closeBtn = document.getElementById('closeBtn');
+                        if(closeBtn) closeBtn.addEventListener('click', function(){ window.close(); });
+                    }
+
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', attachListeners);
+                    } else {
+                        // Document already loaded, attach immediately
+                        attachListeners();
+                    }
+                })();
+            <\/script>` +
+            `</body></html>`;
+
+        const newWin = window.open('', '_blank');
+        newWin.document.open();
+        newWin.document.write(content);
+        newWin.document.close();
+        // Ensure buttons in the new window get event listeners reliably by attaching from the opener.
+        (function attachToNewWin(win, resultData){
+            const tryAttach = () => {
+                try {
+                    const doc = win.document;
+                    const exportBtn = doc.getElementById('exportBtn');
+                    const closeBtn = doc.getElementById('closeBtn');
+                    if (exportBtn && !exportBtn._attached) {
+                        exportBtn.addEventListener('click', function(){
+                            let parts = [];
+                            if(resultData.Mitigations && resultData.Mitigations.length){
+                                parts.push('Mitigations:');
+                                parts.push(...resultData.Mitigations);
+                                parts.push('');
+                            }
+                            if(resultData.Threats && resultData.Threats.length){
+                                parts.push('Threats:');
+                                parts.push(...resultData.Threats);
+                                parts.push('');
+                            }
+                            if(resultData.Attacks && resultData.Attacks.length){
+                                parts.push('Attacks:');
+                                parts.push(...resultData.Attacks);
+                                parts.push('');
+                            }
+                            const blob = new Blob([parts.join('\n')], {type: 'text/plain;charset=utf-8'});
+                            const url = URL.createObjectURL(blob);
+                            const a = doc.createElement('a');
+                            a.href = url;
+                            a.download = 'generated_results.txt';
+                            doc.body.appendChild(a);
+                            a.click();
+                            a.remove();
+                            URL.revokeObjectURL(url);
+                        });
+                        exportBtn._attached = true;
+                    }
+                    if (closeBtn && !closeBtn._attached) {
+                        closeBtn.addEventListener('click', function(){ win.close(); });
+                        closeBtn._attached = true;
+                    }
+                    // stop retrying once we've attached at least one handler
+                    if ((exportBtn && exportBtn._attached) || (closeBtn && closeBtn._attached)) return;
+                } catch(e) {
+                    // fall through and retry
+                }
+                setTimeout(tryAttach, 100);
+            };
+            tryAttach();
+        })(newWin, data);
+    })
+    .catch(err => {
+        console.error('Error generating threats:', err);
+        alert('Error generating threats - see console for details');
+    });
 }
 
 function query_generate_threats(json){
