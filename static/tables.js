@@ -33,27 +33,35 @@ function add_goto_specific(entity){
 // This function adds a checkbox next to each table row that will be used to directly generate the threats for the selected rows
 function add_generate_threats_checkboxes(entity){
 
+    // Replace per-row checkbox with a toggle button that is clearer to the user.
+    // The button will have class `threat_generation_button` and when selected will also have class `selected`.
     const table = document.getElementById(entity+'_table');
-    const rows = document.getElementById(entity+'_table').querySelectorAll('table tr');
+    const rows = table.querySelectorAll('table tr');
 
     rows.forEach(row => {
         const tds = row.querySelectorAll('td'); // Get all <td> elements in the row
-        
-        var checkbox_value;
         if (tds.length > 0) {
-            // Assign the function to the first <td>
-            checkbox_value = tds[0].textContent;
+            const value = tds[0].textContent.trim();
 
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.classList.add("threat_generation_checkbox");
-            checkbox.value = checkbox_value; //all good until here
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.classList.add('threat_generation_button');
+            btn.setAttribute('aria-pressed', 'false');
+            btn.textContent = 'Add for threat modeling';
+            // store the row's identity on the button for easy retrieval
+            btn.dataset.itemValue = value;
 
-            // const newCell = document.createElement("td");
-            // newCell.appendChild(checkbox);
+            // toggle behavior
+            btn.addEventListener('click', function(ev){
+                const el = ev.currentTarget;
+                const wasSelected = el.classList.toggle('selected');
+                el.setAttribute('aria-pressed', wasSelected ? 'true' : 'false');
+                el.textContent = wasSelected ? 'Added' : 'Add for threat modeling';
+            });
 
-            tds[tds.length-1].after(checkbox); //works! appends right after the tds
-        } 
+            // append the button after the last cell
+            tds[tds.length-1].after(btn);
+        }
     });
 }
 
@@ -200,36 +208,56 @@ async function getTablesConnections() {
 
 // Here it generates a json to be passed to the generate_threats endpoint
 function generate_threats(){
-    
+    // Collect selections from the new toggle buttons.
+    const allButtons = Array.from(document.querySelectorAll('.threat_generation_button'));
+    const selectedButtons = allButtons.filter(b => b.classList.contains('selected'));
+
+    if (selectedButtons.length === 0) {
+        // graceful fallback: Notification or alert
+        if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+            new Notification('No items selected', { body: 'Please add at least one mitigation or requirement for threat modeling.' });
+        } else if (typeof Notification !== 'undefined' && Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('No items selected', { body: 'Please add at least one mitigation or requirement for threat modeling.' });
+                } else {
+                    alert('Please add at least one mitigation or requirement for threat modeling.');
+                }
+            }).catch(() => alert('Please add at least one mitigation or requirement for threat modeling.'));
+        } else {
+            alert('Please add at least one mitigation or requirement for threat modeling.');
+        }
+        return; // abort
+    }
+
     var json_for_threats_endpoint = {};
 
+    // Gather selected mitigations and requirements by scanning selected buttons and checking which table they belong to
     var selected_mitigations = [];
-    {
-        const mitigations_table = document.getElementById("Mitigations_table");
-        const checkboxes = mitigations_table.getElementsByClassName("threat_generation_checkbox");
+    var selected_requirements = [];
 
-        for (let checkbox_element of checkboxes) {
-            if (checkbox_element.checked){
-                selected_mitigations.push(checkbox_element.value);
+    selectedButtons.forEach(btn => {
+        const val = btn.dataset.itemValue || btn.value || btn.textContent;
+        // determine which table the button sits within by walking up the DOM
+        let parent = btn.parentElement;
+        while (parent && !parent.id) parent = parent.parentElement;
+        // parent might be the <div id="Mitigations_table"> or similar
+        let containerId = parent ? parent.id : '';
+        if (containerId && containerId.includes('Mitigations')) {
+            selected_mitigations.push(val);
+        } else if (containerId && containerId.includes('Requirements')) {
+            selected_requirements.push(val);
+        } else {
+            // As a fallback, try to infer by looking at nearby ancestor IDs
+            const anc = btn.closest('[id$="_table"]');
+            if (anc) {
+                if (anc.id.includes('Mitigations')) selected_mitigations.push(val);
+                else if (anc.id.includes('Requirements')) selected_requirements.push(val);
             }
         }
-    }
+    });
 
     json_for_threats_endpoint["Mitigations"] = selected_mitigations;
-
-    // repeat for requirements
-    var selected_requirements = [];
-    {
-        const requirements_table = document.getElementById("Requirements_table");
-        const checkboxes = requirements_table.getElementsByClassName("threat_generation_checkbox");
-
-        for (let checkbox_element of checkboxes) {
-            if (checkbox_element.checked){
-                selected_requirements.push(checkbox_element.value);
-            }
-        }
-    }
-
     json_for_threats_endpoint["Requirements"] = selected_requirements;
 
     // POST to server and open results in a new window as HTML tables
@@ -256,7 +284,7 @@ function generate_threats(){
             '<link rel="stylesheet" href="/static/styles.css">' +
             '</head><body>' +
             `<h1>Generated Results</h1>` +
-            `<div style="margin-bottom:12px"><button id="exportBtn">Export results (.txt)</button> <button id="closeBtn">Close</button></div>` +
+            `<div style="margin-bottom:12px"><button id="exportBtn" class="small-control">Export results (.txt)</button> <button id="closeBtn" class="small-control">Close</button></div>` +
             buildTable('Mitigations', data.Mitigations) +
             buildTable('Threats', data.Threats) +
             buildTable('Attacks', data.Attacks) +

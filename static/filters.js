@@ -132,3 +132,48 @@ function unselectAllFilters(){
         checkbox.checked = false;
     });
 }
+
+// Toggle columns view: hide all columns except the first across all data tables
+function toggleColumnsView(){
+    const btn = document.getElementById('toggleColumnsBtn');
+    const active = document.body.classList.toggle('names-only');
+    if(btn) btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    if(btn) btn.innerText = active ? 'Show full tables' : 'Show only names';
+
+    // apply to already-loaded tables
+    document.querySelectorAll('.data-table').forEach(table => applyNamesOnlyToTable(table));
+}
+
+function applyNamesOnlyToTable(table){
+    if(!table) return;
+    const namesOnly = document.body.classList.contains('names-only');
+    // hide all th/td except the first cell in each row/thead
+    // For thead
+    const thead = table.querySelector('thead');
+    if(thead){
+        thead.querySelectorAll('th').forEach((th, idx) => {
+            th.style.display = (idx === 0 || !namesOnly) ? '' : 'none';
+        });
+    }
+    // For tbody
+    const rows = table.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+        row.querySelectorAll('td').forEach((td, idx) => {
+            td.style.display = (idx === 0 || !namesOnly) ? '' : 'none';
+        });
+    });
+}
+
+// Ensure that when new tables are loaded (loadTable sets innerHTML), we re-apply names-only styling.
+// Wrap existing loadTable if present: call original, then apply styling to the newly inserted table.
+if (typeof window.loadTable === 'function'){
+    const originalLoadTable = window.loadTable;
+    window.loadTable = async function(entity){
+        await originalLoadTable(entity);
+        const container = document.getElementById(entity+'_table');
+        if(container){
+            const table = container.querySelector('.data-table');
+            if(table) applyNamesOnlyToTable(table);
+        }
+    }
+}

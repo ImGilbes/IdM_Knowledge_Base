@@ -56,6 +56,25 @@ body {
 table{
   border-collapse: collapse;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
+/* Row-level threat generation control: replaced checkboxes with buttons */
+.threat_generation_button {
+  margin-left: 8px;
+  padding: 4px 8px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #111;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.threat_generation_button:hover {
+  background: #f5f5f5;
+}
+.threat_generation_button.selected {
+  background: #e74c3c; /* red to indicate active selection */
+  color: #fff;
+  border-color: #c0392b;
+}
   min-width: 100%;
   width: auto;
 }
@@ -236,12 +255,7 @@ tbody tr:last-of-type {
 
 
 
-input.threat_generation_checkbox {
-  text-align: center;
-  margin-top: 20px;
-  width: 25px;
-  height: 25px;
-}
+/* input.threat_generation_checkbox removed: replaced by .threat_generation_button styles above */
 
 
 /* styles.css */
@@ -376,6 +390,110 @@ button:focus, [tabindex]:focus {
   }
 }
 
+/* Container for the two small control buttons */
+.small-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+}
+
+/* Make the two control buttons smaller than other collapsibles */
+.small-control {
+  min-width: 120px;
+  max-width: 220px;
+  width: auto;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+}
+
+/* Visual parity with the main toggle button */
+.small-control {
+  background-color: #018369;
+  color: #ffffff !important;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+}
+
+.small-control:hover {
+  background-color: #016652;
+  transform: translateY(-1px);
+}
+
+.small-control:focus {
+  outline: 2px solid #90CDF4;
+  outline-offset: 2px;
+}
+
+/* Ensure small-controls buttons override other global button rules and stay inline */
+.small-controls .small-control {
+  width: auto !important;
+  min-width: 120px !important;
+  max-width: 220px !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  margin: 0 !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+/* Hide any ::after indicator for the small buttons so they match visually */
+.small-controls .small-control::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Make the generate button inside the small-controls match small-control appearance but keep red color */
+.small-controls .generate-threats-btn {
+  min-width: 120px;
+  max-width: 220px;
+  width: auto;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  background-color: #ff6b6b; /* keep red */
+  color: #ffffff !important;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+}
+.small-controls .generate-threats-btn:hover {
+  background-color: #ff5252;
+  transform: translateY(-1px);
+}
+.small-controls .generate-threats-btn:focus {
+  outline: 2px solid #90CDF4;
+  outline-offset: 2px;
+}
+
+#generateThreatsBtn{
+  background-color: #ff6b6b;
+}
+#generateThreatsBtn:hover{
+  background-color: #ff5252;
+  transform: translateY(-1px);
+}
+#generateThreatsBtn:focus{
+  outline: 2px solid #90CDF4;
+  outline-offset: 2px;
+}
+
 .collapsible {
   width: max(80%, 300px);  /* Prevents full-screen width */
   margin: 1rem auto;       /* Centered alignment */
@@ -398,6 +516,34 @@ button:focus, [tabindex]:focus {
 }
 
 /* Hover state refinement */
+
+/* Names-only view: hide all columns except the first for .data-table */
+body.names-only .data-table thead th:not(:first-child),
+body.names-only .data-table tbody td:not(:first-child) {
+  display: none !important;
+}
+
+/* Slight visual tweak for names-only view */
+body.names-only .data-table {
+  /* Center the single-column table and prevent it from stretching full width */
+  table-layout: fixed; /* allow us to control column width reliably */
+  width: auto;
+  margin: 0 auto !important;
+}
+
+body.names-only .data-table td:first-child, body.names-only .data-table th:first-child {
+  font-size: 1.05rem;
+  font-weight: 600;
+  width: auto !important;
+  min-width: 9ch;
+  max-width: 48ch; /* cap width so it doesn't expand too much */
+  white-space: normal;
+  text-align: left;
+}
+/* Center the flex container so the table sits in the middle of the page */
+body.names-only .table-container {
+  justify-content: center;
+}
 .collapsible:hover {
   width: 85%;              /* Dynamic interaction */
 }

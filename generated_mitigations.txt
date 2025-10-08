@@ -1,8 +1,0 @@
-Conduct ethical impact assessments to identify and address potential biases, discrimination, or unintended consequences
-Test RP controls, mitigations and policies periodically
-Verify that all parties store data only up to the extent they have declared to the user and is required by law
-Tests to verify compliance with a trust framework
-Dedicated institution for people's identity rights protection
-Perform verification process on all new parties of the infrastructures to check: security and privacy controls, policies and lawfulness of data processing
-Conduct harm assessment
-Tests to verify compliance with a privacy standard

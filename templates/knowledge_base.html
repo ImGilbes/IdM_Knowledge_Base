@@ -57,10 +57,20 @@
         </div>
     </div>
 
-    <button class="toggle-filters-btn collapsible" type="button" 
-        aria-expanded="false" aria-controls="filters-section" onclick="toggle_filters()">
-        Filter Options 
-    </button>
+    <div class="small-controls">
+        <button class="toggle-filters-btn small-control" type="button" 
+            aria-expanded="false" aria-controls="filters-section" id="toggleFiltersBtn" onclick="toggle_filters()">
+            Filter Options
+        </button>
+        <button class="toggle-columns-btn small-control" type="button"
+            aria-pressed="false" id="toggleColumnsBtn" onclick="toggleColumnsView()">
+            Show only names
+        </button>
+        <button class="toggle-columns-btn small-control" aria-label="Generate security threats list"
+            data-loading-text="Generating..."  id="generateThreatsBtn" onclick="generate_threats()">
+            Generate Threats
+        </button>
+    </div>
     <!-- <button onclick="toggle_filters()">
         Toggle Filters
     </button> -->
@@ -242,12 +252,7 @@
     </div>
 
 
-    <button class="generate-threats-btn collapsible" 
-        aria-label="Generate security threats list"
-        data-loading-text="Generating..."
-        onclick="generate_threats()">
-    Generate Threats
-    </button>
+    
 
     <script>
         function toggleContent(entity) {
