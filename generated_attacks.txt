@@ -1,0 +1,26 @@
+Blackmail
+Password attacks: stuffing and bruteforce + general password attacks
+shoulder surfing
+Redirect attack (307 redirect)
+Personal computer Theft
+eCard cloning
+Key exposure attacks
+IdP impersonation
+Social Recovery Attack
+Mobile Theft
+Malicious URL
+Phishing
+Session Hijacking
+eCard destruction
+Pharming (Authenticator service spoofing)
+eCard Theft
+eCard forgery
+Man-in-the-middle
+Naive RP session integrity attack
+Fraudulent issuance
+Token/authz code spoofing, forging, replay, and leak attacks
+Man-in-the-browser
+CSRF
+Man-in-the-mobile
+DNS Cache poisoning/Pollution attack
+Malware and trojan attacks compromising private key or password

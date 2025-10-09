@@ -13,7 +13,12 @@ function add_goto_specific(entity){
         window.location.href = "/specific";
     }
 
-    const rows = document.getElementById(entity+'_table').querySelectorAll('table tr');
+    const container = document.getElementById(entity + '_table');
+    if (!container) return; // nothing to do
+
+    // If this table is inside the starting_record_table, skip adding click handlers
+    const isInsideStarting = container.closest && container.closest('#starting_record_table');
+    const rows = isInsideStarting ? [] : container.querySelectorAll('table tr');
 
     rows.forEach(row => {
         const tds = row.querySelectorAll('td'); // Get all <td> elements in the row
@@ -129,6 +134,18 @@ async function getTablesConnections() {
 
         let tmp_div = document.createElement("div");
         // use this block template for every entity table
+        // attempt to compute row count for starting_record if it contains a table
+        let startingCount = 0;
+        try{
+            let srWrapper = document.createElement('div');
+            srWrapper.innerHTML = data.starting_record || '';
+            const srTable = srWrapper.querySelector('table');
+            if(srTable){
+                const srTbody = srTable.tBodies[0];
+                startingCount = srTbody ? srTbody.rows.length : srTable.querySelectorAll('tr').length;
+            }
+        }catch(e){ startingCount = 0; }
+
         new_html_block = `<div class="container" id="${current_main_entity}_container">
             
             <div class="content" id="item_content">
@@ -139,6 +156,18 @@ async function getTablesConnections() {
 
         document.getElementById("starting_record_table").appendChild(tmp_div);
         document.getElementById(`${current_main_entity}_table`).innerHTML = data.starting_record;
+        // if we can, add a title with count above the starting record table
+        try{
+            const parent = document.getElementById('starting_record_table');
+            if(parent){
+                const titleEl = document.createElement('p');
+                titleEl.className = 'connections_table_title';
+                titleEl.id = `${current_main_entity}_name`;
+                titleEl.innerHTML = `Record: ${current_main_entity} <span class="count-badge">${startingCount}</span>`;
+                // insert the title before the actual table container
+                parent.insertBefore(titleEl, parent.firstChild);
+            }
+        }catch(e){ /* ignore */ }
         document.getElementById("starting_record_container").style.display = "block";
     }
     else
@@ -155,9 +184,25 @@ async function getTablesConnections() {
 
                 let tmp_div = document.createElement("div");
                 // use this block template for every entity table
+                // Compute a quick row count from the HTML snippet if possible
+                let tmpTableWrapper = document.createElement('div');
+                tmpTableWrapper.innerHTML = tables[i] || '';
+                let rowCount = 0;
+                try {
+                    const tbl = tmpTableWrapper.querySelector('table');
+                    if (tbl) {
+                        // count only body rows (exclude thead)
+                        const tb = tbl.tBodies[0];
+                        if (tb) rowCount = tb.rows.length;
+                        else rowCount = tbl.querySelectorAll('tr').length;
+                    }
+                } catch(e){
+                    rowCount = 0;
+                }
+
                 new_html_block = `<div class="container" id="${entities[i]}_container">
                     <div class="content" id="item_name_container">
-                        <p id="${entities[i]}_name">Related ${entities[i]}</p>
+                        <p class="connections_table_title" id="${entities[i]}_name">Related ${entities[i]} <span class="count-badge">${rowCount}</span></p>
                     </div>
                     <div class="content" id="item_content">
                         <div id="${entities[i]}_table" class="table-container">${tables[i]}</div>

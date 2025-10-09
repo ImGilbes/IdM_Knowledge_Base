@@ -1,0 +1,15 @@
+Verify that all parties store data only up to the extent they have declared to the user and is required by law
+Perform verification process on all new parties of the infrastructures to check: security and privacy controls, policies and lawfulness of data processing
+Dedicated institution for people's identity rights protection
+Tests to verify compliance with a privacy standard
+Use out-of-band bootstrapping mechanisms initiated by a trusted party
+Test RP controls, mitigations and policies periodically
+Tests to verify compliance with a trust framework
+Rely on a certificate authority to authenticate parties (PKI)
+Provide parties with secret credentials out-of-band
+Conduct ethical impact assessments to identify and address potential biases, discrimination, or unintended consequences
+Use biometric features for identification
+Enroll parties at a trusted entity
+Implement deepfake detection service
+Perform party discovery through addresses provided by a trusted source
+Conduct harm assessment

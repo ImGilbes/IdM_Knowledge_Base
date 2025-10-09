@@ -8,7 +8,7 @@ Clear liability arrangements,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,"DIACC ma
 Ability to have recourse in case of violation of user rights,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,DIACC making sense
 "Secure mechanisms for establishing, maintaining and managing trust among parties",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,,"Aldosary 2021, Alpar 2011, Rathee 2022, Jensen 2012, Habiba 2014, Zhu 2018, Pohn 2023, OIDF human-centric"
 Confidence verification using risk and reputation metrics (trust enabler),F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,Werner 2017
-"Data Accuracy & Identity information validity, also data quality, data trustworthiness",F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Ahmad 2010, Hansen 2008, Ayed 2011, Puchta 2019, Der 2017, Werner 2017, WB principles"
+"Data Accuracy and quality, Identity information validity and trustworthiness",F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Ahmad 2010, Hansen 2008, Ayed 2011, Puchta 2019, Der 2017, Werner 2017, WB principles"
 Use of data standards,F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,WEF ecosystems
 Testability of the data provided by the IdM,F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Lenz 2015
 Unlinkability & minimal correlation possibility,F,F,F,,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,,"Storf 2010, Mole 2023, DIACC making sense, OECD governance digid"
