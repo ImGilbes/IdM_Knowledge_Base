@@ -11,13 +11,13 @@ This is the implementation of the Knowledge Base presented in [Sassetti et al. 2
 The user guide can be found at localhost:5000/guide
 
 ### Ontology - Knowledge Base Structure
-![Ontology](./Methodology_figures/ontology.svg)
+![Ontology](./static/Methodology_figures/ontology.svg)
 
 ### Data Entries Categories
-![Categories](./Methodology_figures/categories.svg)
+![Categories](./static/Methodology_figures/categories.svg)
 
 ### Threat Modeling Example Procedure
-![Example](./Methodology_figures/example.svg)
+![Example](./static/Methodology_figures/example.svg)
 
 #### TODOs
 New page for generated threats - DONE, also restyled buttons, added clarity on how to generate threats
