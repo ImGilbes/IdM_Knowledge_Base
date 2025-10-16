@@ -1,5 +1,10 @@
 ## Publication
-This is the implementation of the Knowledge Base presented in [Sassetti et al. 2025 ](https://doi.org/10.1007/978-3-032-06155-3_1) - Toward Secure and Trustworthy Identity Management Systems: A Knowledge-Base Driven Approach
+This is the implementation of the Knowledge Base presented in [Sassetti et al. 2025](https://doi.org/10.1007/978-3-032-06155-3_1) - Toward Secure and Trustworthy Identity Management Systems: A Knowledge-Base Driven Approach
+
+## Data Source
+In [this spreadsheet](https://docs.google.com/spreadsheets/d/1N_VF8LE9k3R8Yd-m8wScmpaKtGu0Ck8khkxjoLprk34) you can find all the data used in the knowledge base version of [Sassetti et al. 2025](https://doi.org/10.1007/978-3-032-06155-3_1) - data entries are provided alongside the academic **references** they were sourced from.
+
+In later versions of the knowledge base, we are further refining the data entries from the academic literature and we are adding alternative data sources from the industry. You can find the [newer version here](https://docs.google.com/spreadsheets/d/1x800HOm3zepnrYluDOZdOgHLlVvU4WVs3Soyg7f5l_Y) - please mind that it is a work in pregress as of October 2025.
 
 ## Installation
 1. clone this repo on your local machine
