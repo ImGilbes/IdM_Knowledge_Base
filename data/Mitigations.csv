@@ -1,114 +1,105 @@
-Mitigations,Digital Infrastructure Management,Actors and Assets Management,Organization,ORG IMPACT,Rights,Authenticity,Integrity,Non-repudiability,Confidentiality,Availability,Authorization,Unlinkability,Anonymity and Pseudonymity,Plausible Deniability,Undetectability and Unobservability,Awareness and Intervenability,Compliance,Trust Establishment,Trust Management,User Interaction,Accessibility
-"Overseeing judicial authority periodically checks the activities of the NDID, its policies and procedures",F,T,T,"compliance to standards, laws. Impacts directly people rights",T,F,F,F,F,F,F,F,F,F,F,F,T,F,T,F,F
-"Verification by super partes legal authority to ensure respect of all applicable laws and regulations, including identity laws and human rights",F,T,T,"compliance to standards, laws. Impacts directly people rights",T,F,F,F,F,F,F,F,F,F,F,F,T,F,T,F,F
-Design and development takes into account all possible users and people influenced by the NDID,F,T,T,"compliance to standards, laws. Impacts directly people rights and accessibility",T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T
-Test on all population sets before release,F,T,T,Impacts directly people rights and accessibility,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T
-Conduct harm assessment,F,T,T,Impacts directly people rights and accessibility,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-"Conduct ethical impact assessments to identify and address potential biases, discrimination, or unintended consequences",F,T,T,Impacts directly people rights and accessibility,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Define the design and architecture of the system based on the least amount of potential harm posed to all the population,F,T,T,"Impacts directly people rights and accessibility, prevents possible misuse of system functionalities",T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Rely on a certificate authority to authenticate parties (PKI),F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
-Use out-of-band bootstrapping mechanisms initiated by a trusted party,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
-Provide parties with secret credentials out-of-band,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
-Enroll parties at a trusted entity,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
-Perform party discovery through addresses provided by a trusted source,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
-Increase authentication requirements based on parties' reputation metric,F,F,F,,F,T,F,F,T,F,F,F,F,F,F,F,F,F,T,F,F
-Increase authentication requirements based on transaction risk estimates,F,F,F,,F,T,F,F,T,F,F,F,F,F,F,F,F,F,T,F,F
-Adopt data verification standard,F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Perform in-person data verification with the user,F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Link proofs and evidence to data,F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Verify data before using it,F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Use pairwise identifiers,F,F,F,,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F
-Use authentication protocols that prevent linking,F,F,F,,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F
-Anonymize shared data whenever possible,F,F,F,,F,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F
-Minimize the number of unique identifiers,F,F,F,,F,F,F,F,F,F,F,T,T,T,T,F,F,F,F,F,F
-Enforce minimal disclosure policies for all parties,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
-Verify that minimal disclosure policies are in act,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
-Use zero-knowledge proofs whenever possible,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
-"Declare purpose and extent of data collection, processing upon accessing service",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F
-"Declare purpose and extent of data collection, processing for every data transaction",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F
-Ask for clear consent statement before any action affecting privacy is performed,F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
-"State any change to the data collection, processing policies",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F
-"Ask for renewal of consent after changes to data collection, processing policies",F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
-Verify that all parties process data only up to the extent they have declared to the user,T,F,T,"Trust management, compliance, awareness",F,F,F,F,F,F,F,F,F,F,F,T,T,F,T,F,F
-Verify that all parties store data only up to the extent they have declared to the user and is required by law,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Secure communication channels with mutual authentication TLS,F,F,F,,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F
-authentication with challenge-response protocol: bind communication party to public key,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Release trust marks as assurance method,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-"Perform verification process on all new parties of the infrastructures to check: security and privacy controls, policies and lawfulness of data processing",F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Tests to verify compliance with a privacy standard,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Tests to verify compliance with a trust framework,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-"Test RP controls, mitigations and policies periodically",F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Test compliance with baseline security practices,F,F,F,,T,T,T,T,T,F,T,F,F,F,F,F,F,F,F,F,F
-Test compliance with baseline privacy practices,F,F,F,,T,F,F,F,T,F,F,T,T,T,T,T,T,F,F,F,F
-Verify RP policies and controls before sharing sensitive information or PII,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Allow user to granularly select the services they will use during enrollment,F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
-Anonymity: Pseudonymize data at rest (through encryption or tokenization),F,F,F,,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F
-Anonymity: Mask or suppress sensitive data at rest,F,F,F,,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F
-Anonymity: use k-anonymity techniques (grouping) on the data at rest,F,F,F,,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F
-Anonymity: Use differential privacy techniques for sharing data statistics,F,F,F,,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F
-Ensure alternatives to the main infrastructural asset providers (hardware and software),F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F
-Ensure alternatives to the main service providers,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,T
-"Share data in a common, high-assurance format",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Specialized hardware for secure private key storage,T,F,T,,F,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F
-Store private keys in secure isolated local environment,F,F,F,,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F
-Store private keys on an encrypted hard drive,F,F,F,,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F
-Store private keys on hardware wallets,F,F,F,,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F
-Use biohashing,F,F,F,,F,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F
-Store biometrics on a secure encrypted drive,T,F,T,,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F
-Store biometrics on a hardware wallet,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
-Store biometrics in secure isolated environments,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F
-Biometric data is accessible only with special capabilities,F,F,F,,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F
-Access to PII requires user knowledge,F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
-eCard: Access PII only by scanning Machine Readable Zone (MRZ) and Card Access Number (CAN),F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F
-eCard: allow access to stored user authentication certificate only with PIN,F,F,F,,F,T,F,F,T,F,T,F,F,F,F,T,F,F,F,F,F
-Dedicated institution for people's identity rights protection,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Use technologies developed by different companies,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Use technologies developed by uniterested independent vendors,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Authentication through ownership factor,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Authentication through knowledge factor,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Authentication through ownership and knowledge factor,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Implement two-factor authentication with email/SMS OTP or use an authenticator app,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Define step-up authentication policies based on authentication context and risk metrics,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Use biometric features for authentication,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Use biometric features for identification,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
-Implement selective disclosure on consent pages,F,F,F,,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F
-Implement cryptographic methods for selective disclosure in the data model (W3C Verifieable Presentations),F,F,F,,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F
-Implement out-of-band recovery mechanisms,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Implement email-based recovery mechanisms,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Implement SMS-based recovery mechanisms,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Use risk-based authentication for recovery mechanisms,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Check CA CRL on every transaction,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Revoke user credentials in case they are compromised,F,F,F,,F,T,F,T,T,F,T,F,F,F,F,F,F,F,T,F,F
-Provide proof of non-revocation alongside VPs (tails file),F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Static and dynamic testing of software for vulnerabilities,T,F,T,"Trust management, all security areas",F,T,T,T,T,T,T,F,F,F,F,F,F,F,T,F,F
-Use DDoS detectors and block suspicious traffic,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F
-Use firewalls and anomaly detection systems to prevent network attacks,F,F,F,,F,T,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F
-Use proxy services,T,F,T,availability,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F
-Use load balancers and replicate services whenever possible,T,F,T,availability,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F
-Include integrity and authenticity checks in every protocol artifact,F,F,F,,F,T,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Keep user agent device in a safe place,F,F,F,,F,T,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F
-Use strong authentication methods to access user agent device,F,F,F,,F,T,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F
-Enforce a least priviledge policy for all company roles,T,F,T,elevation of priviledges,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F
-Periodically revoke employees capabilities,T,F,T,elevation of priviledges,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F
-Establish physical security in the work environment,F,T,T,CIA,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,F,F
-Monitor employees activities and alert unusual activities,F,T,T,"STRIDE, this would be the same as insider threat",F,F,T,F,T,T,T,F,F,F,F,F,F,F,T,F,F
-Verify all data provided by users or RPs for malicious or harmful data,F,F,F,TRIDE,F,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F
-Verify the presence and eliminate side channels that may reveal the nature or content of data flows,F,F,F,,F,F,F,F,T,F,F,F,F,F,T,F,F,F,F,F,F
-Implement integrity checks for the data at rest,F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-"Ensure that the user can modify their data and is not associated with harmful, damaging data",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F
-Log user transactions,T,F,T,???,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
-Use dynamic resource allocation and test workloads at maximum capacity,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F
-"Hide PII from public disclosure, search engine indexing, web scrapers",F,F,F,,F,F,F,F,T,F,F,T,T,T,T,F,F,F,F,F,F
-Implement deepfake detection service,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
-Provide alternatives to NDID access ,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Do not include data attributes that could lead to discrimination,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-Minimize or avoid hardware and software compatibility requirements,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T
-"eCard counterfeit protection: visual security elements (holograms, inks, policarbonate)",F,F,F,,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F
-Secure comunication channel by establishing a session key,F,F,F,,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F
-use Diffie-Hellman to exchange session key,F,F,F,,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F
-Hub must be stateless (hub architectures only),F,F,F,,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F
-Conduct regular security test and audits,T,F,T,CIA,F,F,T,F,T,T,F,F,F,F,F,F,F,F,T,F,F
-Network does not include honeypots that if breached would impact many subjects,T,F,T,"Confidentiality, avail.",F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,F,F
-Limit access attempts (time/account),T,F,T,"prevents account takeover: spoofing, confidentiality, elevation of priviledge ",F,T,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F
-Multi-factor authentication methods,F,F,F,,F,T,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F
-Mutual communication parties authentication,F,F,F,,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F
+Mitigations,Digital Infrastructure Management,Actors and Assets Management,Organization,Rights,Authenticity,Integrity,Non-repudiability,Confidentiality,Availability,Authorization,Unlinkability,Anonymity and Pseudonymity,Plausible Deniability,Undetectability and Unobservability,Awareness and Intervenability,Compliance,Trust Establishment,Trust Management,User Interaction,Accessibility,,,,,
+"Accept only verified, vetted parties into the infrastructure",F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,F,,,,,
+"Test and audit IdM parties controls, policies, and compliance regularly",F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,T,F,T,F,F,,,,,
+"Overseeing judicial authority periodically checks the activities of the IdM, its policies and procedures",F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,T,F,T,F,F,,,,,
+"Verification by super partes legal authority to ensure respect of all applicable laws and regulations, including identity laws and human rights",F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,T,F,T,F,F,,,,,
+Design and development takes into account all possible users and people influenced by the IdM,F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,,,,,
+Test on all population sets before release,F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,,,,,
+"Conduct ethical impact assessments and harms modeling to identify and address potential biases, discrimination, or unintended consequences",F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Define the design and architecture of the system based on the least amount of potential harm posed to all the population,F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Use out-of-band bootstrapping mechanisms initiated by a trusted party,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+Provide parties with secret credentials out-of-band,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+Enroll parties at a trusted entity,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+Perform party discovery through addresses provided by a trusted source,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+Adopt data verification standard,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Perform in-person data verification with the user,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Link proofs and evidence to data,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Verify data before using it,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+"Use pairwise identifiers to prevent account linking",F,F,F,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F,,,,,
+Use authentication protocols that prevent linking,F,F,F,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F,,,,,
+Anonymize shared data whenever possible,F,F,F,F,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,,,,,
+Minimize the number of unique identifiers,F,F,F,F,F,F,F,F,F,F,T,T,T,T,F,F,F,F,F,F,,,,,
+Enforce minimal disclosure policies for all parties,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F,,,,,
+Verify that minimal disclosure policies are in act,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F,,,,,
+Use zero-knowledge proofs whenever possible,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F,,,,,
+"Declare purpose and extent of data collection, processing upon accessing service",F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,,,,,
+"Declare purpose and extent of data collection, processing for every data transaction",F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,,,,,
+Ask for clear consent statement before any action affecting privacy is performed,F,F,F,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F,,,,,
+"State any change to the data collection, processing policies",F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,,,,,
+"Ask for renewal of consent after changes to data collection, processing policies",F,F,F,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F,,,,,
+Verify that all parties process data only up to the extent they have declared to the user,T,F,T,F,F,F,F,F,F,F,F,F,F,F,T,T,F,T,F,F,,,,,
+Verify that all parties store data only up to the extent they have declared to the user and is required by law,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Release trust marks demonstrating compliance as assurance method,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+"Perform verification process on all new parties of the infrastructures to check: security and privacy controls, policies and lawfulness of data processing",F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Share data only with vetted parties,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,T,F,F,,,,,
+Limit the initial data disclosure based on the functionalities desired by the user (also called choice of terms of the contract),F,F,F,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F,,,,,
+Anonymity: Pseudonymize data at rest (through encryption or tokenization),F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,,,,
+Anonymity: Mask or suppress sensitive data at rest,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,,,,
+Anonymity: use k-anonymity techniques (grouping) on the data at rest,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,,,,
+Anonymity: Use differential privacy techniques for sharing data statistics,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,,,,
+Ensure alternatives to the main infrastructural asset providers (hardware and software),F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Ensure alternatives to the main service providers,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,T,,,,,
+"Share data in a common, high-assurance format",F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Use biohashing for biometric data,F,F,F,F,F,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,,,,,
+Biometric data is accessible only with special capabilities,F,F,F,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,,,,,
+Access to PII requires user knowledge,F,F,F,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,F,,,,,
+Use technologies developed by multiple uniterested independent vendors,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Use biometric features for identification,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+Implement selective disclosure on consent pages,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,,,,,
+Implement cryptographic methods for selective disclosure in the data model (W3C Verifiable Presentations),F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,,,,,
+Implement out-of-band recovery mechanisms,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Implement email-based recovery mechanisms,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Implement SMS-based recovery mechanisms,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Ensure validity of parties certificates and other artifacts attesting identity,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,,,,,
+"Revoke compromised, spoofed, forged identities and credentials, revoke access to accounts connected to malicious activities",F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Static and dynamic testing of software for vulnerabilities,T,F,T,F,T,T,T,T,T,T,F,F,F,F,F,F,F,T,F,F,,,,,
+Use DDoS detectors and block suspicious traffic,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Use firewalls and anomaly detection systems to prevent network attacks,F,F,F,F,T,T,T,T,T,T,F,F,F,F,F,F,F,F,F,F,,,,,
+Use proxy services,T,F,T,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Use load balancers and replicate services whenever possible,T,F,T,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Include integrity and authenticity checks in every protocol artifact,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Keep user agent device in a safe place,F,F,F,F,T,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,,,,,
+Enforce a least priviledge policy for all company roles,T,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,,,,
+"Periodically revoke employees capabilities",T,F,T,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,,,,
+Establish physical security in the work environment,F,T,T,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Monitor employees activities and alert unusual activities,F,T,T,F,F,T,F,T,T,T,F,F,F,F,F,F,F,T,F,F,,,,,
+Verify all data provided by users or RPs for malicious or harmful data,F,F,F,F,T,T,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,,,,
+Verify the presence and eliminate side channels that may reveal the nature or content of data flows,F,F,F,F,F,F,F,T,F,F,F,F,F,T,F,F,F,F,F,F,,,,,
+"Ensure that the user can modify their data and is not associated with harmful, damaging data",F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,,,,,
+Use dynamic resource allocation and test workloads at maximum capacity,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+"Hide PII from public disclosure, search engine indexing, web scrapers",F,F,F,F,F,F,F,T,F,F,T,T,T,T,F,F,F,F,F,F,,,,,
+"Detect AI generated data (e.g., deepfake detection)",F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+Provide alternative access methods to the IdM,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Do not include data attributes that could lead to discrimination,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Minimize or avoid hardware and software compatibility requirements,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+"Authenticator device (eCard) counterfeit protection: visual security elements (holograms, inks, policarbonate)",F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Hub must be stateless (hub architectures only),F,F,F,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F,,,,,
+Network does not include honeypots that if breached would impact many subjects,T,F,T,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Limit access attempts (time/account),T,F,T,F,T,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Log user transactions,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Implement integrity checks for the data at rest,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Multi-factor authentication methods,F,F,F,F,T,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Mutual communication parties authentication,F,F,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+"Secure communication channels (ensure confidentiality and integrity of communications, TLS)",F,F,F,F,T,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+authentication with challenge-response protocol: bind communication party to public key,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Authentication through ownership factor,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Authentication through knowledge factor,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Authentication through ownership and knowledge factor,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Implement two-factor authentication with email/SMS OTP or use an authenticator app,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Define step-up authentication policies based on authentication context and risk metrics,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Use biometric features for authentication,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+Use strong authentication methods to access user agent device,F,F,F,F,T,F,F,T,F,T,F,F,F,F,F,F,F,F,F,F,,,,,
+Use PKI-backed certificates to authenticate communication parties,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+Increase authentication requirements based on parties' reputation metric and transaction risk estimates,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+Use risk-based authentication for recovery mechanisms,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Bind authentication flow to specifc session (OIDC nonce and state),F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,F,T,F,F,,,,,
+"Local storage of data, credentials, and keys is secure, isolated, and encrypted",F,F,F,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,,,,,
+IdM project funding comes only from the government or uninterested parties that are not pursuing wider political and economical goals,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,"impacts reputation/credibility of the system, reduces likelihood of misuse"
+"The entitites funding the IdM project are honest and credible, they are not seeking criminal objectives",F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,,,,"impacts reputation/credibility of the system, reduces likelihood of misuse"
+"system does not place onerous service level requirents (on provider or user), including access fees",F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+Use of data standards,T,F,T,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,T,,,,,
+Confidence verification using risk and reputation metrics (trust enabler),F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,,,,
+"Make available support and documentation for external parties to onboard in the infrastructure, retrieve and process data",T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+"Make available support for enrolling and using the IdM, ease access for users",F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,,,,
+identity transaction logging and auditing,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,T,F,F,,,,,
+"Find anomalous behaviour during authentication, authz and identification procedures.",T,F,F,F,T,F,F,T,F,T,F,F,F,F,F,F,T,T,F,F,,,,,

@@ -1,79 +1,55 @@
-Threats,Digital Infrastructure Management,Actors and Assets Management,Organization,ORG IMPACT,Rights,Spoofing,Tampering,Repudiation,Information Disclosure,Denial of Service,Elevation of Priviledge,Linking,Identification,Non-repudiation,Detecting,Unawareness and Unintervenability,Non-compliance,Lack of Trust,Unusable system,Access denial,Description,References
-Server-side Denial-of-service,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,Generic one,"Naik 2017, Dominicini 2011, Mayrhofer 2021, Hyperion 2016"
-Denied access to services of single targeted actors,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,,
-User cannot access services due to malfunctioning in the infrastructure,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,,
-User cannot access services due to losing authentication factors,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
-Synthetic and forged claims and data attributes,F,F,F,,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Naik 2021, Ali 2022, Mayrhofer 2021, Naik 2022, Edu 2023"
-Identity Theft and Impersonation,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016"
-IdP account compromise,F,F,F,,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Navas 2022, Nweke 2022, Le 2023"
-Credentials disclosure,F,F,F,,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Naik 2021, Dominicini 2011"
-"PII leakage, data breach, unauthorized access to data",F,F,F,,F,F,F,F,T,F,F,T,T,F,F,F,F,F,F,F,,"Navas 2022, Dominicini 2011, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Halperin 2012, Edu 2023, Beres 2007, Gruner 2023, Dunphy 2018, Frederiksen 2019, OIDF human-centric,Hyperion 2016"
-Unauthorized divulgation of PII from legitimate actors,F,F,F,,F,F,F,F,T,F,F,T,T,F,F,T,F,F,F,F,,"Wangen 2012, Halperin 2012, Edu 2023, Beres 2007, Gruner 2023, Dunphy 2018, Frederiksen 2019, OIDF human-centric,Hyperion 2016"
-Oversharing of identity information,F,F,F,,F,F,F,F,T,F,F,T,T,F,F,T,F,F,F,F,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016"
-Overprocessing of identity information,F,F,F,,F,F,F,F,T,F,F,T,T,F,F,T,F,F,F,F,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016"
-"Misuse of identity information by legitimate actors, secondary use",F,F,F,,F,F,F,F,T,F,F,T,T,F,F,T,F,F,F,F,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016"
-"Manufacture of fake tokens, propagate forged messages to spread fake information",F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Navas 2022, Gruner 2023"
-"Manufacture fake tokens, propagate forged messages to obtain unauthorized access",F,F,F,,F,F,T,F,F,F,T,F,F,F,F,F,F,F,F,F,,
-"Token-related threats (token security, secrecy, lifecycle)",F,F,F,,F,T,F,F,T,F,F,T,T,F,F,F,F,F,F,F,Specifies a set of features of Tokens that increase security and privacy risks if mishandled. Summed up here because specific to token-based systems,Paintsil 2011
-User profiling,F,F,F,,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,,"Navas 2022, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Sapelova 2014, Alpar 2011"
-"Linking, data aggregation, combining cross-identity attributes, linkability, account linking, stored records ",F,F,F,,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,
-Linking transactions and data flows,F,F,F,,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,,
-Location tracking,F,F,F,,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,,"Navas 2022, Le 2023, OIDF human-centric"
-"Private key disclosure, theft, acquisition",F,F,F,,F,T,T,T,T,F,F,F,F,F,F,F,F,T,F,F,,Gruner 2023
-Unauthorized access to user agent device,F,F,F,,F,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,,Gruner 2023
-"Destruction of user agent device, causing damages to property and denial of service",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,Gruner 2023
-Circumvent VC verification,F,F,F,,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,,Gruner 2023
-Insider threat,F,T,T,Could possibily impact all areas of STRIDE,F,F,T,F,T,F,F,F,F,F,F,F,F,T,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2021"
-Non-compliance and malpractice of employees,F,T,T,Could possibily impact all areas of STRIDE,F,F,T,F,T,F,F,F,F,F,F,F,F,T,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2022"
-"User has not provided consent previous to data collection, processing, sharing",F,F,F,,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,"Wangen calls this ""exclusion""","Nweke 2022, Beltran 2023, Wangen 2012, Navas 2022, OIDF human-centric"
-User is not aware of how the data is being used,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,
-"Data processor lacks transaprency, only partially discloses data operations",F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,"Wangen calls this ""exclusion""","Wangen 2012, Navas 2022, OIDF human-centric"
-Claims could contain malicious data,F,F,F,,F,F,T,F,T,T,T,F,F,F,F,F,F,F,F,F,,Pohn 2023
-"Detectability of a data flow, record existence",F,F,F,,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,,Beltran 2023
-"Non-compliance with agreements, contracts, standards",F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,Beltran 2023
-"Mass Surveillance (government, big-tech)",F,F,F,,F,F,F,F,F,F,F,T,F,T,T,T,F,F,F,F,,"Wangen 2012, Halperin 2012,Sedlmeir 2021, OIDF human-centric, CHRGJ Paving road, Masiero 2021 degenerative, Hyperion 2016, DIACC Universal, OIDF gov issued"
-Interrogation: pressuring an individual to divulge information,F,F,F,,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,pressuring an individual to divulge information,Wangen 2012
-Function Creep,F,F,F,,F,F,F,F,F,F,F,T,F,T,T,T,F,F,F,F,,Wangen 2012
-Non-compliance of data controller,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,Referring to laws and regulations (different from standards),"Wangen 2012, Beres 2007, Arias-Carbacos 2012, DIACC Universal"
-Lack of accountability,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,Referring to laws and regulations (different from standards),"Wangen 2012, Beres 2007, Arias-Carbacos 2012, DIACC Universal"
-"Data corruption, unauthorized data modification and deletion",F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Edu 2023, Wangen 2012, Arias-carbacos 2012"
-Broken access control,F,F,F,,F,T,T,F,T,F,T,F,F,F,F,F,F,F,F,F,,"Edu 2023, Aria-carbacos 2012"
-Storage and association with inaccurate or wrong data,F,F,F,,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,,Beres 2007
-"Lack of, or bypassed, data verification process",F,F,F,,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,Beres 2008
-Unauthorized data retention,T,F,T,"unawareness, non compliance",F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,F,,Beres 2007
-Percistency of user data in logs over the necessary retention time ,T,F,T,"unawareness, non compliance",F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,
-Impossibility of completely deleting user data from system,T,F,T,"unawareness, non compliance",F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,
-Reduced availability,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,Arias-Carbacos 2012
-Infrastructure failure compromises availability of the NDID ,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,
-Governance actor failure compromises the availability of the entire infrastructure,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,
-Infrastructure cannot be accomodate the availability demand of the users,F,F,F,,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,,
-Lack of auditability,T,F,T,this would be the same as lack of transparency -> unawareness,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,,"Iglezakis 2015, Mpofu 2014, Snehi 2013"
-Intelligence Gathering,F,F,F,,F,F,F,F,F,F,F,T,T,F,T,T,F,F,F,F,,Edu 2023
-Insecure facial recognition authetication,F,F,F,,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Bakhaev 2023
-Hacked certificate authorities,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,Sedlmeir 2021
-"Data creep and excessive demand for attributes (overcollection), request of unnecessary data",F,F,F,,F,F,F,F,T,F,F,F,F,F,F,T,F,F,F,F,,"Sedlmeir 2021, Iglezakis 2015, Gruner 2023, OIDF Human-centric"
-Loss or lack of control over identity data,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,"Sapelova 2014, Iglezakis 2015, Navas 2022"
-Data shared with unvetted or malicious parties,F,F,F,,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,"OIDF human-centric, Hyperion 2016"
-Data is not portable and siloed,T,F,T,"usability, accessibility",F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
-Lack of cross-border interoperability,T,F,T,"this would be a collaboration barrier, idk whether to put usability and accessibility here too",F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
-RPs cannot read IdPs identity data,T,F,T,"this would be a collaboration barrier, idk whether to put usability and accessibility here too",F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
-User cannot access services in foreign countries,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
-Data is bound to specific devices and drivers,T,F,T,usability & accessibility,F,F,F,F,F,T,F,F,F,F,F,F,F,F,T,T,,
-User cannot access services through multiple devices,F,F,F,,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,T,,
-Denied access to state resources,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,OIDF human-centric
-Limiting access to healthcare,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,"CHRSJ Paving road, CHRSJ chased away"
-Limiting access to food and social security,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,CHRSJ Paving road
-"Infrastructure Mismanagement leads to economic loss (hinders sustainability, maintainability; was originally economic risk)",F,T,T,"uhmmmmmm, probably violation of rights + availability ?",F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,The IdM might be a catastrophic loss for the implementor (Government in case of Helperin 2012),Halperin 2012
-Harm to vulnerable populations,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,OIDF human-centric
-"Violation of the right to nationality, stripping of nationality or creating barriers to it",F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,"CHRSJ Paving road, Manby 2020, Mutung'u 2020"
-Discrimination,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Manby 2020
-Election interference,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,OIDF human-centric
-"Exclusion from elections, interference with political lifecycle",F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Debos 2021
-Statelessness,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Mutung'u 2020
-Exacerbate Inequalities,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,"I am very undecided about this one, bc its origin is definitely design, but it sounds like a big threat towards users. Still it fits the definition of Issue",Edu 2023
-Vendor lock-in,F,T,T,availability + accessibility as in requirements,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,"Also this one fits the definition of threat, but sounds more like a passive condition. and also fits the definition of issue.","Sedlmeir 2021, Mpofu 2014, WB principles"
-Exclusion from welfare benefits,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
-Exclusion from governamental services,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
-Users cannot call for law enforcement in case of violation their rights,F,F,F,,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,
-Insecure versions of the NDID are released,F,F,F,,F,T,T,T,T,T,T,F,F,F,F,F,F,F,F,F,,
-Entities funding the NDID exploit the project to perform criminal activities,F,T,T,"should be an instance of misuse, but it's definetely impacting users' rights",T,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,
+Threats,Digital Infrastructure Management,Actors and Assets Management,Organization,Rights,Spoofing,Tampering,Repudiation,Information Disclosure,Denial of Service,Elevation of Priviledge,Linking,Identifying,Non-repudiation,Detecting,Unawareness and Unintervenability,Non-compliance,Lack of Trust,Unusable system,Access denial,Description,References
+Compromised server and services avilability,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,Generic one,"Naik 2017, Dominicini 2011, Mayrhofer 2021, Hyperion 2016"
+Single targeted actors are denied access to services,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,,
+"Compromised trust chain, impossibility to establish trust between parties",F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,Sedlmeir 2021
+Incompatible IdMs and regulations compromise interoperability and service accessibility,T,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
+"Data is not portable and siloed, bound to specific systems",T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,
+"Denied access to governmental resources, healthcare, and social security ",F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,"CHRSJ Paving road, CHRSJ chased away"
+Denied ability to exercise individual rights,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,CHRSJ Paving road
+"Violation of the right to nationality and identity, stripping of nationality or creating barriers to it, statelessness",F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,"CHRSJ Paving road, Manby 2020, Mutung'u 2020"
+Discrimination,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Manby 2020
+"Interference with political lifecycle, election interference",F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Debos 2021
+IdM is released without appropriate verification and validation,F,F,F,F,T,T,T,T,T,T,F,F,F,F,F,F,F,F,F,,
+Exacerbate Inequalities,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,"I am very undecided about this one, bc its origin is definitely design, but it sounds like a big threat towards users. Still it fits the definition of Issue",Edu 2023
+Synthetic and forged data and authenticators,F,F,F,F,T,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Naik 2021, Ali 2022, Mayrhofer 2021, Naik 2022, Edu 2023"
+Identity Theft and Impersonation,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Khattak 2011, Mayrhofer 2021, Nweke 2022, Pohn 2023, Sheik 2021, Naik 2022, Ghazizadeh 2012, Edu 2023, Sedlmeir 2021, Snehi 2013, Dunphy 2018, Habiba 2014, OIDF human-centric, Hyperion 2016"
+IdP account compromise,F,F,F,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Navas 2022, Nweke 2022, Le 2023"
+Credentials disclosure,F,F,F,F,T,T,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Naik 2021, Dominicini 2011"
+"Unauthorized data disclosure (PII leakage, data breach)",F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,,"Navas 2022, Dominicini 2011, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Halperin 2012, Edu 2023, Beres 2007, Gruner 2023, Dunphy 2018, Frederiksen 2019, OIDF human-centric,Hyperion 2016"
+Oversharing of identity information,F,F,F,F,F,F,F,T,F,F,F,F,F,F,T,F,F,F,F,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016"
+"Overprocessing of identity information, misuse of identity information by legitimate actors",F,F,F,F,F,F,F,F,F,F,T,T,F,F,T,F,F,F,F,abuse of user consent,"Khattak 2011,Wangen 2012, Edu 2023, Halperin 2012, Beres 2007, Sule 2021, Ghazizadeh 2012, sperfeldt 2021, OIDF gov issued, Hyperion 2016"
+"Manufacture of protocol artifcats (codes, tokens), propagate forged messages",F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Navas 2022, Gruner 2023"
+User profiling,F,F,F,F,F,F,F,F,F,F,T,F,T,T,F,F,F,F,F,,"Navas 2022, Mayrhofer 2021, Nweke 2022, Beltran 2023, Le 2023, Wangen 2012, Sapelova 2014, Alpar 2011"
+"Linking of accounts, transactions and data flows. Data aggregation, combination of cross-identity attributes, account linking ",F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,F,F,,
+Location tracking,F,F,F,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,,"Navas 2022, Le 2023, OIDF human-centric"
+"Detectability of a data flow, record existence",F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,,Beltran 2023
+"Mass Surveillance (government, big-tech)",F,F,F,F,F,F,F,F,F,F,T,F,T,T,T,F,F,F,F,,"Wangen 2012, Halperin 2012,Sedlmeir 2021, OIDF human-centric, CHRGJ Paving road, Masiero 2021 degenerative, Hyperion 2016, DIACC Universal, OIDF gov issued"
+"Data processor lacks transaprency, user is not aware of how the data is being used
+",F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,"Wangen calls this ""exclusion""","Wangen 2012, Navas 2022, OIDF human-centric"
+Data attributes contain malicious data,F,F,F,F,F,T,F,T,T,T,F,F,F,F,F,F,F,F,F,,Pohn 2023
+"Private key disclosure, theft, acquisition",F,F,F,F,T,T,T,T,F,F,F,F,F,F,F,F,T,F,F,,Gruner 2023
+Unauthorized access to user agent device,F,F,F,F,F,T,F,T,F,T,F,F,F,F,F,F,F,F,F,,Gruner 2023
+"Destruction of user agent device, causing damages to property and denial of service",F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,,Gruner 2023
+Insider threat,F,T,T,F,F,T,F,T,F,F,F,F,F,F,F,F,T,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2021"
+Non-compliance and malpractice of employees,F,T,T,F,F,T,F,T,F,F,F,F,F,F,F,F,T,F,F,,"Mayrhofer 2021, Nweke 2022, Pillai 2022"
+"Non-compliance with laws, agreements, contracts, standards",F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,,Beltran 2023
+"IdM parties are not accountable for mismanaging the system, not complying with regulations, and violating user rights",F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,Referring to laws and regulations (different from standards),"Wangen 2012, Beres 2007, Arias-Carbacos 2012, DIACC Universal"
+"User has not provided consent previous to data collection, processing, sharing",F,F,F,F,F,F,F,F,F,T,F,F,F,F,T,F,F,F,F,"Wangen calls this ""exclusion""","Nweke 2022, Beltran 2023, Wangen 2012, Navas 2022, OIDF human-centric"
+"Function Creep, adding functions to the system with legally grey capabilities, after the users have agreed to the terms of a previous IdM version",F,F,F,F,F,F,F,F,F,F,T,F,T,T,T,F,F,F,F,,Wangen 2012
+"Broken, bypassed verification of data and protocol artifacts",F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,Beres 2008
+"Data corruption, unauthorized data modification and deletion",F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,,"Edu 2023, Wangen 2012, Arias-carbacos 2012"
+Broken access control,F,F,F,F,T,T,F,T,F,T,F,F,F,F,F,F,F,F,F,,"Edu 2023, Aria-carbacos 2012"
+Storage and association with inaccurate or wrong data,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,F,F,,Beres 2007
+Unauthorized data retention,T,F,T,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,F,,Beres 2007
+Percistency of user data in logs over the necessary retention time ,T,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,
+Impossibility of completely deleting user data from system,T,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,
+Lack of auditability,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F,,"Iglezakis 2015, Mpofu 2014, Snehi 2013"
+"Intelligence Gathering, additional information can be extracted from the system without the user or system knowledge",F,F,F,F,F,F,F,F,F,F,T,T,F,T,T,F,F,F,F,,Edu 2023
+Insecure facial recognition authetication,F,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,Bakhaev 2023
+"Data creep and excessive demand for attributes (overcollection), request of unnecessary data",F,F,F,F,F,F,F,T,F,F,F,F,F,F,T,F,F,F,F,,"Sedlmeir 2021, Iglezakis 2015, Gruner 2023, OIDF Human-centric"
+Loss or lack of control over identity data,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F,F,,"Sapelova 2014, Iglezakis 2015, Navas 2022"
+Data shared with unvetted or malicious parties,F,F,F,F,F,F,F,T,F,F,T,F,F,F,F,F,F,F,F,,"OIDF human-centric, Hyperion 2016"
+"Infrastructure Mismanagement leads to economic loss (hinders sustainability, maintainability; was originally economic risk)",F,T,T,F,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,The IdM might be a catastrophic loss for the implementor (Government in case of Helperin 2012),Halperin 2012
+Vendor lock-in,F,T,T,T,F,F,F,F,T,F,F,F,F,F,F,F,F,F,T,"Also this one fits the definition of threat, but sounds more like a passive condition. and also fits the definition of issue.","Sedlmeir 2021, Mpofu 2014, WB principles"
+Users cannot call for law enforcement in case of violation their rights,F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,,
+"Entities funding the NDID exploit the project to perform criminal activities, or seek covert objectives beyond those declared as project mission (e.g., market monopoly)",F,T,T,T,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,,
